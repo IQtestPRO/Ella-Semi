@@ -1,0 +1,22 @@
+{
+  "slug": "outono-2026",
+  "nomeExibicao": "Folhas de Outono",
+  "manifesto": "O Outono é sobre elegância, textura e personalidade ... e a nova coleção da ELLA chegou para traduzir exatamente isso. Peças que misturam o clássico com o contemporâneo, com tons mais sóbrios, detalhes marcantes e aquele brilho na medida certa.",
+  "heroVideo": "/assets/generated/campanha/outono-2026-hero.mp4",
+  "heroImagem": "/assets/generated/campanha/outono-2026-hero-fallback.webp",
+  "ctaTexto": "Ver peças desta estação",
+  "produtosDestaqueSlugs": [
+    "conjunto-coracao-semijoia",
+    "colar-pendente-cruz-semijoia",
+    "brinco-folha-aberta-semijoia",
+    "colar-veneziana-pendente-perolado-semijoia",
+    "brinco-hoop-pave-zirconia-semijoia",
+    "pulseira-correntao-banho-ouro-semijoia",
+    "conjunto-colar-brinco-resort-semijoia",
+    "brinco-hoop-trio-semijoia",
+    "colar-perolas-pendente-semijoia",
+    "pulseira-pearls-douradas-semijoia"
+  ],
+  "ativa": true,
+  "atualizadoEm": "2026-05-05T19:00:00Z"
+}

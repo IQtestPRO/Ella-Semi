@@ -1,0 +1,9 @@
+# Páginas inteiras rasterizadas via pdftoppm a partir de catalogo-outono-2026.pdf
+# Regeneráveis com:
+#   pdftoppm -png -r 300 ../catalogo-outono-2026.pdf page
+# (executar com poppler-utils instalado ou via /tmp/poppler/poppler-24.08.0/Library/bin/pdftoppm)
+page-*.png
+
+# Recortes individuais por peça (ex: 04-A.png) SÃO commitados (input do Higgsfield bg-swap em S3.1)
+# Padrão: <pagina-2-digitos>-<letra>.png
+!*-[A-Z].png
