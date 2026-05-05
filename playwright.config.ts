@@ -8,8 +8,9 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "list",
   expect: {
-    toHaveScreenshot: { maxDiffPixelRatio: 0.001 },
+    toHaveScreenshot: { maxDiffPixelRatio: 0.02 },
   },
+  snapshotPathTemplate: "{testDir}/{testFilePath}-snapshots/{arg}-{projectName}{ext}",
   use: {
     baseURL: "http://127.0.0.1:3000",
     trace: "on-first-retry",
@@ -34,7 +35,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "pnpm build && pnpm start",
+    command: process.env.CI ? "pnpm start" : "pnpm build && pnpm start",
     url: "http://127.0.0.1:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 240_000,

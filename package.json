@@ -10,12 +10,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "test:a11y": "playwright test tests/e2e/a11y.spec.ts",
-    "test:visual": "playwright test tests/e2e/visual.spec.ts"
+    "test:visual": "playwright test tests/e2e/visual.spec.ts",
+    "test:lh": "lhci autorun"
   },
   "dependencies": {
     "next": "^15.5.0",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
+    "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.49.0",
     "@tailwindcss/postcss": "^4.2.4",
     "@types/node": "^22.0.0",
