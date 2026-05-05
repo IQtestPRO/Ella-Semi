@@ -52,5 +52,11 @@ Caminho de execução:
 ## Notas
 
 - O arquivo `logo.jpg` original (7.6 KB) deve ser **versionado em git** mesmo sendo binário — é o único registro da identidade visual neste momento.
-- Toda paleta amostrada será extraída do `logo.jpg` (com inspeção pixel) e fixada em `assets/prompts/brand-reference.md`. Valores `#F5C5B6` e `#D4A24A` neste documento são aproximações — confirmar amostragem antes de codar.
+- **Paleta primária amostrada pixel-exact** (atualizado 2026-05-05 durante TB1 da S1.1, via `scripts/sample-logo-color.mjs` com Sharp):
+  - **Rosa salmão (background)**: `#FFD9CC` — RGB (255, 217, 204). 5 amostras em regiões planas do bg da `logo.jpg` (375×375), todas idênticas.
+  - **Preto warm (letras "ELLA")**: `#251008` — RGB (37, 16, 8). Top-1 do cluster {`#1E110B`, `#2B1007`, `#24110D`, `#25120E`, `#2E1008`}. **Não é preto puro nem cinza** — alto R, baixíssimo G/B → undertone marrom-avermelhado quente.
+  - **Dourado mostarda (sparkles)**: `#D99A30` — RGB (217, 154, 48). Top-1 do cluster {`#D99A30`, `#D9A02D`, `#DC9D34`, `#D99C31`, `#E0A338`}.
+- **Estimativas anteriores ficaram desatualizadas**: `#F5C5B6` (rosa) e `#D4A24A` (dourado) eram aproximações pré-amostragem, agora superseded.
+- Script reproducível em `scripts/sample-logo-color.mjs` — qualquer dev pode re-amostrar via `node scripts/sample-logo-color.mjs` (requer Sharp em devDeps; já listado no `package.json`).
+- Brand Reference Pack final em S1.2 herda essa paleta como fechada e foca em tipografia + tokens secundários (off-white, taupe, areia).
 - Esta ADR **não bloqueia** o início do desenvolvimento. Bloqueia apenas: aplicações fora-do-web e impressão. Se isso aparecer, ADR superada.

@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-salmao: #ffd9cc;
+  --color-preto-warm: #251008;
+  --color-dourado: #d99a30;
+}
+
+body {
+  background-color: var(--color-salmao);
+  color: var(--color-preto-warm);
+}
