@@ -15,3 +15,11 @@ test("home header shows logo bitmap", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("img", { name: /ELLA/i })).toBeVisible();
 });
+
+test("home shows sparkle SVG with brand gold color", async ({ page }) => {
+  await page.goto("/");
+  const sparkle = page.getByTestId("sparkle").first();
+  await expect(sparkle).toBeVisible();
+  const color = await sparkle.evaluate((el) => getComputedStyle(el).color);
+  expect(color).toBe("rgb(217, 154, 48)");
+});

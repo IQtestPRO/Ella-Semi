@@ -1,11 +1,13 @@
 import { Header } from "./components/Header";
+import { Sparkle } from "./components/Sparkle";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
-        <h1>ELLA</h1>
+      <main className="flex flex-col items-center gap-4 py-12">
+        <h1 className="text-5xl">ELLA</h1>
+        <Sparkle size={32} />
       </main>
     </>
   );
