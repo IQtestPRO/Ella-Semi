@@ -1,7 +1,12 @@
+import { Header } from "./components/Header";
+
 export default function HomePage() {
   return (
-    <main>
-      <h1>ELLA</h1>
-    </main>
+    <>
+      <Header />
+      <main>
+        <h1>ELLA</h1>
+      </main>
+    </>
   );
 }
