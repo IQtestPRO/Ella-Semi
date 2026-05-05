@@ -23,3 +23,10 @@ test("home shows sparkle SVG with brand gold color", async ({ page }) => {
   const color = await sparkle.evaluate((el) => getComputedStyle(el).color);
   expect(color).toBe("rgb(217, 154, 48)");
 });
+
+test("h1 ELLA uses DM Serif Display via next/font", async ({ page }) => {
+  await page.goto("/");
+  const h1 = page.getByRole("heading", { level: 1, name: "ELLA" });
+  const family = await h1.evaluate((el) => getComputedStyle(el).fontFamily);
+  expect(family).toMatch(/DM_Serif_Display|Georgia|serif/i);
+});

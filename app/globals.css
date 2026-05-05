@@ -4,9 +4,16 @@
   --color-salmao: #ffd9cc;
   --color-preto-warm: #251008;
   --color-dourado: #d99a30;
+  --font-hero: var(--font-hero);
+  --font-body: var(--font-body);
 }
 
 body {
   background-color: var(--color-salmao);
   color: var(--color-preto-warm);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1 {
+  font-family: var(--font-hero), Georgia, serif;
 }
