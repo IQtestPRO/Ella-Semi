@@ -30,3 +30,10 @@ test("h1 ELLA uses DM Serif Display via next/font", async ({ page }) => {
   const family = await h1.evaluate((el) => getComputedStyle(el).fontFamily);
   expect(family).toMatch(/DM_Serif_Display|Georgia|serif/i);
 });
+
+test("footer links to /privacidade and page renders 'Em breve'", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: "Privacidade" }).click();
+  await expect(page).toHaveURL(/\/privacidade$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Em breve" })).toBeVisible();
+});
