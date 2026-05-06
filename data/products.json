@@ -8,19 +8,44 @@
     "precoCents": 17990,
     "descricao": "Conjunto de colar com pendente coração e par de brincos coração. Coleção Folhas de Outono.",
     "fotos": [
-      { "url": "/assets/generated/products/conjunto-coracao-semijoia/01-bg-swap.webp", "alt": "Conjunto coração em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/conjunto-coracao-semijoia/02-detalhe.webp", "alt": "Detalhe macro do pendente coração", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/conjunto-coracao-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando conjunto coração", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/conjunto-coracao-semijoia/01-bg-swap.webp",
+        "alt": "Conjunto coração em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/conjunto-coracao-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do pendente coração",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/conjunto-coracao-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando conjunto coração",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
-    "tags": ["conjunto", "coracao"],
+    "tags": [
+      "conjunto",
+      "coracao"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 6, "letra": "A" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "A"
+    },
     "fonteFotoFraca": false,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "colar-pendente-cruz-semijoia",
@@ -31,19 +56,45 @@
     "precoCents": 14990,
     "descricao": "Colar fino com pendente cruz delicada. Peça narrativa da Coleção Folhas de Outono.",
     "fotos": [
-      { "url": "/assets/generated/products/colar-pendente-cruz-semijoia/01-bg-swap.webp", "alt": "Colar cruz em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/colar-pendente-cruz-semijoia/02-detalhe.webp", "alt": "Detalhe macro da cruz", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/colar-pendente-cruz-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando colar cruz", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/01-bg-swap.webp",
+        "alt": "Colar cruz em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro da cruz",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando colar cruz",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
-    "tags": ["colar", "cruz", "semijoia"],
+    "tags": [
+      "colar",
+      "cruz",
+      "semijoia"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 15, "letra": "E" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "E"
+    },
     "fonteFotoFraca": true,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "brinco-folha-aberta-semijoia",
@@ -54,19 +105,45 @@
     "precoCents": 9590,
     "descricao": "Brinco em formato folha aberta dourado com detalhe pavé. Motif outonal alinhado à Coleção Folhas de Outono.",
     "fotos": [
-      { "url": "/assets/generated/products/brinco-folha-aberta-semijoia/01-bg-swap.webp", "alt": "Brinco folha em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/brinco-folha-aberta-semijoia/02-detalhe.webp", "alt": "Detalhe macro da folha", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/brinco-folha-aberta-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando brinco folha", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/01-bg-swap.webp",
+        "alt": "Brinco folha em ambiente warm-editorial sobre linho cru",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1856,
+        "height": 2304
+      },
+      {
+        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do brinco folha mostrando pavé dourado",
+        "fonte": "higgsfield-detalhe",
+        "width": 2048,
+        "height": 2048
+      },
+      {
+        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando brinco folha em perfil 3/4 com luz natural de janela",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1856,
+        "height": 2304
+      }
     ],
-    "tags": ["brinco", "folha", "outono"],
+    "tags": [
+      "brinco",
+      "folha",
+      "outono"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
-    "destaqueHome": false,
+    "destaqueHome": true,
     "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 6, "letra": "D" },
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "D"
+    },
     "fonteFotoFraca": false,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "colar-veneziana-pendente-perolado-semijoia",
@@ -77,19 +154,45 @@
     "precoCents": 11590,
     "descricao": "Colar veneziana fino com pendente em pérola. Coleção Folhas de Outono.",
     "fotos": [
-      { "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/01-bg-swap.webp", "alt": "Colar veneziana com pérola em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/02-detalhe.webp", "alt": "Detalhe macro do pendente perolado", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando colar veneziana", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/01-bg-swap.webp",
+        "alt": "Colar veneziana com pérola em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do pendente perolado",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando colar veneziana",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
-    "tags": ["colar", "perola", "semijoia"],
+    "tags": [
+      "colar",
+      "perola",
+      "semijoia"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 9, "letra": "B" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 9,
+      "letra": "B"
+    },
     "fonteFotoFraca": true,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "brinco-hoop-pave-zirconia-semijoia",
@@ -100,19 +203,46 @@
     "precoCents": 9590,
     "descricao": "Brinco hoop com detalhe pavé em zircônia. Sparkle natural alinhado ao motif dourado da marca.",
     "fotos": [
-      { "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/01-bg-swap.webp", "alt": "Brinco hoop pavé em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/02-detalhe.webp", "alt": "Detalhe macro do pavé de zircônia", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando brinco hoop pavé", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/01-bg-swap.webp",
+        "alt": "Brinco hoop pavé em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do pavé de zircônia",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando brinco hoop pavé",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
-    "tags": ["brinco", "hoop", "zirconia", "semijoia"],
+    "tags": [
+      "brinco",
+      "hoop",
+      "zirconia",
+      "semijoia"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 9, "letra": "E" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 9,
+      "letra": "E"
+    },
     "fonteFotoFraca": false,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "pulseira-correntao-banho-ouro-semijoia",
@@ -123,19 +253,45 @@
     "precoCents": 10990,
     "descricao": "Pulseira correntão dourado com placas. Peça contemporânea, statement.",
     "fotos": [
-      { "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/01-bg-swap.webp", "alt": "Pulseira correntão em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/02-detalhe.webp", "alt": "Detalhe macro da corrente e placas", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando pulseira correntão", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/01-bg-swap.webp",
+        "alt": "Pulseira correntão em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro da corrente e placas",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando pulseira correntão",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
-    "tags": ["pulseira", "correntao", "semijoia"],
+    "tags": [
+      "pulseira",
+      "correntao",
+      "semijoia"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 22, "letra": "I" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "I"
+    },
     "fonteFotoFraca": false,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "conjunto-colar-brinco-resort-semijoia",
@@ -146,19 +302,45 @@
     "precoCents": 29990,
     "descricao": "Conjunto premium com colar e brincos coordenados. Peça-bandeira da Coleção Folhas de Outono.",
     "fotos": [
-      { "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/01-bg-swap.webp", "alt": "Conjunto resort em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/02-detalhe.webp", "alt": "Detalhe macro do conjunto", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando conjunto resort", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/01-bg-swap.webp",
+        "alt": "Conjunto resort em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do conjunto",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando conjunto resort",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
-    "tags": ["conjunto", "premium", "semijoia"],
+    "tags": [
+      "conjunto",
+      "premium",
+      "semijoia"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 17, "letra": "C" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 17,
+      "letra": "C"
+    },
     "fonteFotoFraca": true,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "brinco-hoop-trio-semijoia",
@@ -169,29 +351,65 @@
     "precoCents": 3990,
     "descricao": "Trio de brincos hoop em três tamanhos. Versátil para layered styling.",
     "fotos": [
-      { "url": "/assets/generated/products/brinco-hoop-trio-semijoia/01-bg-swap.webp", "alt": "Trio de brincos hoop em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/brinco-hoop-trio-semijoia/02-detalhe.webp", "alt": "Detalhe macro dos hoops", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/brinco-hoop-trio-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando brincos hoop", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/brinco-hoop-trio-semijoia/01-bg-swap.webp",
+        "alt": "Trio de brincos hoop em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/brinco-hoop-trio-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro dos hoops",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/brinco-hoop-trio-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando brincos hoop",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
     "variantes": [
       {
         "tipo": "tamanho",
         "opcoes": [
-          { "rotulo": "Pequeno", "precoCentsAjuste": 0 },
-          { "rotulo": "Médio", "precoCentsAjuste": 600 },
-          { "rotulo": "Grande", "precoCentsAjuste": 600 }
+          {
+            "rotulo": "Pequeno",
+            "precoCentsAjuste": 0
+          },
+          {
+            "rotulo": "Médio",
+            "precoCentsAjuste": 600
+          },
+          {
+            "rotulo": "Grande",
+            "precoCentsAjuste": 600
+          }
         ]
       }
     ],
-    "tags": ["brinco", "hoop", "trio", "semijoia"],
+    "tags": [
+      "brinco",
+      "hoop",
+      "trio",
+      "semijoia"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 5, "letra": "E" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 5,
+      "letra": "E"
+    },
     "fonteFotoFraca": false,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "colar-perolas-pendente-semijoia",
@@ -202,19 +420,45 @@
     "precoCents": 9890,
     "descricao": "Colar de pérolas espaçadas com pendente perolado. Look editorial premium.",
     "fotos": [
-      { "url": "/assets/generated/products/colar-perolas-pendente-semijoia/01-bg-swap.webp", "alt": "Colar pérolas em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/colar-perolas-pendente-semijoia/02-detalhe.webp", "alt": "Detalhe macro do pendente perolado", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/colar-perolas-pendente-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando colar pérolas", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/01-bg-swap.webp",
+        "alt": "Colar pérolas em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do pendente perolado",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando colar pérolas",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
-    "tags": ["colar", "perola", "semijoia"],
+    "tags": [
+      "colar",
+      "perola",
+      "semijoia"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 12, "letra": "D" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "D"
+    },
     "fonteFotoFraca": true,
     "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
     "slug": "pulseira-pearls-douradas-semijoia",
@@ -225,18 +469,44 @@
     "precoCents": 6990,
     "descricao": "Trio de pulseiras douradas com detalhes em pérola. Para layered styling editorial.",
     "fotos": [
-      { "url": "/assets/generated/products/pulseira-pearls-douradas-semijoia/01-bg-swap.webp", "alt": "Pulseira pearls douradas em ambiente warm-editorial", "fonte": "higgsfield-bg-swap", "width": 1500, "height": 1875 },
-      { "url": "/assets/generated/products/pulseira-pearls-douradas-semijoia/02-detalhe.webp", "alt": "Detalhe macro das pérolas", "fonte": "higgsfield-detalhe", "width": 1500, "height": 1500 },
-      { "url": "/assets/generated/products/pulseira-pearls-douradas-semijoia/03-lifestyle.webp", "alt": "Modelo Ella usando pulseiras pearls", "fonte": "higgsfield-lifestyle", "width": 1500, "height": 1875 }
+      {
+        "url": "/assets/generated/products/pulseira-pearls-douradas-semijoia/01-bg-swap.webp",
+        "alt": "Pulseira pearls douradas em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/pulseira-pearls-douradas-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro das pérolas",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/pulseira-pearls-douradas-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando pulseiras pearls",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
     ],
-    "tags": ["pulseira", "perola", "semijoia"],
+    "tags": [
+      "pulseira",
+      "perola",
+      "semijoia"
+    ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "ativo": true,
-    "origem": { "catalogoArquivo": "catalogo-outono-2026.pdf", "pagina": 9, "letra": "D" },
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 9,
+      "letra": "D"
+    },
     "fonteFotoFraca": false,
     "cadastradoEm": "2026-05-05T19:00:00Z",
-    "atualizadoEm": "2026-05-05T19:00:00Z"
+    "atualizadoEm": "2026-05-06T02:30:00Z"
   }
 ]

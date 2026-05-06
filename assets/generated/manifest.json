@@ -16,6 +16,55 @@
       "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_39R9UB7DxVV8WGIBrfY3jB2qFSD/hf_20260506_015923_ae5a5e6a-c78b-4cb6-a0c1-d290fe6b2a9d.png",
       "personaVersion": "1.0",
       "brandReferenceVersion": "1.0"
+    },
+    {
+      "id": "brinco-folha-aberta-semijoia-01-bg-swap",
+      "model": "nano-banana-pro",
+      "model_id": "nano_banana_2",
+      "prompt_ref": "assets/prompts/pecas/brinco-folha-aberta-semijoia.md#foto-1-bg-swap",
+      "resolution": "2k",
+      "aspect_ratio": "4:5",
+      "dimensions": "1856x2304",
+      "createdAt": "2026-05-06T02:25:35.030Z",
+      "layer": "por-peca",
+      "category": "produto-bg-swap",
+      "slug": "brinco-folha-aberta-semijoia",
+      "path": "assets/generated/products/brinco-folha-aberta-semijoia/01-bg-swap.webp",
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_39R9UB7DxVV8WGIBrfY3jB2qFSD/hf_20260506_022429_9b5d3da1-f205-413f-9e71-ab1a4c804c36.png",
+      "brandReferenceVersion": "1.1"
+    },
+    {
+      "id": "brinco-folha-aberta-semijoia-02-detalhe",
+      "model": "nano-banana-pro",
+      "model_id": "nano_banana_2",
+      "prompt_ref": "assets/prompts/pecas/brinco-folha-aberta-semijoia.md#foto-2-detalhe",
+      "resolution": "2k",
+      "aspect_ratio": "1:1",
+      "dimensions": "2048x2048",
+      "createdAt": "2026-05-06T02:26:42.254Z",
+      "layer": "por-peca",
+      "category": "produto-detalhe",
+      "slug": "brinco-folha-aberta-semijoia",
+      "path": "assets/generated/products/brinco-folha-aberta-semijoia/02-detalhe.webp",
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_39R9UB7DxVV8WGIBrfY3jB2qFSD/hf_20260506_022545_845c6c1e-2aa6-4db9-97a9-4dc9dc2c0d13.png",
+      "brandReferenceVersion": "1.1"
+    },
+    {
+      "id": "brinco-folha-aberta-semijoia-03-lifestyle",
+      "model": "nano-banana-pro",
+      "model_id": "nano_banana_2",
+      "prompt_ref": "assets/prompts/pecas/brinco-folha-aberta-semijoia.md#foto-3-lifestyle",
+      "resolution": "2k",
+      "aspect_ratio": "4:5",
+      "dimensions": "1856x2304",
+      "createdAt": "2026-05-06T02:27:40.369Z",
+      "layer": "por-peca",
+      "category": "produto-lifestyle",
+      "slug": "brinco-folha-aberta-semijoia",
+      "path": "assets/generated/products/brinco-folha-aberta-semijoia/03-lifestyle.webp",
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_39R9UB7DxVV8WGIBrfY3jB2qFSD/hf_20260506_022647_97da1ddd-8d07-4a16-af37-fb105227b452.png",
+      "brandReferenceVersion": "1.1",
+      "personaVersion": "1.0"
     }
   ]
 }
