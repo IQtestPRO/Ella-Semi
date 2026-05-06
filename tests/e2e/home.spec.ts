@@ -78,6 +78,15 @@ test("home featured photo is loaded and visible", async ({ page }) => {
   await expect(img).toBeVisible();
 });
 
+test("clicking featured ProductCard navigates to product page", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: /Brinco Folha Aberta Semijoia/ }).click();
+  await expect(page).toHaveURL(/\/brincos\/brinco-folha-aberta-semijoia$/);
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Brinco Folha Aberta Semijoia" }),
+  ).toBeVisible();
+});
+
 test("paleta secundária — CSS vars warm derivadas disponíveis", async ({ page }) => {
   await page.goto("/");
   const vars = await page.evaluate(() => {
