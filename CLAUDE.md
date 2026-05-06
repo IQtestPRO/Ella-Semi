@@ -255,6 +255,17 @@ Resposta: **interromper trabalho atual**, sinalizar problema, propor `/improve-c
 - **ADR-0009** — Schema amendment: `cordaoPersonalizado: boolean` removido; `tipoFulfillment: 'pronta-entrega' | 'sob-encomenda'` introduzido. Adicionada `piercings` ao enum `categoria`. Supersede ponto específico do schema da ADR-0004.
 - **ADR-0010** — Fluxo wa.me sem bot: finalização gera `PED-XXXXXX` local, monta mensagem URL-encoded, abre `wa.me/<E.164>?text=...` em aba nova. Sem WhatsApp Business API, sem Z-API/Twilio. Ellen atende manualmente. Snapshot de pedido salvo em `localStorage` (`ella-orders-v1`).
 - **ADR-0012** — Soul Character "Modelo Ella": persona definitiva (mulher ~45–50, morena, warm-editorial soft glam, sofisticada). Treinada uma vez no Higgsfield Soul, `reference_id` em `data/higgsfield-references.json`, reutilizada em toda Foto 3 do catálogo (ADR-0008). Anti-drift checks a cada 20 peças.
+- **ADR-0013** — Estratégia de teste: 7 camadas obrigatórias (Vitest unit + snapshot WhatsApp + RTL integration + Playwright E2E + visual regression + a11y axe-core + Lighthouse perf budget). Atualização 2026-05-05: durante S1.1–S5.x execução é local-only (`pnpm test:e2e`/`:visual`/`:a11y` antes de fechar slice); CI workflow + Lighthouse + Vercel deploy ativam em S6.1.
+
+---
+
+## Manutenção de ADRs (precedente registrado 2026-05-05)
+
+- **Edit inline em ADR existente é permitido** quando a mudança é **executiva/tática** (onde, quando, como — ex.: "CI roda em S6.1 em vez de já no Slice 1"). Use uma seção `## Atualização YYYY-MM-DD` no fim da ADR. Histórico fica via `git log` da ADR.
+- **Mudança decisória** que invalida ou contradiz a decisão original (o que, por quê — ex.: "trocar Vercel por Cloudflare Pages", "remover camada visual da pirâmide") **exige ADR nova superando**. ADR antiga marcada `Status: superseded by ADR-XXXX`.
+- **Em dúvida, trate como decisória** → crie ADR nova. É barato.
+- Critério prático pra distinguir: se uma sessão futura do Claude lendo a ADR original tomaria a decisão errada sem ler a atualização, é decisória → ADR nova. Se a atualização só esclarece "como/quando" sem mudar "o quê", é tática → edit inline.
+- **Precedente concreto**: 2026-05-05, S1.1 fechada — ADR-0013 ganhou seção "Atualização" sobre execução local-only durante S1.1–S5.x. Política de teste (decisória — quais camadas, qual obrigatoriedade) inalterada; só a porta de execução (tática — local vs CI) mudou. Edit inline aceito por Pak.
 
 ---
 
