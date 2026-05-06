@@ -4,6 +4,8 @@
 - **Data**: 2026-05-05
 - **Decisor**: Pak (com Claude)
 
+> **Atualização 2026-05-05 (S1.3, ADR-0015)**: política "3 fotos por peça uniforme" **mantida**. **Modelo de geração unificado**: todas as 3 fotos rodam via **Higgsfield Nano Banana Pro 2K** (`nano_banana_2`). Foto 3 deixa de usar Soul + Soul Character treinado e passa a usar Nano Banana Pro 2K + persona-tipo prompt-only. Volume estimado revisto: ~270–360 gerações totais (Foto 3 não tem mais 8-12 calibrações de Soul Character). Detalhes técnicos completos em ADR-0015 e `assets/prompts/personas/modelo-ella-persona-tipo.md`. Tabela "Foto 3 — Modelo Higgsfield" abaixo fica como histórica (Soul superseded).
+
 ## Contexto
 
 A versão anterior desta ADR propunha **dois tiers**: top 20 peças destaque com 6 ângulos canônicos + restante com 3 ângulos. A intenção era criar curadoria visível e cortar volume de geração de ~600 para ~360. Pak reviu e decidiu **abandonar a hierarquia**:

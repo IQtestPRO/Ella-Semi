@@ -54,21 +54,19 @@ Adicionalmente, este é um **site-catálogo de joias e semijoias premium**. Sem 
 
 **Pipeline único** (ADR-0006): **toda mídia visual do site é gerada via Higgsfield CLI**. Sem exceção produtiva. Stock photos, bancos de imagens (Unsplash/Pexels/etc.), Midjourney, DALL-E, Stable Diffusion local — **proibidos** como fonte de asset publicado. Foto real fornecida pela Ellen pode entrar como **input de background swap Higgsfield** para padronização visual, nunca como asset cru final.
 
-**Modelos por contexto**:
-- **Foto isolada de produto**: **Nano Banana Pro** (reasoning forte em detalhe fino de joia, textura de metal, engaste, sparkle).
-- **Lifestyle / hero / retrato com modelo**: **Soul** com Soul Character "Modelo Ella" (consistência de identidade entre frames).
-- **Fundo / ambiente neutro / fotorrealismo de cenário**: **Flux**.
+**Modelos por contexto** (atualizado S1.3 / ADR-0015 — pipeline visual único):
+- **TODA imagem do site** (Foto 1 produto, Foto 2 detalhe, Foto 3 lifestyle com Modelo Ella, background swap foto real Ellen, hero da Marca, hero da Campanha): **Nano Banana Pro** (`nano_banana_2`) em **resolução 2K obrigatória**.
 - **Vídeos aspiracionais (hero da home, hero da Campanha Atual, hero da `/campanha`, qualquer cena ≥6s ou de marca)**: **Cinema Studio** — real optical physics.
-- **Microvídeos decorativos (loops <4s, transições)**: **Seedance 2.0 1080p**.
-- **Cenas com diálogo / lipsync / storyboard multi-shot**: **Kling 3.0**.
-- **Background swap de foto real**: **Nano Banana Pro** com input da foto original.
+
+**Removidos do projeto** (S1.3 / ADR-0015): Higgsfield Soul (V2 / Cinematic / Location), Flux 2 / Flux Kontext, Kling, Seedance, GPT Image 2, Soul Character treinado, `data/higgsfield-references.json`.
 
 **Regras de uso**:
 - **Nunca** placeholder em produção (`https://placehold.co/...`, "lorem picsum", `<img src=""/>`). Higgsfield ou foto real da Ellen via bg-swap.
-- Toda mídia em `assets/generated/<categoria>/<id>.{webp|mp4}` + metadata em `assets/generated/manifest.json` (prompt, modelo, seed, data, camada). Reprodutibilidade obrigatória.
+- Toda mídia em `assets/generated/<categoria>/<id>.{webp|mp4}` + metadata em `assets/generated/manifest.json` (model, model_id, prompt_ref, resolution, aspect_ratio, dimensions, layer, personaVersion, brandReferenceVersion). Reprodutibilidade obrigatória.
 - Prompts versionados em `assets/prompts/*.md`. Trate prompt como código.
-- Soul Character pra qualquer entidade recorrente (Modelo Ella, Ellen Lopes para `/sobre`).
-- Iterar prompt antes de iterar modelo. Trocar modelo sem hesitar quando a peça pede.
+- **Persona-tipo prompt-only** pra entidades recorrentes (Modelo Ella em `assets/prompts/personas/modelo-ella-persona-tipo.md` — ADR-0015 substitui Soul Character treinado da ADR-0012). Cada geração roda independente.
+- **Resolução 2K obrigatória** em toda geração de imagem (2048 px lado maior; ratios 4:5/1:1/16:9 conforme contexto). Sub-2K é anti-padrão.
+- Iterar prompt antes de iterar modelo. (Não há rotação de modelos a iterar — Nano Banana Pro 2K é único.)
 - **Sem aviso de batch grande nem estimativa de créditos** (ADR-0001 revoga essa regra).
 
 ---
@@ -171,13 +169,13 @@ type CampanhaAtual = {
 | "Melhora o design / UI" | `redesign-skill` + `emil-design-eng` + `taste-skill` (minimalist-ui) |
 | "Cria componente / tela nova" | `/tdd` + `taste-skill` (minimalist-ui) + `emil-design-eng` ativos |
 | "Auditoria geral / código bagunçado" | `/improve-codebase-architecture` |
-| "Preciso de foto de produto" | Higgsfield CLI com **Nano Banana Pro** + reference da peça |
-| "Preciso de foto com modelo / lifestyle / hero humano" | Higgsfield CLI com **Soul** + Soul Character "Modelo Ella" |
-| "Preciso de fundo / ambiente neutro" | Higgsfield CLI com **Flux** |
+| "Preciso de foto de produto" | Higgsfield CLI com **Nano Banana Pro 2K** + reference da peça |
+| "Preciso de foto com modelo / lifestyle / hero humano" | Higgsfield CLI com **Nano Banana Pro 2K** + persona-tipo via `assets/prompts/personas/modelo-ella-persona-tipo.md` (master) + sub-prompt da categoria |
+| "Preciso de fundo / ambiente neutro" | Higgsfield CLI com **Nano Banana Pro 2K** (Flux removido em S1.3 / ADR-0015) |
 | "Preciso de vídeo de marca / hero / `/campanha`" | Higgsfield CLI com **Cinema Studio** |
-| "Preciso de microvídeo / loop curto / transição" | Higgsfield CLI com **Seedance 2.0 1080p** |
-| "Preciso de cena com diálogo / lipsync" | Higgsfield CLI com **Kling 3.0** |
-| "Trocar fundo / variar cenário de foto existente" | Higgsfield CLI (background swap), preservando o produto |
+| "Preciso de microvídeo / loop curto / transição" | Higgsfield CLI com **Cinema Studio** (Seedance removido em S1.3 / ADR-0015) |
+| ~~"Preciso de cena com diálogo / lipsync"~~ | ~~Kling 3.0~~ — removido em S1.3 / ADR-0015. Reabrir via ADR superando se aparecer demanda |
+| "Trocar fundo / variar cenário de foto existente" | Higgsfield CLI **Nano Banana Pro 2K** (background swap), preservando o produto |
 | "Trocar Campanha Atual" | Editar `data/campanha-atual.json` + gerar mídia via Higgsfield. Não mexer em produtos, não criar rotas novas |
 | Pedido ambíguo | `/grill-me` antes de qualquer outra coisa |
 
@@ -232,7 +230,10 @@ Resposta: **interromper trabalho atual**, sinalizar problema, propor `/improve-c
 - ❌ Verbosidade. Prefira `/caveman` em execução.
 - ❌ Placeholders de imagem em produção (`placehold.co`, `lorem picsum`, `<img src=""/>`). Use Higgsfield ou foto real da Ellen.
 - ❌ Gerar mídia sem registrar prompt + modelo + seed em manifest.
-- ❌ Drift de identidade (Modelo Ella com rosto diferente entre páginas, peça hero com proporção diferente). Use Soul Character.
+- ❌ Drift fora da persona-tipo (estética da Modelo Ella fora do range — idade ≠ 45–50, etnia errada, mood corporativo/fierce, styling não-warm-editorial). Rosto pode variar; estética não pode (S1.3 / ADR-0015).
+- ❌ Treinar Soul Character ou criar `data/higgsfield-references.json` (ADR-0012 superseded por ADR-0015 — mecânica é prompt-only via Nano Banana Pro 2K).
+- ❌ Usar modelo de imagem que não seja Nano Banana Pro 2K (Soul / Flux / Kling / Seedance / GPT Image / etc removidos em S1.3 / ADR-0015). Cinema Studio só pra vídeos.
+- ❌ Gerar imagem em resolução abaixo de 2K (2048 px lado maior). Sub-2K é anti-padrão obrigatório (S1.3 / ADR-0015).
 - ❌ Escolher modelo Higgsfield mais barato em vez do mais adequado (ADR-0001).
 - ❌ **Usar imagem ou vídeo em produção que não foi gerado via Higgsfield CLI** (ADR-0006). Stock photos, bancos de imagens (Unsplash/Pexels/etc.), Midjourney, DALL-E, Stable Diffusion local — proibidos como asset publicado. Exceção única: foto real fornecida diretamente pela Ellen, e ainda assim deve passar por background swap Higgsfield para padronização.
 - ❌ Hardcoding de "Outono", "Folhas", "estação" em componentes ou rotas. Componentes leem `data/campanha-atual.json` dinamicamente.
@@ -282,16 +283,14 @@ Resposta: **interromper trabalho atual**, sinalizar problema, propor `/improve-c
 - **VISUAL_DENSITY**: 3
 - **Variante de estilo ativa**: `minimalist-ui` (vocabulário: "warm editorial soft glam")
 - **Higgsfield CLI**: instalada e autenticada (`higgsfield auth status` → OK)
-- **Modelos Higgsfield**:
-  - Imagem de produto: **Nano Banana Pro**
-  - Lifestyle / modelo humana: **Soul** (com Soul Character "Modelo Ella")
-  - Fundo / ambiente neutro: **Flux**
-  - Vídeo aspiracional / hero: **Cinema Studio**
-  - Microvídeo / loop curto: **Seedance 2.0 1080p**
-  - Diálogo / multi-shot: **Kling 3.0**
+- **Modelos Higgsfield** (S1.3 / ADR-0015 — pipeline visual unificado):
+  - **Toda imagem do site**: **Nano Banana Pro** (`nano_banana_2`) em **2K obrigatório**
+  - **Vídeo aspiracional / hero / microvídeo**: **Cinema Studio**
+  - Removidos: Soul (V2/Cinematic/Location), Flux 2/Kontext, Kling, Seedance, GPT Image 2, Soul Character treinado
+- **Resolução de imagem**: 2K obrigatório (sub-2K é anti-padrão)
 - **Política de créditos**: sem teto (ADR-0001)
-- **Pipeline visual**: único via Higgsfield (ADR-0006)
-- **Soul Characters criados**: nenhum ainda (criar "Modelo Ella" e "Ellen Lopes" antes de qualquer página com humano)
+- **Pipeline visual**: único via Higgsfield Nano Banana Pro 2K (ADR-0006 + ADR-0015)
+- **Persona-tipo escrita**: `assets/prompts/personas/modelo-ella-persona-tipo.md` (master) + `assets/prompts/personas/sub-prompts/{mao,pescoco,orelha,tornozelo}.md`. Mecânica prompt-only — sem Soul Character treinado, sem `data/higgsfield-references.json`.
 - **Path de mídia gerada**: `assets/generated/`
 - **Path de prompts versionados**: `assets/prompts/`
 - **Path de assets de marca**: `assets/brand/` (logo, catálogo PDF como referência)

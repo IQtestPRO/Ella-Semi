@@ -1,8 +1,14 @@
 # ADR-0012 — Soul Character "Modelo Ella" — Persona Definitiva
 
-- **Status**: aceito
-- **Data**: 2026-05-05
+- **Status**: ⛔ **superseded by ADR-0015** (2026-05-05, S1.3)
+- **Data original**: 2026-05-05
 - **Decisor**: Pak (com Claude)
+
+> **Nota 2026-05-05 (S1.3)**: esta ADR foi superseded por ADR-0015. A mecânica de **Soul Character treinado** com `reference_id` persistido foi descartada. Modelo Ella é agora uma **persona-tipo prompt-only** via Higgsfield Nano Banana Pro 2K, sem Soul, sem `reference_id`, sem `data/higgsfield-references.json`. Cada Foto 3 do catálogo pode mostrar uma mulher diferente dentro da persona-tipo (45–50, brasileira morena warm tan, elegante luxo discreto). Coerência vem da fidelidade à persona-tipo descrita em prompt, não da identidade fixa. Detalhes completos: `docs/adr/0015-persona-tipo-modelo-ella-pipeline-nano-banana-pro-2k.md` + `assets/prompts/personas/modelo-ella-persona-tipo.md`. Conteúdo abaixo fica preservado como histórico da decisão original.
+
+---
+
+## Contexto histórico (registro original)
 
 ## Contexto
 

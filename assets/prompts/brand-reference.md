@@ -1,16 +1,20 @@
 ---
-version: '1.0'
+version: '1.1'
 created: 2026-05-05
+updated: 2026-05-05
 decisores: [Pak]
-adrs_relacionadas: [0001, 0002, 0003, 0006, 0012, 0013, 0014]
+adrs_relacionadas: [0001, 0002, 0003, 0006, 0008, 0012, 0013, 0014, 0015]
 slice_origem: S1.2
+slice_atualizacao: S1.3
 ---
 
-# Brand Reference Pack — ELLA Semijoias v1.0
+# Brand Reference Pack — ELLA Semijoias v1.1
 
 > **BIOS Visual da Marca.** Pré-requisito de toda produção visual via Higgsfield CLI.
-> Mudança neste arquivo cascateia em toda mídia futura — exige ADR superando ADR-0014.
+> Mudança neste arquivo cascateia em toda mídia futura — exige ADR superando ADR-0014 (e ADR-0015 quando relevante à persona).
 > Versão registrada em `assets/generated/manifest.json` campo `brandReferenceVersion` em cada geração.
+>
+> **v1.1 (S1.3, aditiva)**: adiciona §10 Persona-Tipo Modelo Ella + atualiza §7 templates pra Nano Banana Pro 2K como modelo único. Conteúdo v1.0 mantido inalterado nas seções 1–9.
 
 ---
 
@@ -231,5 +235,70 @@ Quando este pack evoluir (v2.0 superseding via ADR), versão sobe e mídia v1 fi
 ### Próximas evoluções esperadas (NÃO desta versão)
 
 - **Vetorização da logo** → Fase 2 (ADR-0003 reabre). Resolve a perna alongada do "A".
-- **Soul Character "Modelo Ella" treinado** → S1.3 (ADR-0012). `reference_id` registrado em `data/higgsfield-references.json`.
+- ~~**Soul Character "Modelo Ella" treinado** → S1.3 (ADR-0012).~~ **Substituído em v1.1 — ver §10.**
 - **Pack v2.0** → quando catálogo crescer e padrões de prompt se consolidarem (provável S3+).
+
+---
+
+## 10. Persona-Tipo Modelo Ella + pipeline visual único (v1.1, S1.3)
+
+### 10.1 Persona-Tipo prompt-only (substitui Soul Character — ADR-0015)
+
+A mecânica de **Soul Character treinado** declarada na ADR-0012 foi descartada na S1.3. **Modelo Ella** é agora uma **persona-tipo prompt-only**: cada geração roda independente, rostos podem variar entre peças, a estética da persona-tipo (45–50, brasileira morena warm tan, elegante luxo discreto) é o que amarra coerência.
+
+Especificação completa em `assets/prompts/personas/modelo-ella-persona-tipo.md` (master prompt + 11 seções estruturadas + master prompt string canônica + variation hooks).
+
+Sub-prompts em `assets/prompts/personas/sub-prompts/{mao,pescoco,orelha,tornozelo}.md` — cada um importa por referência o master, substitui só o `{VARIATION_HOOK}` da master prompt string com o ângulo/crop específico da categoria de peça.
+
+### 10.2 Pipeline visual único: Nano Banana Pro 2K (substitui §7 templates)
+
+ADR-0015 declara **Higgsfield Nano Banana Pro (`nano_banana_2`)** como modelo **único** de imagem do projeto. Os templates da §7 que referenciavam Soul / Flux / Soul Cinematic / Kling pra fotos ficam **superseded** pela tabela abaixo.
+
+| Tipo de imagem | Modelo | Resolução |
+|---|---|---|
+| Foto 1 — produto isolado | Nano Banana Pro (`nano_banana_2`) | 2K |
+| Foto 2 — detalhe macro | Nano Banana Pro | 2K |
+| Foto 3 — lifestyle com Modelo Ella | Nano Banana Pro | 2K |
+| Background swap foto real Ellen | Nano Banana Pro | 2K |
+| Vídeo aspiracional / hero / `/campanha` | Cinema Studio (`cinematic_studio_video_v2`) | mantém |
+
+**Removidos do projeto** (não usar mais): Soul (V2 / Cinematic / Location), Flux 2, Flux Kontext, Kling, Seedance, GPT Image 2, Soul Character treinado, `data/higgsfield-references.json`.
+
+### 10.3 Resolução obrigatória: 2K
+
+Toda geração de imagem em **2K** (2048 px lado maior). Ratios por contexto: `4:5` portrait (default mobile-first), `1:1` quadrado (Instagram-friendly), `16:9` paisagem (hero desktop). **Sub-2K é anti-padrão** registrado em CLAUDE.md.
+
+### 10.4 Manifest entry padrão (atualizado em v1.1)
+
+```json
+{
+  "id": "...",
+  "model": "nano-banana-pro",
+  "model_id": "nano_banana_2",
+  "prompt_ref": "assets/prompts/personas/<sub>.md OR ad-hoc inline",
+  "resolution": "2k",
+  "aspect_ratio": "4:5 | 1:1 | 16:9",
+  "dimensions": "WxH",
+  "createdAt": "ISO-8601",
+  "layer": "atemporal | sazonal | por-peca",
+  "category": "...",
+  "path": "assets/generated/<sub>/<id>.webp",
+  "personaVersion": "1.0",
+  "brandReferenceVersion": "1.1"
+}
+```
+
+### 10.5 Versão e histórico v1.1
+
+- **v1.1** — 2026-05-05 (S1.3, aditiva sobre v1.0)
+  - Persona-Tipo Modelo Ella prompt-only substituiu Soul Character único (ADR-0015 supersede ADR-0012)
+  - Nano Banana Pro 2K como pipeline visual único pra todas as 3 fotos por peça
+  - Resolução 2K obrigatória
+  - Decisor: Pak (HITL no chat)
+  - ADRs relacionadas: ADR-0015 (esta atualização) + ADR-0008 atualização inline
+  - Slice de origem da atualização: S1.3 — Persona-Tipo Modelo Ella
+
+### Próximas evoluções esperadas (NÃO desta versão, post v1.1)
+
+- **Vetorização da logo** → Fase 2 (ADR-0003 reabre).
+- **Pack v2.0** → quando catálogo crescer (provável S3+) — possível restruturação completa, não aditiva.

@@ -10,11 +10,11 @@ describe("Brand Reference Pack v1.0", () => {
 
   const content = existsSync(PATH) ? readFileSync(PATH, "utf-8") : "";
 
-  it("has YAML frontmatter with version 1.0", () => {
-    expect(content).toMatch(/^---[\s\S]*?version:\s*['"]?1\.0['"]?[\s\S]*?---/m);
+  it("has YAML frontmatter with version 1.1 (aditiva sobre v1.0)", () => {
+    expect(content).toMatch(/^---[\s\S]*?version:\s*['"]?1\.1['"]?[\s\S]*?---/m);
   });
 
-  it("contains all 9 mandatory sections", () => {
+  it("contains all 10 mandatory sections (v1.0 §1-9 + v1.1 §10)", () => {
     const sections = [
       "## 1. Identidade",
       "## 2. Paleta amostrada",
@@ -25,10 +25,22 @@ describe("Brand Reference Pack v1.0", () => {
       "## 7. Templates de prompt",
       "## 8. Manifest crosslink",
       "## 9. Versão",
+      "## 10. Persona-Tipo Modelo Ella",
     ];
     for (const s of sections) {
       expect(content).toContain(s);
     }
+  });
+
+  it("v1.1 declares Nano Banana Pro as único modelo de imagem", () => {
+    expect(content).toMatch(/Nano Banana Pro.*único|único.*Nano Banana Pro/i);
+    expect(content).toMatch(/nano_banana_2/);
+  });
+
+  it("v1.1 declares 2K resolution obrigatória", () => {
+    expect(content).toMatch(/2K/);
+    expect(content).toMatch(/2048\s*px\s+lado\s+maior/i);
+    expect(content).toMatch(/Sub-2K\s+é\s+anti-padrão/i);
   });
 
   it("declares Bodoni Moda as hero font (TB1 decision)", () => {
