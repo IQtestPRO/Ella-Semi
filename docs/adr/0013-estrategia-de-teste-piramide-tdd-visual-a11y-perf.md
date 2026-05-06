@@ -143,3 +143,23 @@ CI roda **tudo** em cada PR. Localmente, Pak roda `pnpm test` (unit + snapshot +
 - Visual regression e a11y/perf no Slice 1 começam **leves** (1 fluxo, 4 páginas, 4 critérios de perf). Crescem com cada slice (mais páginas, mais fluxos), mas o aparato não muda.
 - Stack opcional futura: **Storybook** para componentes isolados — útil quando UI library do projeto crescer (Slice 4+). Não é parte desta ADR; abrir nova quando justificar.
 - Esta ADR é **inegociável** por padrão. PR que reduz cobertura ou pula uma das 7 camadas sem ADR de revogação é anti-padrão e deve ser flagged em review.
+
+## Atualização 2026-05-05 — execução local-only durante S1.1 a S5.x
+
+Decisão Pak (no fim de S1.1 / TB10): **CI workflow GitHub Actions + Lighthouse CI + Vercel deploy adiados pra S6.1** (slice de deploy do PRD). Issue separada: `.scratch/issues/0018-tb10-deferred-ci-lighthouse-vercel.md`.
+
+Motivação: validar Slice 1 completa em localhost (home + produto + carrinho + WhatsApp end-to-end) antes de gastar energia configurando deploy de esqueleto vazio. Aparato de teste continua **inegociável**, mas a *execução* muda durante a janela S1.1 → S5.x:
+
+| Camada | Janela S1.1 → S5.x | Janela S6.1 em diante |
+|---|---|---|
+| Unit | `pnpm test` local em cada turno | + CI cada PR |
+| Snapshot WhatsApp | `pnpm test` local | + CI cada PR |
+| Integration | `pnpm test` local | + CI cada PR |
+| E2E | `pnpm test:e2e` local sob demanda **antes de fechar slice** | + CI cada PR |
+| Visual Regression | `pnpm test:visual` local sob demanda **antes de fechar slice** | + CI cada PR |
+| A11y | `pnpm test:a11y` local sob demanda **antes de fechar slice** | + CI cada PR |
+| Performance | rodar manual via Lighthouse Chrome DevTools antes de fechar slice (script `pnpm test:lh` recriado em S6.1) | + CI cada PR |
+
+**Regra**: nenhuma slice S1.1 → S5.x fecha sem rodar visual + a11y + e2e local com tudo verde. Pak revisa baselines antes do commit. Quando S6.1 chegar, o aparato CI levanta e roda 7 camadas em todo PR daí pra frente.
+
+A natureza inegociável da política não muda — só a porta de execução (local vs. CI) durante a janela inicial.

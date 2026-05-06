@@ -15,23 +15,24 @@ user_stories: [1, 35, 36]
 
 ## What to build
 
-Setup do projeto greenfield: **Next.js 15 App Router + Tailwind v4 + TypeScript strict + pnpm + Node 22 LTS** (ADR-0005). Deploy automático na Vercel free tier com subdomínio `vercel.app`. Página inicial placeholder mínima ("Hello ELLA") com a logo bitmap (`assets/brand/logo.jpg`), tipografia placeholder DM Serif Display via `next/font` (escolha real fica para S1.2), 1 sparkle SVG inline, fundo rosa salmão sólido amostrado por aproximação do logo. Footer mínimo com link `/privacidade` apontando para rota com texto "em breve". Toda a infraestrutura de teste da ADR-0013 cabeada e passando baselines: **Vitest** (unit) + **Playwright** (E2E + visual regression) + **@axe-core/playwright** (a11y) + **@lhci/cli** (perf budget). CI rodando os 7 layers em cada PR.
+Setup do projeto greenfield: **Next.js 15 App Router + Tailwind v4 + TypeScript strict + pnpm + Node 22 LTS** (ADR-0005). Página inicial placeholder mínima ("Hello ELLA") com a logo bitmap (`assets/brand/logo.jpg`), tipografia placeholder DM Serif Display via `next/font` (escolha real fica para S1.2), 1 sparkle SVG inline, fundo rosa salmão sólido amostrado por aproximação do logo. Footer mínimo com link `/privacidade` apontando para rota com texto "em breve". Infra de teste obrigatória da ADR-0013 cabeada e passando **localmente**: **Vitest** (unit) + **Playwright** (E2E + visual regression) + **@axe-core/playwright** (a11y).
+
+> **Escopo revisado 2026-05-05** (decisão Pak): CI workflow GitHub Actions, Lighthouse budget, e Vercel deploy foram **adiados pra S6.1** (slice de deploy). Issue separada: `.scratch/issues/0018-tb10-deferred-ci-lighthouse-vercel.md`. Justificativa: validar Slice 1 completa em localhost antes de deployar esqueleto vazio.
 
 ## Acceptance criteria
 
-- [ ] `pnpm install` + `pnpm dev` rodam local sem warnings
-- [ ] Home renderiza `<h1>ELLA</h1>` em DM Serif Display (placeholder), fundo rosa salmão, 1 sparkle SVG visível
-- [ ] Logo `assets/brand/logo.jpg` aparece (header pequeno)
-- [ ] Footer com link `/privacidade` (página "em breve")
-- [ ] `pnpm test` (Vitest) passa com 1+ unit smoke test
-- [ ] `pnpm test:e2e` passa com 1 E2E "home loads, ELLA visible"
-- [ ] `pnpm test:a11y` (axe) sem violações em home + /privacidade
-- [ ] `pnpm test:visual` gera baselines (mobile 375×667 + desktop 1280×800)
-- [ ] Lighthouse CI roda no preview Vercel com budget LCP ≤ 2.0s, CLS ≤ 0.05, INP < 200ms, score ≥ 95
-- [ ] Deploy automático: PR cria preview Vercel; merge no main faz deploy de produção
-- [ ] CI workflow (GitHub Actions ou Vercel Build) executa as 7 camadas de teste; falha bloqueia merge
-- [ ] CONTEXT.md inalterado
-- [ ] Skills `taste-skill (minimalist-ui)` + `emil-design-eng` aplicadas conforme CLAUDE.md
+- [x] `pnpm install` + `pnpm dev` rodam local sem warnings
+- [x] Home renderiza `<h1>ELLA</h1>` em DM Serif Display (placeholder), fundo rosa salmão, 1 sparkle SVG visível
+- [x] Logo `assets/brand/logo.jpg` aparece (header pequeno)
+- [x] Footer com link `/privacidade` (página "em breve")
+- [x] `pnpm test` (Vitest) passa com 1+ unit smoke test
+- [x] `pnpm test:e2e` passa com 1+ E2E "home loads, ELLA visible"
+- [x] `pnpm test:a11y` (axe) sem violações em home + /privacidade (WCAG 2 AA)
+- [x] `pnpm test:visual` gera baselines (mobile 375×667 + desktop 1280×800) e passa contra elas
+- [x] Branch `feat/s1.1-hello-ella` push'ada pro remote `origin` (`IQtestPRO/Ella-Semi`)
+- [x] CONTEXT.md inalterado
+- [x] Skills `taste-skill (minimalist-ui)` + `emil-design-eng` aplicadas conforme CLAUDE.md
+- ⏭️ Lighthouse CI + GitHub Actions workflow + Vercel deploy → **S6.1** (issue 0018)
 
 ## Blocked by
 
