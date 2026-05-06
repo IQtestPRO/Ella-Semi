@@ -18,13 +18,15 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
-h1 {
+h1,
+.font-hero {
   font-family: var(--font-hero), Georgia, serif;
   font-weight: 500;
 }
 
 @media (min-width: 641px) {
-  h1 {
+  h1,
+  .font-hero {
     font-weight: 400;
   }
 }
