@@ -39,6 +39,12 @@ test("h1 ELLA — weight adaptativo (mobile 500, desktop 400)", async ({ page, v
   expect(weight).toBe(expected);
 });
 
+test("body uses Inter via next/font", async ({ page }) => {
+  await page.goto("/");
+  const family = await page.evaluate(() => getComputedStyle(document.body).fontFamily);
+  expect(family).toMatch(/Inter|system-ui|sans-serif/i);
+});
+
 test("footer links to /privacidade and page renders 'Em breve'", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "Privacidade" }).click();
