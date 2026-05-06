@@ -58,6 +58,13 @@ Adicionalmente, este é um **site-catálogo de joias e semijoias premium**. Sem 
 - **TODA imagem do site** (Foto 1 produto, Foto 2 detalhe, Foto 3 lifestyle com Modelo Ella, background swap foto real Ellen, hero da Marca, hero da Campanha): **Nano Banana Pro** (`nano_banana_2`) em **resolução 2K obrigatória**.
 - **Vídeos aspiracionais (hero da home, hero da Campanha Atual, hero da `/campanha`, qualquer cena ≥6s ou de marca)**: **Cinema Studio** — real optical physics.
 
+**Input image obrigatório do catálogo PDF** (atualização S1.4 / ADR-0015 inline 2026-05-06):
+- Toda **Foto 1/2/3 de peça do catálogo** usa `--image assets/brand/catalogo-pecas/<slug>.png` (foto-fonte extraída do PDF) como input pra Nano Banana Pro 2K → fidelidade de design ao catálogo da Ellen, drift técnico ~zero entre frames.
+- Mecânica: `higgsfield generate create nano_banana_2 --image <path> --aspect_ratio <r> --resolution 2k --wait --prompt "<reframe + ambiente + lighting + anti>"`.
+- Utility de extração PDF→PNG (`scripts/extract-catalogo-page.mjs`) implementada em S3.1 antes do batch.
+- Exceção histórica única: peça canônica `brinco-folha-aberta-semijoia` da S1.4 TB1 foi gerada from-scratch ANTES desta política — Pak aprovou e não regerada.
+- Geração from-scratch (sem input image) continua válida pra **camadas atemporal e sazonal** da Marca (hero da home, OG image, fundos institucionais — não-catálogo).
+
 **Removidos do projeto** (S1.3 / ADR-0015): Higgsfield Soul (V2 / Cinematic / Location), Flux 2 / Flux Kontext, Kling, Seedance, GPT Image 2, Soul Character treinado, `data/higgsfield-references.json`.
 
 **Regras de uso**:
@@ -234,6 +241,7 @@ Resposta: **interromper trabalho atual**, sinalizar problema, propor `/improve-c
 - ❌ Treinar Soul Character ou criar `data/higgsfield-references.json` (ADR-0012 superseded por ADR-0015 — mecânica é prompt-only via Nano Banana Pro 2K).
 - ❌ Usar modelo de imagem que não seja Nano Banana Pro 2K (Soul / Flux / Kling / Seedance / GPT Image / etc removidos em S1.3 / ADR-0015). Cinema Studio só pra vídeos.
 - ❌ Gerar imagem em resolução abaixo de 2K (2048 px lado maior). Sub-2K é anti-padrão obrigatório (S1.3 / ADR-0015).
+- ❌ Gerar Foto 1/2/3 de peça do catálogo from-scratch quando a foto-fonte do PDF está disponível como input image. Use `--image assets/brand/catalogo-pecas/<slug>.png` no Higgsfield CLI pra fidelidade de design (atualização S1.4 / ADR-0015 inline 2026-05-06). Exceção histórica única: brinco-folha-aberta-semijoia da S1.4 TB1.
 - ❌ Escolher modelo Higgsfield mais barato em vez do mais adequado (ADR-0001).
 - ❌ **Usar imagem ou vídeo em produção que não foi gerado via Higgsfield CLI** (ADR-0006). Stock photos, bancos de imagens (Unsplash/Pexels/etc.), Midjourney, DALL-E, Stable Diffusion local — proibidos como asset publicado. Exceção única: foto real fornecida diretamente pela Ellen, e ainda assim deve passar por background swap Higgsfield para padronização.
 - ❌ Hardcoding de "Outono", "Folhas", "estação" em componentes ou rotas. Componentes leem `data/campanha-atual.json` dinamicamente.
@@ -255,9 +263,10 @@ Resposta: **interromper trabalho atual**, sinalizar problema, propor `/improve-c
 - **ADR-0008** (revisada) — Política de produção fotográfica **uniforme**: 3 fotos por peça (peça em ambiente foco-produto, peça em ambiente foco-detalhe, Modelo Ella usando a peça adaptada por categoria). Sem hierarquia. Total estimado ~270–360 gerações Higgsfield para o catálogo Outono 2026.
 - **ADR-0009** — Schema amendment: `cordaoPersonalizado: boolean` removido; `tipoFulfillment: 'pronta-entrega' | 'sob-encomenda'` introduzido. Adicionada `piercings` ao enum `categoria`. Supersede ponto específico do schema da ADR-0004.
 - **ADR-0010** — Fluxo wa.me sem bot: finalização gera `PED-XXXXXX` local, monta mensagem URL-encoded, abre `wa.me/<E.164>?text=...` em aba nova. Sem WhatsApp Business API, sem Z-API/Twilio. Ellen atende manualmente. Snapshot de pedido salvo em `localStorage` (`ella-orders-v1`).
-- **ADR-0012** — Soul Character "Modelo Ella": persona definitiva (mulher ~45–50, morena, warm-editorial soft glam, sofisticada). Treinada uma vez no Higgsfield Soul, `reference_id` em `data/higgsfield-references.json`, reutilizada em toda Foto 3 do catálogo (ADR-0008). Anti-drift checks a cada 20 peças.
+- **ADR-0012** — ⛔ **superseded by ADR-0015** (S1.3, 2026-05-05). Soul Character "Modelo Ella" único: descartado. Substituído por Persona-Tipo prompt-only via Nano Banana Pro 2K. Conteúdo histórico preservado em `docs/adr/0012-...`.
 - **ADR-0013** — Estratégia de teste: 7 camadas obrigatórias (Vitest unit + snapshot WhatsApp + RTL integration + Playwright E2E + visual regression + a11y axe-core + Lighthouse perf budget). Atualização 2026-05-05: durante S1.1–S5.x execução é local-only (`pnpm test:e2e`/`:visual`/`:a11y` antes de fechar slice); CI workflow + Lighthouse + Vercel deploy ativam em S6.1.
-- **ADR-0014** — Brand Reference Pack v1.0 (S1.2). Tipografia hero **Bodoni Moda** com weight adaptativo (500 mobile / 400 desktop), tipografia secundária **Inter** mantida, paleta secundária 4 cores warm derivadas (`--color-salmao-claro` `#FFF1ED`, `--color-areia` `#F0DCC4`, `--color-taupe` `#8A6E5C`, `--color-dourado-claro` `#EFC78B`). `assets/prompts/brand-reference.md` v1.0 como BIOS visual canônico — input obrigatório de toda geração Higgsfield a partir de S1.3.
+- **ADR-0014** — Brand Reference Pack v1.0 (S1.2). Tipografia hero **Bodoni Moda** com weight adaptativo (500 mobile / 400 desktop), tipografia secundária **Inter** mantida, paleta secundária 4 cores warm derivadas (`--color-salmao-claro` `#FFF1ED`, `--color-areia` `#F0DCC4`, `--color-taupe` `#8A6E5C`, `--color-dourado-claro` `#EFC78B`). `assets/prompts/brand-reference.md` v1.0 como BIOS visual canônico — input obrigatório de toda geração Higgsfield a partir de S1.3. **Atualizado em S1.3 pra v1.1 com §10 persona-tipo + pipeline visual único Nano Banana Pro 2K.**
+- **ADR-0015** — Persona-Tipo Modelo Ella + Pipeline Visual Único Nano Banana Pro 2K (S1.3, supersedes ADR-0012, atualiza ADR-0008). Modelo Ella vira persona-tipo prompt-only (sem Soul Character treinado, sem `reference_id`). Nano Banana Pro 2K como modelo único de imagem (Foto 1+2+3 + bg-swap). Cinema Studio mantém pra vídeos. Soul/Flux/Kling/Seedance removidos. Resolução 2K obrigatória. Sub-prompts em `assets/prompts/personas/sub-prompts/{mao,pescoco,orelha,tornozelo}.md`. **Atualização inline 2026-05-06 (S1.4)**: input image obrigatório do catálogo PDF (`--image assets/brand/catalogo-pecas/<slug>.png`) pra toda Foto 1/2/3 do catálogo a partir de S3.1; from-scratch ainda válido pra camadas atemporal e sazonal da Marca. Exceção histórica: `brinco-folha-aberta-semijoia` da S1.4 TB1.
 
 ---
 

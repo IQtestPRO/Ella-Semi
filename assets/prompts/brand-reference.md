@@ -276,6 +276,7 @@ Toda geração de imagem em **2K** (2048 px lado maior). Ratios por contexto: `4
   "model": "nano-banana-pro",
   "model_id": "nano_banana_2",
   "prompt_ref": "assets/prompts/personas/<sub>.md OR ad-hoc inline",
+  "input_image_ref": "assets/brand/catalogo-pecas/<slug>.png (S3.1+) OR ausente em geração from-scratch",
   "resolution": "2k",
   "aspect_ratio": "4:5 | 1:1 | 16:9",
   "dimensions": "WxH",
@@ -287,6 +288,8 @@ Toda geração de imagem em **2K** (2048 px lado maior). Ratios por contexto: `4
   "brandReferenceVersion": "1.1"
 }
 ```
+
+> **Nota 2026-05-06 (atualização ADR-0015 inline)**: a partir de S3.1, toda Foto 1/2/3 do catálogo usa `--image assets/brand/catalogo-pecas/<slug>.png` (foto-fonte extraída do PDF) como input pra Nano Banana Pro 2K — fidelidade de design ao catálogo da Ellen. Geração from-scratch é exceção histórica (peça canônica `brinco-folha-aberta-semijoia` da S1.4 TB1) ou caso de geração não-catálogo (camadas atemporal e sazonal). Campo `input_image_ref` no manifest registra a procedência.
 
 ### 10.5 Versão e histórico v1.1
 

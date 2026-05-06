@@ -108,3 +108,70 @@ Foto 3 (lifestyle com peça) usa:
 - TB2 desta slice gerou 1 amostra-piloto técnica (`assets/generated/personas/modelo-ella-piloto-001.webp`) pra validar pipeline end-to-end. Pak não bloqueia em validação visual desta slice — qualquer mulher dentro do range serve. Aderência da persona-tipo verificada na produção real de S3.1.
 - Cinema Studio mantém pra vídeos. Marketing Studio Image / Marketing Studio Video / Soul Cinematic / outros: removidos do escopo.
 - Pack v2.0 do brand-reference quando catálogo crescer (provável S3+).
+
+---
+
+## Atualização 2026-05-06 — input image do catálogo PDF como referência obrigatória
+
+### Contexto
+
+S1.4 TB1 (peça canônica `brinco-folha-aberta-semijoia`) gerou 3 fotos via Nano Banana Pro 2K em modo **from-scratch** (prompt-only, sem input image). Pak validou visualmente e identificou **drift de design entre Foto 1/3 (leaf outline com vazados) e Foto 2 (folha sólida com swirl)** — Foto 2 reinterpretou a peça com geometria divergente porque o macro carrega menos contexto narrativo, dando mais liberdade de reinterpretação ao modelo.
+
+Primeira evidência empírica de que **prompt-only não basta pra fidelidade de design da peça** — o modelo precisa "ver" a peça pra preservá-la.
+
+### Decisão (tática — mecânica de input)
+
+A partir desta atualização, **toda geração de Foto 1, Foto 2 e Foto 3 do catálogo passa a usar como `--image` input a foto-fonte da peça extraída do PDF** (`assets/brand/catalogo-outono-2026.pdf`, página + letra registradas em `product.origem`).
+
+Mecânica concreta:
+
+```bash
+higgsfield generate create nano_banana_2 \
+  --image assets/brand/catalogo-pecas/<slug>.png \
+  --aspect_ratio <r> \
+  --resolution 2k \
+  --wait \
+  --prompt "<reframe + ambiente warm-editorial + lighting + anti>"
+```
+
+Pra Foto 3 (lifestyle com Modelo Ella), o input image continua sendo a foto da peça do PDF — Nano Banana Pro 2K integra a peça na cena com pessoa, mantendo design fiel ao catálogo.
+
+### Mecânica de extração (responsabilidade S3.1)
+
+S3.1 (catálogo completo) implementa utility `scripts/extract-catalogo-page.mjs`:
+- Lê `data/products.json`
+- Para cada peça com `origem.{catalogoArquivo, pagina, letra}`
+- Extrai a página do PDF como PNG via biblioteca npm (provável `pdf2pic` ou `pdfjs-dist`)
+- Salva em `assets/brand/catalogo-pecas/<slug>.png`
+- Recorta área da letra na página se necessário (peças são identificadas por letra A/B/C/D/E na página do catálogo)
+
+S3.1 também adiciona ao manifest entry o campo `input_image_ref`:
+
+```json
+{
+  "...",
+  "input_image_ref": "assets/brand/catalogo-pecas/<slug>.png"
+}
+```
+
+`input_image_ref` é **opcional** no schema — presente quando geração usou input image do PDF, ausente quando from-scratch (caso histórico).
+
+### Exceção registrada
+
+A peça canônica desta slice (`brinco-folha-aberta-semijoia`, S1.4 TB1) foi gerada **from-scratch** ANTES desta atualização e **não será regerada** — Pak aprovou visualmente o set apesar do drift Foto 1/3 vs 2. Conta como exceção histórica documentada. Manifest entries dessas 3 fotos não têm `input_image_ref`.
+
+Toda peça **a partir de S3.1** usa input image obrigatório do catálogo.
+
+### Anti-padrão registrado em CLAUDE.md
+
+> ❌ Gerar Foto 1/2/3 de peça do catálogo from-scratch quando a foto-fonte do PDF está disponível como input image. Use `--image <path>` no Higgsfield CLI pra fidelidade de design.
+
+### Consequências
+
+- **Drift de design técnico cai pra ~zero** entre os 3 frames de uma mesma peça (Nano Banana Pro 2K com input image preserva geometria).
+- **Pipeline mais robusto** — menos iteração de prompt pra forçar fidelidade.
+- **Custo igual** — sem gerações extras; cada peça continua com 3 fotos.
+- **Pré-requisito S3.1**: utility `extract-catalogo-page.mjs` implementada antes do batch.
+- **Schema do Product não muda** — campo `origem.{catalogoArquivo, pagina, letra}` já existe em todas as peças, é o ponto de partida da extração.
+
+Esta atualização é **tática** (mecânica de input). Não revoga a decisão decisória da ADR-0015 (Nano Banana Pro 2K como modelo único + persona-tipo prompt-only + 2K obrigatório). Edit inline aceitável conforme precedente CLAUDE.md "Manutenção de ADRs".
