@@ -10,3 +10,8 @@ test("/privacidade has zero WCAG 2 AA violations", async ({ page }) => {
   await page.goto("/privacidade");
   await expectNoWcagAaViolations(page);
 });
+
+test("/brincos categoria index has zero WCAG 2 AA violations", async ({ page }) => {
+  await page.goto("/brincos");
+  await expectNoWcagAaViolations(page);
+});

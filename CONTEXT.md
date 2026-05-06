@@ -91,6 +91,10 @@
 | Pipeline Higgsfield Único | Toda mídia do site nasce do Higgsfield. Foto real da Ellen entra como input de bg-swap, nunca como asset cru. ADR-0006. |
 | MAIS VENDIDOS | Seção da home alimentada por `maisVendido: true`. Dado objetivo loja física. Distinta de "Favoritas da Ella" (`destaqueHome`). S2.0 / ADR-0017. |
 | Favoritas da Ella | Seção da home alimentada por `destaqueHome: true`. Curadoria editorial subjetiva. Distinta de "MAIS VENDIDOS" (`maisVendido`). |
+| Placeholder Silhouette | Componente `PlaceholderProductImage` que renderiza fallback SVG com silhueta por categoria + sparkle + microtag "FOTO EM BREVE" quando `product.fotos.length === 0`. Camada nova na pirâmide ADR-0008, transitória até S3.1 gerar fotos via Higgsfield. ADR-0016. |
+| Hero ponte transitória | Hero da Marca usa Higgsfield Cinema Studio + Nano Banana Pro 2K com persona-tipo até Ellen entregar foto-real autorizada. Provisório intencional — substituição é parte do contrato. ADR-0018. |
+| Banner intermediário | `BannerMeio` — vídeo loop ambient (Higgsfield Cinema Studio sem pessoas) entre seções da home. Texto Bodoni Moda branca centralizado. Substitui apenas vídeo+webp ao trocar conteúdo. S2.0. |
+| Coleção Folhas de Outono | Vocabulário visual da Campanha Atual `outono-2026`. Aparece em slugs (`brinco-folha-suspensa`, `colar-galho-curvo`, `pulseira-broto-dourado`, etc) — slugs continuam atemporais (motif "folha" é símbolo de coleção, não estação no path). |
 
 ---
 
