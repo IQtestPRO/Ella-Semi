@@ -71,3 +71,21 @@ export function salvarSnapshotPedido(
   };
   window.localStorage.setItem(key, JSON.stringify(orders));
 }
+
+/**
+ * Helper compartilhado pelo FAB WhatsApp e pelo botão "Finalizar pelo
+ * WhatsApp" do CartDrawer. Abre `wa.me` em aba nova com a mensagem montada
+ * (ou `wa.link/adq88g` quando carrinho vazio — atendimento geral). Salva
+ * snapshot do pedido. NÃO limpa o carrinho — caller decide (drawer limpa,
+ * FAB não — ADR-0020).
+ */
+export function abrirWhatsAppComCarrinho(items: CartItem[]) {
+  if (typeof window === "undefined") return;
+  if (items.length === 0) {
+    window.open("https://wa.link/adq88g", "_blank", "noopener,noreferrer");
+    return;
+  }
+  const { url, pedidoId, subtotalCents } = montarMensagemWhatsApp(items);
+  salvarSnapshotPedido(pedidoId, items, subtotalCents);
+  window.open(url, "_blank", "noopener,noreferrer");
+}

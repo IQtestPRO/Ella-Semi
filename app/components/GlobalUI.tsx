@@ -2,27 +2,29 @@
 
 import dynamic from "next/dynamic";
 
-// CartDrawer e Chatbot são puramente client-side. Carregam após hidratação
-// para reduzir JS inicial e evitar mismatch de SSR com Zustand persist.
+// CartDrawer e WhatsAppFloatButton são puramente client-side. Carregam
+// após hidratação pra reduzir JS inicial e evitar mismatch de SSR com
+// Zustand persist.
 const CartDrawer = dynamic(
   () => import("./cart/CartDrawer").then((m) => m.CartDrawer),
   { ssr: false },
 );
 
-const Chatbot = dynamic(
-  () => import("./chat/Chatbot").then((m) => m.Chatbot),
+const WhatsAppFloatButton = dynamic(
+  () =>
+    import("./cart/WhatsAppFloatButton").then((m) => m.WhatsAppFloatButton),
   { ssr: false },
 );
 
 /**
- * Container global — carrinho drawer + chatbot flutuante. Renderizado em
- * todas as rotas via app/layout.tsx.
+ * Container global — carrinho drawer + FAB WhatsApp. Renderizado em todas
+ * as rotas via `app/layout.tsx`. Substituiu chatbot da S2.2 (ADR-0020).
  */
 export function GlobalUI() {
   return (
     <>
       <CartDrawer />
-      <Chatbot />
+      <WhatsAppFloatButton />
     </>
   );
 }

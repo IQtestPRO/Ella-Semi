@@ -3,11 +3,7 @@
 import { useEffect, type FC } from "react";
 import { useCart } from "../../../lib/cart/store";
 import { formatBRL } from "../../../lib/format/currency";
-import {
-  montarMensagemWhatsApp,
-  salvarSnapshotPedido,
-} from "../../../lib/cart/whatsapp";
-import { useChatbot } from "../../../lib/chat/store";
+import { abrirWhatsAppComCarrinho } from "../../../lib/cart/whatsapp";
 
 const TrashIcon: FC = () => (
   <svg
@@ -28,16 +24,7 @@ const TrashIcon: FC = () => (
 );
 
 const CloseIcon: FC = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.4"
-    strokeLinecap="round"
-    aria-hidden="true"
-  >
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
     <line x1="5" y1="5" x2="15" y2="15" />
     <line x1="15" y1="5" x2="5" y2="15" />
   </svg>
@@ -50,6 +37,12 @@ const PlusMinus: FC<{ kind: "+" | "-" }> = ({ kind }) => (
   </svg>
 );
 
+const WhatsAppMiniGlyph: FC = () => (
+  <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M16 3 C8.8 3 3 8.8 3 16 c0 2.5 0.7 4.9 2 7 L3 29 l6.2-1.9 c2 1.1 4.3 1.7 6.6 1.7 h0.2 c7.2 0 13-5.8 13-13 S23.2 3 16 3 z m0 23.6 c-2 0-3.9-0.5-5.6-1.5 l-0.4-0.2-4.2 1.3 1.3-4-0.3-0.5 c-1.1-1.7-1.6-3.7-1.6-5.7 0-5.9 4.8-10.7 10.8-10.7 2.9 0 5.5 1.1 7.6 3.1 2 2 3.1 4.7 3.1 7.6 0 5.9-4.9 10.7-10.7 10.7 z m5.9-8 c-0.3-0.2-1.9-0.9-2.2-1 -0.3-0.1-0.5-0.2-0.7 0.2-0.2 0.3-0.8 1-1 1.2 -0.2 0.2-0.4 0.2-0.7 0.1-0.3-0.2-1.4-0.5-2.6-1.6 -1-0.9-1.6-2-1.8-2.3 -0.2-0.3 0-0.5 0.1-0.6 0.1-0.1 0.3-0.4 0.5-0.5 0.2-0.2 0.2-0.3 0.3-0.5 0.1-0.2 0.1-0.4 0-0.5 -0.1-0.2-0.7-1.7-1-2.3 -0.2-0.6-0.5-0.5-0.7-0.5 -0.2 0-0.4 0-0.6 0 -0.2 0-0.6 0.1-0.8 0.4 -0.3 0.3-1.1 1.1-1.1 2.6 0 1.6 1.1 3.1 1.3 3.3 0.2 0.2 2.3 3.5 5.6 4.9 0.8 0.3 1.4 0.5 1.9 0.7 0.8 0.3 1.5 0.2 2 0.1 0.6-0.1 1.9-0.8 2.2-1.5 0.3-0.7 0.3-1.3 0.2-1.5 -0.1-0.2-0.3-0.3-0.6-0.4 z" />
+  </svg>
+);
+
 export const CartDrawer: FC = () => {
   const items = useCart((s) => s.items);
   const isOpen = useCart((s) => s.isOpen);
@@ -59,7 +52,6 @@ export const CartDrawer: FC = () => {
   const clear = useCart((s) => s.clear);
   const totalCents = useCart((s) => s.totalCents());
   const itemCount = useCart((s) => s.itemCount());
-  const openChatbot = useChatbot((s) => s.open);
 
   // Lock body scroll when open
   useEffect(() => {
@@ -83,16 +75,9 @@ export const CartDrawer: FC = () => {
 
   const handleFinalizarWhatsApp = () => {
     if (items.length === 0) return;
-    const { url, pedidoId, subtotalCents } = montarMensagemWhatsApp(items);
-    salvarSnapshotPedido(pedidoId, items, subtotalCents);
-    window.open(url, "_blank", "noopener,noreferrer");
+    abrirWhatsAppComCarrinho(items);
     clear();
     close();
-  };
-
-  const handleAbrirBot = () => {
-    close();
-    openChatbot();
   };
 
   return (
@@ -120,12 +105,14 @@ export const CartDrawer: FC = () => {
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b px-6 py-5"
-          style={{ borderColor: "rgba(138, 110, 92, 0.2)" }}>
+        <div
+          className="flex items-center justify-between border-b px-5 py-4 md:px-6 md:py-5"
+          style={{ borderColor: "rgba(138, 110, 92, 0.2)" }}
+        >
           <h2
             className="font-hero"
             style={{
-              fontSize: "26px",
+              fontSize: "clamp(22px, 5vw, 26px)",
               fontWeight: 400,
               letterSpacing: "0.02em",
               color: "var(--color-preto-warm, #251008)",
@@ -152,7 +139,7 @@ export const CartDrawer: FC = () => {
             type="button"
             onClick={close}
             aria-label="Fechar carrinho"
-            className="-mr-2 inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5"
+            className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-black/5"
             style={{ color: "var(--color-preto-warm, #251008)" }}
           >
             <CloseIcon />
@@ -191,12 +178,12 @@ export const CartDrawer: FC = () => {
               {items.map((item) => (
                 <li
                   key={item.slug}
-                  className="flex gap-4 border-b px-6 py-5"
+                  className="flex gap-3 border-b px-5 py-4 md:gap-4 md:px-6 md:py-5"
                   style={{ borderColor: "rgba(138, 110, 92, 0.15)" }}
                 >
                   {/* Foto */}
                   <div
-                    className="h-20 w-20 flex-shrink-0 overflow-hidden bg-[var(--color-salmao-claro)]"
+                    className="h-20 w-20 flex-shrink-0 overflow-hidden bg-[var(--color-salmao-claro)] md:h-24 md:w-24"
                     style={{ borderRadius: "2px" }}
                   >
                     {item.fotoUrl ? (
@@ -216,7 +203,7 @@ export const CartDrawer: FC = () => {
                     )}
                   </div>
                   {/* Info */}
-                  <div className="flex flex-1 flex-col gap-2">
+                  <div className="flex flex-1 flex-col gap-1.5 min-w-0">
                     <div className="flex items-start justify-between gap-2">
                       <p
                         className="font-hero text-[var(--color-preto-warm)]"
@@ -232,7 +219,7 @@ export const CartDrawer: FC = () => {
                         type="button"
                         onClick={() => remove(item.slug)}
                         aria-label={`Remover ${item.nome} do carrinho`}
-                        className="-mr-1 -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full transition-colors hover:bg-black/5"
+                        className="-mr-1 -mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5"
                         style={{ color: "rgba(37, 16, 8, 0.5)" }}
                       >
                         <TrashIcon />
@@ -253,7 +240,7 @@ export const CartDrawer: FC = () => {
                         type="button"
                         onClick={() => setQty(item.slug, item.qty - 1)}
                         aria-label="Diminuir quantidade"
-                        className="inline-flex h-7 w-7 items-center justify-center rounded-full"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full"
                         style={{
                           border: "1px solid rgba(138, 110, 92, 0.35)",
                           color: "var(--color-preto-warm, #251008)",
@@ -276,7 +263,7 @@ export const CartDrawer: FC = () => {
                         type="button"
                         onClick={() => setQty(item.slug, item.qty + 1)}
                         aria-label="Aumentar quantidade"
-                        className="inline-flex h-7 w-7 items-center justify-center rounded-full"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full"
                         style={{
                           border: "1px solid rgba(138, 110, 92, 0.35)",
                           color: "var(--color-preto-warm, #251008)",
@@ -292,10 +279,10 @@ export const CartDrawer: FC = () => {
           )}
         </div>
 
-        {/* Footer com subtotal + CTAs */}
+        {/* Footer com subtotal + CTA WhatsApp */}
         {items.length > 0 && (
           <div
-            className="border-t px-6 py-5"
+            className="border-t px-5 py-4 md:px-6 md:py-5"
             style={{ borderColor: "rgba(138, 110, 92, 0.2)" }}
           >
             <div className="mb-4 flex items-baseline justify-between">
@@ -314,7 +301,7 @@ export const CartDrawer: FC = () => {
               <span
                 className="font-hero"
                 style={{
-                  fontSize: "26px",
+                  fontSize: "clamp(22px, 5vw, 26px)",
                   fontWeight: 400,
                   color: "var(--color-preto-warm, #251008)",
                 }}
@@ -335,46 +322,25 @@ export const CartDrawer: FC = () => {
             >
               Frete a combinar pelo WhatsApp.
             </p>
-            <div className="flex flex-col gap-2.5">
-              <button
-                type="button"
-                onClick={handleFinalizarWhatsApp}
-                data-testid="cart-finalizar-whatsapp"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 transition-colors"
-                style={{
-                  fontFamily:
-                    "var(--font-secondary, Inter, system-ui, sans-serif)",
-                  fontSize: "13px",
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  fontWeight: 600,
-                  backgroundColor: "var(--color-preto-warm, #251008)",
-                  color: "#FFF1ED",
-                }}
-              >
-                <span>Finalizar pelo WhatsApp</span>
-                <span aria-hidden="true">→</span>
-              </button>
-              <button
-                type="button"
-                onClick={handleAbrirBot}
-                data-testid="cart-abrir-bot"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 transition-colors"
-                style={{
-                  fontFamily:
-                    "var(--font-secondary, Inter, system-ui, sans-serif)",
-                  fontSize: "12px",
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  fontWeight: 500,
-                  backgroundColor: "transparent",
-                  color: "var(--color-preto-warm, #251008)",
-                  border: "1px solid rgba(138, 110, 92, 0.45)",
-                }}
-              >
-                <span>Falar com a Ellen IA</span>
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={handleFinalizarWhatsApp}
+              data-testid="cart-finalizar-whatsapp"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 transition-colors"
+              style={{
+                fontFamily:
+                  "var(--font-secondary, Inter, system-ui, sans-serif)",
+                fontSize: "13px",
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                fontWeight: 600,
+                backgroundColor: "#25D366",
+                color: "#FFFFFF",
+              }}
+            >
+              <WhatsAppMiniGlyph />
+              <span>Finalizar pelo WhatsApp</span>
+            </button>
           </div>
         )}
       </aside>

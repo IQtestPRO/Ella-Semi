@@ -1,9 +1,13 @@
 # ADR-0019 — Chatbot ELLA via Anthropic API server-side
 
-- **Status**: aceito
+- **Status**: ⛔ **superseded by ADR-0020** (S2.3, 2026-05-06)
 - **Data**: 2026-05-06
 - **Decisor**: Pak (com Claude)
 - **Slice de origem**: S2.2
+
+> **Atualização 2026-05-06 (S2.3)**: Pak revisou e decidiu remover o chatbot completamente em favor de FAB WhatsApp direto. Conteúdo abaixo preservado como histórico. Ver ADR-0020.
+
+---
 
 ## Contexto
 

@@ -162,7 +162,7 @@ export function Hero({
             fontWeight: 300,
           }}
         >
-          role
+          rolê
         </span>
         <svg
           width="14"
