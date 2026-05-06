@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { DM_Serif_Display, Inter } from "next/font/google";
+import { Bodoni_Moda, Inter } from "next/font/google";
 import "./globals.css";
 
-const fontHero = DM_Serif_Display({
-  weight: "400",
+const fontHero = Bodoni_Moda({
+  weight: ["400", "500"],
   subsets: ["latin", "latin-ext"],
   variable: "--font-hero",
   display: "swap",

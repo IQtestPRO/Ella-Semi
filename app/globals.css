@@ -16,4 +16,11 @@ body {
 
 h1 {
   font-family: var(--font-hero), Georgia, serif;
+  font-weight: 500;
+}
+
+@media (min-width: 641px) {
+  h1 {
+    font-weight: 400;
+  }
 }

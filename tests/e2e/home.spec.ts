@@ -24,11 +24,19 @@ test("home shows sparkle SVG with brand gold color", async ({ page }) => {
   expect(color).toBe("rgb(217, 154, 48)");
 });
 
-test("h1 ELLA uses DM Serif Display via next/font", async ({ page }) => {
+test("h1 ELLA uses Bodoni Moda via next/font", async ({ page }) => {
   await page.goto("/");
   const h1 = page.getByRole("heading", { level: 1, name: "ELLA" });
   const family = await h1.evaluate((el) => getComputedStyle(el).fontFamily);
-  expect(family).toMatch(/DM_Serif_Display|Georgia|serif/i);
+  expect(family).toMatch(/Bodoni|Georgia|serif/i);
+});
+
+test("h1 ELLA — weight adaptativo (mobile 500, desktop 400)", async ({ page, viewport }) => {
+  await page.goto("/");
+  const h1 = page.getByRole("heading", { level: 1, name: "ELLA" });
+  const weight = await h1.evaluate((el) => getComputedStyle(el).fontWeight);
+  const expected = (viewport?.width ?? 0) <= 640 ? "500" : "400";
+  expect(weight).toBe(expected);
 });
 
 test("footer links to /privacidade and page renders 'Em breve'", async ({ page }) => {
