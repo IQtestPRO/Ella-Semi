@@ -1,10 +1,13 @@
 import {
+  getAllProducts,
   getCampanhaAtual,
+  getCategoryCounts,
   getMaisVendidos,
   getProductsDestaque,
 } from "../lib/catalog";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Categorias } from "./components/home/Categorias";
 import { Hero } from "./components/home/Hero";
 import { MaisVendidos } from "./components/home/MaisVendidos";
 import { ProductCard } from "./components/ProductCard";
@@ -13,6 +16,8 @@ export default function HomePage() {
   const campanha = getCampanhaAtual();
   const destaques = getProductsDestaque();
   const maisVendidos = getMaisVendidos();
+  const categoryCounts = getCategoryCounts();
+  const allActiveProducts = getAllProducts({ ativosOnly: true });
 
   return (
     <>
@@ -21,6 +26,8 @@ export default function HomePage() {
         <Hero />
 
         <MaisVendidos products={maisVendidos} />
+
+        <Categorias counts={categoryCounts} />
 
         {destaques.length > 0 && (
           <section
@@ -38,6 +45,11 @@ export default function HomePage() {
             <ProductCard product={destaques[0]} eyebrow={campanha.nomeExibicao} />
           </section>
         )}
+
+        {/* Grid Filtrável + Banner são adicionados em commits seguintes. */}
+        <noscript>
+          <p>Catálogo completo: {allActiveProducts.length} peças.</p>
+        </noscript>
       </main>
       <Footer />
     </>
