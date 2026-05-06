@@ -2,8 +2,12 @@
 
 @theme {
   --color-salmao: #ffd9cc;
+  --color-salmao-claro: #fff1ed;
+  --color-areia: #f0dcc4;
   --color-preto-warm: #251008;
+  --color-taupe: #8a6e5c;
   --color-dourado: #d99a30;
+  --color-dourado-claro: #efc78b;
   --font-hero: var(--font-hero);
   --font-body: var(--font-body);
 }

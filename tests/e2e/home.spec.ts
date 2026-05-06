@@ -45,6 +45,23 @@ test("body uses Inter via next/font", async ({ page }) => {
   expect(family).toMatch(/Inter|system-ui|sans-serif/i);
 });
 
+test("paleta secundária — CSS vars warm derivadas disponíveis", async ({ page }) => {
+  await page.goto("/");
+  const vars = await page.evaluate(() => {
+    const cs = getComputedStyle(document.documentElement);
+    return {
+      salmaoClaro: cs.getPropertyValue("--color-salmao-claro").trim(),
+      areia: cs.getPropertyValue("--color-areia").trim(),
+      taupe: cs.getPropertyValue("--color-taupe").trim(),
+      douradoClaro: cs.getPropertyValue("--color-dourado-claro").trim(),
+    };
+  });
+  expect(vars.salmaoClaro).toBe("#fff1ed");
+  expect(vars.areia).toBe("#f0dcc4");
+  expect(vars.taupe).toBe("#8a6e5c");
+  expect(vars.douradoClaro).toBe("#efc78b");
+});
+
 test("footer links to /privacidade and page renders 'Em breve'", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "Privacidade" }).click();
