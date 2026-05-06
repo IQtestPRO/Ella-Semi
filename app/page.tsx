@@ -10,6 +10,7 @@ import { Header } from "./components/Header";
 import { Categorias } from "./components/home/Categorias";
 import { Hero } from "./components/home/Hero";
 import { MaisVendidos } from "./components/home/MaisVendidos";
+import { TodasAsPecas } from "./components/home/TodasAsPecas";
 import { ProductCard } from "./components/ProductCard";
 
 export default function HomePage() {
@@ -46,10 +47,7 @@ export default function HomePage() {
           </section>
         )}
 
-        {/* Grid Filtrável + Banner são adicionados em commits seguintes. */}
-        <noscript>
-          <p>Catálogo completo: {allActiveProducts.length} peças.</p>
-        </noscript>
+        <TodasAsPecas products={allActiveProducts} />
       </main>
       <Footer />
     </>
