@@ -8,9 +8,13 @@ import { useCart } from "../../../lib/cart/store";
  * antes ia pra /produtos. Mostra badge com contagem.
  */
 export const CartButton: FC = () => {
-  const itemCount = useCart((s) => s.itemCount());
   const isHydrated = useCart((s) => s.isHydrated);
+  const rawCount = useCart((s) => s.itemCount());
   const open = useCart((s) => s.open);
+
+  // Pre-hidratação: mantém estado neutro (0) pra casar com SSR. Após
+  // localStorage carregar, atualiza pro valor real e re-renderiza.
+  const itemCount = isHydrated ? rawCount : 0;
 
   return (
     <button
@@ -48,7 +52,7 @@ export const CartButton: FC = () => {
       </svg>
 
       {/* Badge */}
-      {isHydrated && itemCount > 0 && (
+      {itemCount > 0 && (
         <span
           aria-hidden="true"
           data-testid="cart-badge"
