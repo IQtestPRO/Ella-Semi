@@ -20,7 +20,8 @@
 ## Peças
 
 - **Peça** / **Produto** — unidade vendável do catálogo, persistida em `data/products.json`. Schema simples sem campos de campanha/coleção: slug atemporal, nome, categoria, banho, tipo, `precoCents`, `precoPromocionalCents?`, descrição, fotos, variantes, tags, flags (`promocao`, `cordaoPersonalizado`, `destaqueHome`, `ativo`), `origem?`, `cadastradoEm`, `atualizadoEm`. **Produto não sabe que está em campanha** — vínculo é unidirecional via `produtosDestaqueSlugs[]` em `campanha-atual.json`.
-- **`destaqueHome`** — flag do produto (atemporal) que decide se ele aparece na seção "Favoritas da Ella" da home. **Independente** da Campanha Atual.
+- **`destaqueHome`** — flag do produto (atemporal) que decide se ele aparece na seção "Favoritas da Ella" da home. **Independente** da Campanha Atual e do `maisVendido`. Curadoria editorial subjetiva da Ellen.
+- **`maisVendido`** — flag do produto (atemporal) que indica peça com histórico de venda alto na loja física da Ellen. **Independente** de `destaqueHome` e da Campanha Atual. Surface UI: seção "MAIS VENDIDOS" da home. Marcação manual pela Ellen baseada em dados físicos. **Não é curadoria editorial — é dado externo objetivo.** Default `false`. Adicionado em S2.0 / ADR-0017.
 - **Banho** — acabamento da peça (ouro / prata / ródio / ouro rose / níquel). É atributo principal; pode também ser variante quando a mesma peça vem em múltiplos banhos.
 - **Variante de Peça** — variação dentro do mesmo slug. Conjunto fechado:
   - **Anéis**: tamanho **brasileiro** (números 12 a 28). Não US.
@@ -88,6 +89,8 @@
 | Pipeline visual único | Higgsfield Nano Banana Pro 2K como modelo único de imagem (Foto 1, 2, 3 + bg-swap). Cinema Studio mantém pra vídeos. Soul / Flux / Kling / Seedance removidos. ADR-0015. |
 | Campanha Atual | Uma única, sem histórico, edita-se 1 JSON pra trocar. |
 | Pipeline Higgsfield Único | Toda mídia do site nasce do Higgsfield. Foto real da Ellen entra como input de bg-swap, nunca como asset cru. ADR-0006. |
+| MAIS VENDIDOS | Seção da home alimentada por `maisVendido: true`. Dado objetivo loja física. Distinta de "Favoritas da Ella" (`destaqueHome`). S2.0 / ADR-0017. |
+| Favoritas da Ella | Seção da home alimentada por `destaqueHome: true`. Curadoria editorial subjetiva. Distinta de "MAIS VENDIDOS" (`maisVendido`). |
 
 ---
 

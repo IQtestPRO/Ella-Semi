@@ -105,7 +105,8 @@ type Product = {
   tags?: string[];                    // ['promocao', 'lancamento', 'best-seller']
   promocao: boolean;                  // se true, **não pode trocar** (regra negocial — ADR-0009 e ADR-0011)
   tipoFulfillment: 'pronta-entrega' | 'sob-encomenda'; // ADR-0009. Default 'pronta-entrega'. Sob-encomenda exige pagamento prévio + UI de aviso na página e no carrinho.
-  destaqueHome: boolean;
+  destaqueHome: boolean;              // curadoria editorial subjetiva → seção "Favoritas da Ella" (ADR-0004)
+  maisVendido: boolean;               // default false. Histórico de venda real da loja física → seção "MAIS VENDIDOS" (S2.0 / ADR-0017)
   ativo: boolean;
   origem?: { catalogoArquivo: string; pagina: number; letra: string }; // rastreabilidade interna
   cadastradoEm: string;

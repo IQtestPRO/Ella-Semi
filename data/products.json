@@ -37,6 +37,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -86,6 +87,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -135,6 +137,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": true,
+    "maisVendido": false,
     "ativo": true,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -184,6 +187,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -234,6 +238,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -283,6 +288,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -332,6 +338,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -401,6 +408,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -450,6 +458,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
@@ -499,6 +508,7 @@
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
+    "maisVendido": false,
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
