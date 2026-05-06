@@ -1,5 +1,4 @@
 import {
-  getAllProducts,
   getCampanhaAtual,
   getCategoryCounts,
   getMaisVendidos,
@@ -11,7 +10,7 @@ import { BannerMeio } from "./components/home/BannerMeio";
 import { Categorias } from "./components/home/Categorias";
 import { Hero } from "./components/home/Hero";
 import { MaisVendidos } from "./components/home/MaisVendidos";
-import { TodasAsPecas } from "./components/home/TodasAsPecas";
+import { SobreNos } from "./components/home/SobreNos";
 import { ProductCard } from "./components/ProductCard";
 
 export default function HomePage() {
@@ -19,7 +18,6 @@ export default function HomePage() {
   const destaques = getProductsDestaque();
   const maisVendidos = getMaisVendidos();
   const categoryCounts = getCategoryCounts();
-  const allActiveProducts = getAllProducts({ ativosOnly: true });
 
   return (
     <>
@@ -50,7 +48,7 @@ export default function HomePage() {
           </section>
         )}
 
-        <TodasAsPecas products={allActiveProducts} />
+        <SobreNos />
       </main>
       <Footer />
     </>
