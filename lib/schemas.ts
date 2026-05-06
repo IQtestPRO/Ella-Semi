@@ -57,12 +57,16 @@ export const ProductSchema = z.object({
   precoCents: z.number().int().nonnegative(),
   precoPromocionalCents: z.number().int().nonnegative().optional(),
   descricao: z.string().min(1),
-  fotos: z.array(FotoSchema).length(3, "ADR-0008: exatamente 3 fotos por peça"),
+  fotos: z.array(FotoSchema).refine(
+    (arr) => arr.length === 0 || arr.length === 3,
+    "ADR-0008 + ADR-0016: 0 fotos (camada placeholder) ou 3 fotos (catálogo Higgsfield)"
+  ),
   variantes: z.array(VarianteSchema).optional(),
   tags: z.array(z.string()).optional(),
   promocao: z.boolean(),
   tipoFulfillment: TipoFulfillmentSchema,
   destaqueHome: z.boolean(),
+  maisVendido: z.boolean(),
   ativo: z.boolean(),
   origem: z
     .object({

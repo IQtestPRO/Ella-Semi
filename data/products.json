@@ -1,353 +1,311 @@
 [
   {
-    "slug": "conjunto-coracao-semijoia",
-    "nome": "Conjunto Coração Semijoia",
-    "categoria": "conjuntos",
+    "slug": "brinco-folha-suspensa-semijoia",
+    "nome": "Brinco Folha Suspensa Semijoia",
+    "categoria": "brincos",
     "banho": "ouro",
     "tipo": "semijoia",
-    "precoCents": 17990,
-    "descricao": "Conjunto de colar com pendente coração e par de brincos coração. Coleção Folhas de Outono.",
-    "fotos": [
-      {
-        "url": "/assets/generated/products/conjunto-coracao-semijoia/01-bg-swap.webp",
-        "alt": "Conjunto coração em ambiente warm-editorial",
-        "fonte": "higgsfield-bg-swap",
-        "width": 1500,
-        "height": 1875
-      },
-      {
-        "url": "/assets/generated/products/conjunto-coracao-semijoia/02-detalhe.webp",
-        "alt": "Detalhe macro do pendente coração",
-        "fonte": "higgsfield-detalhe",
-        "width": 1500,
-        "height": 1500
-      },
-      {
-        "url": "/assets/generated/products/conjunto-coracao-semijoia/03-lifestyle.webp",
-        "alt": "Modelo Ella usando conjunto coração",
-        "fonte": "higgsfield-lifestyle",
-        "width": 1500,
-        "height": 1875
-      }
-    ],
+    "precoCents": 6990,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
     "tags": [
-      "conjunto",
-      "coracao"
+      "brinco",
+      "semijoia",
+      "folhas-de-outono"
     ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "maisVendido": false,
-    "ativo": false,
+    "maisVendido": true,
+    "ativo": true,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
-      "pagina": 6,
+      "pagina": 4,
       "letra": "A"
     },
     "fonteFotoFraca": false,
-    "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-06T02:30:00Z"
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
   },
   {
-    "slug": "colar-pendente-cruz-semijoia",
-    "nome": "Colar Pendente Cruz Semijoia",
+    "slug": "colar-galho-fino-semijoia",
+    "nome": "Colar Galho Fino Semijoia",
     "categoria": "colares",
     "banho": "ouro",
     "tipo": "semijoia",
     "precoCents": 14990,
-    "descricao": "Colar fino com pendente cruz delicada. Peça narrativa da Coleção Folhas de Outono.",
-    "fotos": [
-      {
-        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/01-bg-swap.webp",
-        "alt": "Colar cruz em ambiente warm-editorial",
-        "fonte": "higgsfield-bg-swap",
-        "width": 1500,
-        "height": 1875
-      },
-      {
-        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/02-detalhe.webp",
-        "alt": "Detalhe macro da cruz",
-        "fonte": "higgsfield-detalhe",
-        "width": 1500,
-        "height": 1500
-      },
-      {
-        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/03-lifestyle.webp",
-        "alt": "Modelo Ella usando colar cruz",
-        "fonte": "higgsfield-lifestyle",
-        "width": 1500,
-        "height": 1875
-      }
-    ],
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
     "tags": [
       "colar",
-      "cruz",
-      "semijoia"
+      "semijoia",
+      "folhas-de-outono"
     ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
-    "maisVendido": false,
-    "ativo": false,
+    "maisVendido": true,
+    "ativo": true,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
-      "pagina": 15,
-      "letra": "E"
+      "pagina": 4,
+      "letra": "B"
     },
-    "fonteFotoFraca": true,
-    "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-06T02:30:00Z"
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
   },
   {
-    "slug": "brinco-folha-aberta-semijoia",
-    "nome": "Brinco Folha Aberta Semijoia",
+    "slug": "brinco-folha-curva-semijoia",
+    "nome": "Brinco Folha Curva Semijoia",
     "categoria": "brincos",
     "banho": "ouro",
     "tipo": "semijoia",
-    "precoCents": 9590,
-    "descricao": "Brinco em formato folha aberta dourado com detalhe pavé. Motif outonal alinhado à Coleção Folhas de Outono.",
-    "fotos": [
-      {
-        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/01-bg-swap.webp",
-        "alt": "Brinco folha em ambiente warm-editorial sobre linho cru",
-        "fonte": "higgsfield-bg-swap",
-        "width": 1856,
-        "height": 2304
-      },
-      {
-        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/02-detalhe.webp",
-        "alt": "Detalhe macro do brinco folha mostrando pavé dourado",
-        "fonte": "higgsfield-detalhe",
-        "width": 2048,
-        "height": 2048
-      },
-      {
-        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/03-lifestyle.webp",
-        "alt": "Modelo Ella usando brinco folha em perfil 3/4 com luz natural de janela",
-        "fonte": "higgsfield-lifestyle",
-        "width": 1856,
-        "height": 2304
-      }
-    ],
+    "precoCents": 7990,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
     "tags": [
       "brinco",
-      "folha",
-      "outono"
+      "semijoia",
+      "folhas-de-outono"
     ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
-    "destaqueHome": true,
+    "destaqueHome": false,
     "maisVendido": false,
     "ativo": true,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
-      "pagina": 6,
-      "letra": "D"
+      "pagina": 4,
+      "letra": "C"
     },
     "fonteFotoFraca": false,
-    "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-06T02:30:00Z"
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
   },
   {
-    "slug": "colar-veneziana-pendente-perolado-semijoia",
-    "nome": "Colar Veneziana Pendente Perolado Semijoia",
-    "categoria": "colares",
-    "banho": "ouro",
-    "tipo": "semijoia",
-    "precoCents": 11590,
-    "descricao": "Colar veneziana fino com pendente em pérola. Coleção Folhas de Outono.",
-    "fotos": [
-      {
-        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/01-bg-swap.webp",
-        "alt": "Colar veneziana com pérola em ambiente warm-editorial",
-        "fonte": "higgsfield-bg-swap",
-        "width": 1500,
-        "height": 1875
-      },
-      {
-        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/02-detalhe.webp",
-        "alt": "Detalhe macro do pendente perolado",
-        "fonte": "higgsfield-detalhe",
-        "width": 1500,
-        "height": 1500
-      },
-      {
-        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/03-lifestyle.webp",
-        "alt": "Modelo Ella usando colar veneziana",
-        "fonte": "higgsfield-lifestyle",
-        "width": 1500,
-        "height": 1875
-      }
-    ],
-    "tags": [
-      "colar",
-      "perola",
-      "semijoia"
-    ],
-    "promocao": false,
-    "tipoFulfillment": "pronta-entrega",
-    "destaqueHome": false,
-    "maisVendido": false,
-    "ativo": false,
-    "origem": {
-      "catalogoArquivo": "catalogo-outono-2026.pdf",
-      "pagina": 9,
-      "letra": "B"
-    },
-    "fonteFotoFraca": true,
-    "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-06T02:30:00Z"
-  },
-  {
-    "slug": "brinco-hoop-pave-zirconia-semijoia",
-    "nome": "Brinco Hoop Pavé Zircônia Semijoia",
+    "slug": "brinco-folha-pequena-semijoia",
+    "nome": "Brinco Folha Pequena Semijoia",
     "categoria": "brincos",
     "banho": "ouro",
     "tipo": "semijoia",
-    "precoCents": 9590,
-    "descricao": "Brinco hoop com detalhe pavé em zircônia. Sparkle natural alinhado ao motif dourado da marca.",
-    "fotos": [
-      {
-        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/01-bg-swap.webp",
-        "alt": "Brinco hoop pavé em ambiente warm-editorial",
-        "fonte": "higgsfield-bg-swap",
-        "width": 1500,
-        "height": 1875
-      },
-      {
-        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/02-detalhe.webp",
-        "alt": "Detalhe macro do pavé de zircônia",
-        "fonte": "higgsfield-detalhe",
-        "width": 1500,
-        "height": 1500
-      },
-      {
-        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/03-lifestyle.webp",
-        "alt": "Modelo Ella usando brinco hoop pavé",
-        "fonte": "higgsfield-lifestyle",
-        "width": 1500,
-        "height": 1875
-      }
-    ],
+    "precoCents": 5990,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
     "tags": [
       "brinco",
-      "hoop",
-      "zirconia",
-      "semijoia"
+      "semijoia",
+      "folhas-de-outono"
     ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
     "maisVendido": false,
-    "ativo": false,
+    "ativo": true,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
-      "pagina": 9,
-      "letra": "E"
+      "pagina": 4,
+      "letra": "D"
     },
     "fonteFotoFraca": false,
-    "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-06T02:30:00Z"
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
   },
   {
-    "slug": "pulseira-correntao-banho-ouro-semijoia",
-    "nome": "Pulseira Correntão Banho Ouro Semijoia",
-    "categoria": "pulseiras",
+    "slug": "brinco-folha-grande-semijoia",
+    "nome": "Brinco Folha Grande Semijoia",
+    "categoria": "brincos",
     "banho": "ouro",
     "tipo": "semijoia",
-    "precoCents": 10990,
-    "descricao": "Pulseira correntão dourado com placas. Peça contemporânea, statement.",
-    "fotos": [
-      {
-        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/01-bg-swap.webp",
-        "alt": "Pulseira correntão em ambiente warm-editorial",
-        "fonte": "higgsfield-bg-swap",
-        "width": 1500,
-        "height": 1875
-      },
-      {
-        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/02-detalhe.webp",
-        "alt": "Detalhe macro da corrente e placas",
-        "fonte": "higgsfield-detalhe",
-        "width": 1500,
-        "height": 1500
-      },
-      {
-        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/03-lifestyle.webp",
-        "alt": "Modelo Ella usando pulseira correntão",
-        "fonte": "higgsfield-lifestyle",
-        "width": 1500,
-        "height": 1875
-      }
-    ],
+    "precoCents": 4590,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
     "tags": [
-      "pulseira",
-      "correntao",
-      "semijoia"
+      "brinco",
+      "semijoia",
+      "folhas-de-outono"
     ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
     "maisVendido": false,
-    "ativo": false,
+    "ativo": true,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
-      "pagina": 22,
-      "letra": "I"
+      "pagina": 4,
+      "letra": "F"
     },
     "fonteFotoFraca": false,
-    "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-06T02:30:00Z"
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
   },
   {
-    "slug": "conjunto-colar-brinco-resort-semijoia",
-    "nome": "Conjunto Colar Brinco Resort Semijoia",
-    "categoria": "conjuntos",
+    "slug": "colar-galho-pendente-semijoia",
+    "nome": "Colar Galho Pendente Semijoia",
+    "categoria": "colares",
     "banho": "ouro",
     "tipo": "semijoia",
-    "precoCents": 29990,
-    "descricao": "Conjunto premium com colar e brincos coordenados. Peça-bandeira da Coleção Folhas de Outono.",
-    "fotos": [
-      {
-        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/01-bg-swap.webp",
-        "alt": "Conjunto resort em ambiente warm-editorial",
-        "fonte": "higgsfield-bg-swap",
-        "width": 1500,
-        "height": 1875
-      },
-      {
-        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/02-detalhe.webp",
-        "alt": "Detalhe macro do conjunto",
-        "fonte": "higgsfield-detalhe",
-        "width": 1500,
-        "height": 1500
-      },
-      {
-        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/03-lifestyle.webp",
-        "alt": "Modelo Ella usando conjunto resort",
-        "fonte": "higgsfield-lifestyle",
-        "width": 1500,
-        "height": 1875
-      }
-    ],
+    "precoCents": 5990,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
     "tags": [
-      "conjunto",
-      "premium",
-      "semijoia"
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": true,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 4,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-galho-curvo-semijoia",
+    "nome": "Colar Galho Curvo Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9590,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
     ],
     "promocao": false,
     "tipoFulfillment": "pronta-entrega",
     "destaqueHome": false,
     "maisVendido": false,
-    "ativo": false,
+    "ativo": true,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
-      "pagina": 17,
+      "pagina": 4,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-folha-fina-bijuteria",
+    "nome": "Brinco Folha Fina Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 5,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-folha-pousada-semijoia",
+    "nome": "Brinco Folha Pousada Semijoia",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 18990,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": true,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 5,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-folha-abraco-semijoia",
+    "nome": "Brinco Folha Abraco Semijoia",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 18990,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 5,
       "letra": "C"
     },
-    "fonteFotoFraca": true,
-    "cadastradoEm": "2026-05-05T17:00:00Z",
-    "atualizadoEm": "2026-05-06T02:30:00Z"
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-folha-pave-semijoia",
+    "nome": "Brinco Folha Pave Semijoia",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 6590,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 5,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
   },
   {
     "slug": "brinco-hoop-trio-semijoia",
@@ -420,31 +378,774 @@
     "atualizadoEm": "2026-05-06T02:30:00Z"
   },
   {
-    "slug": "colar-perolas-pendente-semijoia",
-    "nome": "Colar Pérolas Pendente Semijoia",
-    "categoria": "colares",
+    "slug": "conjunto-coracao-semijoia",
+    "nome": "Conjunto Coração Semijoia",
+    "categoria": "conjuntos",
     "banho": "ouro",
     "tipo": "semijoia",
-    "precoCents": 9890,
-    "descricao": "Colar de pérolas espaçadas com pendente perolado. Look editorial premium.",
+    "precoCents": 17990,
+    "descricao": "Conjunto de colar com pendente coração e par de brincos coração. Coleção Folhas de Outono.",
     "fotos": [
       {
-        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/01-bg-swap.webp",
-        "alt": "Colar pérolas em ambiente warm-editorial",
+        "url": "/assets/generated/products/conjunto-coracao-semijoia/01-bg-swap.webp",
+        "alt": "Conjunto coração em ambiente warm-editorial",
         "fonte": "higgsfield-bg-swap",
         "width": 1500,
         "height": 1875
       },
       {
-        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/02-detalhe.webp",
+        "url": "/assets/generated/products/conjunto-coracao-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do pendente coração",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/conjunto-coracao-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando conjunto coração",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
+    ],
+    "tags": [
+      "conjunto",
+      "coracao"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-05T17:00:00Z",
+    "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "conjunto-folha-conjunto-semijoia",
+    "nome": "Conjunto Folha Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 8990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-galho-conjunto-semijoia",
+    "nome": "Conjunto Galho Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 12990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-folha-aberta-semijoia",
+    "nome": "Brinco Folha Aberta Semijoia",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9590,
+    "descricao": "Brinco em formato folha aberta dourado com detalhe pavé. Motif outonal alinhado à Coleção Folhas de Outono.",
+    "fotos": [
+      {
+        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/01-bg-swap.webp",
+        "alt": "Brinco folha em ambiente warm-editorial sobre linho cru",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1856,
+        "height": 2304
+      },
+      {
+        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do brinco folha mostrando pavé dourado",
+        "fonte": "higgsfield-detalhe",
+        "width": 2048,
+        "height": 2048
+      },
+      {
+        "url": "/assets/generated/products/brinco-folha-aberta-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando brinco folha em perfil 3/4 com luz natural de janela",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1856,
+        "height": 2304
+      }
+    ],
+    "tags": [
+      "brinco",
+      "folha",
+      "outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": true,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-05T17:00:00Z",
+    "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "brinco-folha-rose-semijoia",
+    "nome": "Brinco Folha Rose Semijoia",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 10990,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-folha-cravada-semijoia",
+    "nome": "Brinco Folha Cravada Semijoia",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 8990,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-broto-conjunto-semijoia",
+    "nome": "Conjunto Broto Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 10990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 6,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-veia-fina-bijuteria",
+    "nome": "Anel Veia Fina Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-gota-folha-bijuteria",
+    "nome": "Brinco Gota Folha Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-gota-pingente-bijuteria",
+    "nome": "Brinco Gota Pingente Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-veia-grossa-bijuteria",
+    "nome": "Anel Veia Grossa Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-gota-pequena-bijuteria",
+    "nome": "Brinco Gota Pequena Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-veia-cravada-bijuteria",
+    "nome": "Anel Veia Cravada Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-gota-grande-bijuteria",
+    "nome": "Brinco Gota Grande Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-broto-pequeno-bijuteria",
+    "nome": "Brinco Broto Pequeno Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-veia-perola-semijoia",
+    "nome": "Anel Veia Perola Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 6990,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 7,
+      "letra": "I"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-veia-rose-bijuteria",
+    "nome": "Anel Veia Rose Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 8,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-veia-pave-semijoia",
+    "nome": "Anel Veia Pave Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9890,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": true,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 8,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-folha-anel-bijuteria",
+    "nome": "Anel Folha Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 8,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-folha-fina-anel-bijuteria",
+    "nome": "Anel Folha Fina Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 8,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-folha-pave-anel-bijuteria",
+    "nome": "Anel Folha Pave Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 8,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-folha-cravada-anel-bijuteria",
+    "nome": "Anel Folha Cravada Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 8,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-galho-anel-bijuteria",
+    "nome": "Anel Galho Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 8,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-galho-fino-anel-bijuteria",
+    "nome": "Anel Galho Fino Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 8,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-galho-pousado-bijuteria",
+    "nome": "Colar Galho Pousado Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 9,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-veneziana-pendente-perolado-semijoia",
+    "nome": "Colar Veneziana Pendente Perolado Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 11590,
+    "descricao": "Colar veneziana fino com pendente em pérola. Coleção Folhas de Outono.",
+    "fotos": [
+      {
+        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/01-bg-swap.webp",
+        "alt": "Colar veneziana com pérola em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/02-detalhe.webp",
         "alt": "Detalhe macro do pendente perolado",
         "fonte": "higgsfield-detalhe",
         "width": 1500,
         "height": 1500
       },
       {
-        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/03-lifestyle.webp",
-        "alt": "Modelo Ella usando colar pérolas",
+        "url": "/assets/generated/products/colar-veneziana-pendente-perolado-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando colar veneziana",
         "fonte": "higgsfield-lifestyle",
         "width": 1500,
         "height": 1875
@@ -462,12 +1163,40 @@
     "ativo": false,
     "origem": {
       "catalogoArquivo": "catalogo-outono-2026.pdf",
-      "pagina": 12,
-      "letra": "D"
+      "pagina": 9,
+      "letra": "B"
     },
     "fonteFotoFraca": true,
     "cadastradoEm": "2026-05-05T17:00:00Z",
     "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "colar-galho-coracao-fino-semijoia",
+    "nome": "Colar Galho Coracao Fino Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 5990,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 9,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
   },
   {
     "slug": "pulseira-pearls-douradas-semijoia",
@@ -518,5 +1247,2952 @@
     "fonteFotoFraca": false,
     "cadastradoEm": "2026-05-05T19:00:00Z",
     "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "brinco-hoop-pave-zirconia-semijoia",
+    "nome": "Brinco Hoop Pavé Zircônia Semijoia",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9590,
+    "descricao": "Brinco hoop com detalhe pavé em zircônia. Sparkle natural alinhado ao motif dourado da marca.",
+    "fotos": [
+      {
+        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/01-bg-swap.webp",
+        "alt": "Brinco hoop pavé em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do pavé de zircônia",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/brinco-hoop-pave-zirconia-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando brinco hoop pavé",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
+    ],
+    "tags": [
+      "brinco",
+      "hoop",
+      "zirconia",
+      "semijoia"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 9,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-05T17:00:00Z",
+    "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "colar-galho-perola-semijoia",
+    "nome": "Colar Galho Perola Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 6990,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 9,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-broto-suspenso-bijuteria",
+    "nome": "Brinco Broto Suspenso Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 10,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-broto-pave-bijuteria",
+    "nome": "Brinco Broto Pave Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 8990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 10,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-broto-pingente-bijuteria",
+    "nome": "Brinco Broto Pingente Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 10,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-broto-cravado-semijoia",
+    "nome": "Brinco Broto Cravado Semijoia",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 8990,
+    "descricao": "Brinco semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 10,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-sumo-dourado-bijuteria",
+    "nome": "Brinco Sumo Dourado Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 10,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-sumo-pave-bijuteria",
+    "nome": "Brinco Sumo Pave Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono. Trio.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono",
+      "trio"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 10,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-veia-fina-brinco-bijuteria",
+    "nome": "Brinco Veia Fina Brinco Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 10,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-broto-dourado-bijuteria",
+    "nome": "Pulseira Broto Dourado Bijuteria",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2990,
+    "descricao": "Pulseira bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 10,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-veia-pequena-bijuteria",
+    "nome": "Brinco Veia Pequena Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 11,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-galho-curvo-brinco-bijuteria",
+    "nome": "Brinco Galho Curvo Brinco Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 8990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono. Trio.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono",
+      "trio"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 11,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-galho-pingente-bijuteria",
+    "nome": "Brinco Galho Pingente Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 11,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-galho-fino-brinco-bijuteria",
+    "nome": "Brinco Galho Fino Brinco Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 11,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-argola-folha-bijuteria",
+    "nome": "Brinco Argola Folha Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 11,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-argola-broto-bijuteria",
+    "nome": "Brinco Argola Broto Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 11,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-argola-veia-bijuteria",
+    "nome": "Brinco Argola Veia Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 8990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 11,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "brinco-argola-galho-bijuteria",
+    "nome": "Brinco Argola Galho Bijuteria",
+    "categoria": "brincos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Brinco bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "brinco",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 11,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-galho-cravado-bijuteria",
+    "nome": "Colar Galho Cravado Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4590,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-veia-dourada-bijuteria",
+    "nome": "Colar Veia Dourada Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono. Vendido por unidade.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-veia-veneziana-bijuteria",
+    "nome": "Colar Veia Veneziana Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-perolas-pendente-semijoia",
+    "nome": "Colar Pérolas Pendente Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9890,
+    "descricao": "Colar de pérolas espaçadas com pendente perolado. Look editorial premium.",
+    "fotos": [
+      {
+        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/01-bg-swap.webp",
+        "alt": "Colar pérolas em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do pendente perolado",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/colar-perolas-pendente-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando colar pérolas",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
+    ],
+    "tags": [
+      "colar",
+      "perola",
+      "semijoia"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "D"
+    },
+    "fonteFotoFraca": true,
+    "cadastradoEm": "2026-05-05T17:00:00Z",
+    "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "colar-veia-perlada-semijoia",
+    "nome": "Colar Veia Perlada Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 10590,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-veia-cravada-bijuteria",
+    "nome": "Colar Veia Cravada Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-veia-quadradinho-bijuteria",
+    "nome": "Colar Veia Quadradinho Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 9890,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-veia-rose-semijoia",
+    "nome": "Colar Veia Rose Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 4990,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 12,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-folha-colar-bijuteria",
+    "nome": "Colar Pingente Folha Colar Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-galho-bijuteria",
+    "nome": "Colar Pingente Galho Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-broto-bijuteria",
+    "nome": "Colar Pingente Broto Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-perola-fina-bijuteria",
+    "nome": "Colar Pingente Perola Fina Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4590,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-coracao-fino-bijuteria",
+    "nome": "Colar Pingente Coracao Fino Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-cruz-fina-semijoia",
+    "nome": "Colar Pingente Cruz Fina Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9890,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-zirconia-bijuteria",
+    "nome": "Colar Pingente Zirconia Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-gota-bijuteria",
+    "nome": "Colar Pingente Gota Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pingente-pave-bijuteria",
+    "nome": "Colar Pingente Pave Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 13,
+      "letra": "I"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "gargantilha-galho-gargantilha-bijuteria",
+    "nome": "Gargantilha Galho Gargantilha Bijuteria",
+    "categoria": "gargantilhas",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2990,
+    "descricao": "Gargantilha bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "gargantilha",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-corrente-folha-bijuteria",
+    "nome": "Colar Corrente Folha Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 7990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-corrente-veia-bijuteria",
+    "nome": "Colar Corrente Veia Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 7990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-corrente-galho-bijuteria",
+    "nome": "Colar Corrente Galho Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "gargantilha-folha-gargantilha-bijuteria",
+    "nome": "Gargantilha Folha Gargantilha Bijuteria",
+    "categoria": "gargantilhas",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Gargantilha bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "gargantilha",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-corrente-broto-bijuteria",
+    "nome": "Colar Corrente Broto Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono. Vendido por unidade.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-corrente-perola-semijoia",
+    "nome": "Colar Corrente Perola Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 7990,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "gargantilha-veia-gargantilha-bijuteria",
+    "nome": "Gargantilha Veia Gargantilha Bijuteria",
+    "categoria": "gargantilhas",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2990,
+    "descricao": "Gargantilha bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "gargantilha",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-corrente-fina-bijuteria",
+    "nome": "Colar Corrente Fina Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "I"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "gargantilha-broto-gargantilha-bijuteria",
+    "nome": "Gargantilha Broto Gargantilha Bijuteria",
+    "categoria": "gargantilhas",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Gargantilha bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "gargantilha",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 14,
+      "letra": "J"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-corrente-grossa-semijoia",
+    "nome": "Colar Corrente Grossa Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 6990,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-corrente-elo-bijuteria",
+    "nome": "Colar Corrente Elo Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-mosaico-veia-semijoia",
+    "nome": "Colar Mosaico Veia Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 12990,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-mosaico-galho-bijuteria",
+    "nome": "Colar Mosaico Galho Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pendente-cruz-semijoia",
+    "nome": "Colar Pendente Cruz Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 14990,
+    "descricao": "Colar fino com pendente cruz delicada. Peça narrativa da Coleção Folhas de Outono.",
+    "fotos": [
+      {
+        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/01-bg-swap.webp",
+        "alt": "Colar cruz em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro da cruz",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/colar-pendente-cruz-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando colar cruz",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
+    ],
+    "tags": [
+      "colar",
+      "cruz",
+      "semijoia"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "E"
+    },
+    "fonteFotoFraca": true,
+    "cadastradoEm": "2026-05-05T17:00:00Z",
+    "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "colar-fina-perlada-semijoia",
+    "nome": "Colar Fina Perlada Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 7590,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-longa-folha-bijuteria",
+    "nome": "Colar Longa Folha Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-longa-perlada-bijuteria",
+    "nome": "Colar Longa Perlada Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-curta-pendente-bijuteria",
+    "nome": "Colar Curta Pendente Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 15,
+      "letra": "I"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pendente-coracao-pequeno-bijuteria",
+    "nome": "Colar Pendente Coracao Pequeno Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2590,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono. Personalizada (sob encomenda).",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono",
+      "personalizada"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "sob-encomenda",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 16,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pendente-folha-pequena-bijuteria",
+    "nome": "Colar Pendente Folha Pequena Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono. Personalizada (sob encomenda).",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono",
+      "personalizada"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "sob-encomenda",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 16,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pendente-galho-rose-bijuteria",
+    "nome": "Colar Pendente Galho Rose Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 16,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-pendente-broto-rose-bijuteria",
+    "nome": "Colar Pendente Broto Rose Bijuteria",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Colar bijuteria da Coleção Folhas de Outono. Vendido por unidade.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 16,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-galho-pousado-semijoia",
+    "nome": "Colar Galho Pousado Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9890,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 16,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "colar-galho-cravado-semijoia",
+    "nome": "Colar Galho Cravado Semijoia",
+    "categoria": "colares",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 15990,
+    "descricao": "Colar semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "colar",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 16,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-veia-conjunto-bijuteria",
+    "nome": "Conjunto Veia Conjunto Bijuteria",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Conjunto bijuteria da Coleção Folhas de Outono. Trio.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "bijuteria",
+      "folhas-de-outono",
+      "trio"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 17,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-coracao-conjunto-fino-semijoia",
+    "nome": "Conjunto Coracao Conjunto Fino Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 14990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": true,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 17,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-colar-brinco-resort-semijoia",
+    "nome": "Conjunto Colar Brinco Resort Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 29990,
+    "descricao": "Conjunto premium com colar e brincos coordenados. Peça-bandeira da Coleção Folhas de Outono.",
+    "fotos": [
+      {
+        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/01-bg-swap.webp",
+        "alt": "Conjunto resort em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro do conjunto",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/conjunto-colar-brinco-resort-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando conjunto resort",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
+    ],
+    "tags": [
+      "conjunto",
+      "premium",
+      "semijoia"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 17,
+      "letra": "C"
+    },
+    "fonteFotoFraca": true,
+    "cadastradoEm": "2026-05-05T17:00:00Z",
+    "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "conjunto-perola-conjunto-semijoia",
+    "nome": "Conjunto Perola Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 16990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 17,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-cruz-conjunto-semijoia",
+    "nome": "Conjunto Cruz Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 8990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 17,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-pingente-conjunto-semijoia",
+    "nome": "Conjunto Pingente Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 28990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 18,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-zirconia-conjunto-semijoia",
+    "nome": "Conjunto Zirconia Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 8990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 18,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-pave-conjunto-semijoia",
+    "nome": "Conjunto Pave Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "rodio",
+    "tipo": "semijoia",
+    "precoCents": 8990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 18,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-cravado-conjunto-semijoia",
+    "nome": "Conjunto Cravado Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 16990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 18,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "conjunto-rose-conjunto-semijoia",
+    "nome": "Conjunto Rose Conjunto Semijoia",
+    "categoria": "conjuntos",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 29990,
+    "descricao": "Conjunto semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "conjunto",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 18,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-galho-curvo-anel-semijoia",
+    "nome": "Anel Galho Curvo Anel Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 8990,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 19,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-galho-pave-anel-semijoia",
+    "nome": "Anel Galho Pave Anel Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 14990,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 19,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-broto-anel-semijoia",
+    "nome": "Anel Broto Anel Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 16990,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 19,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-broto-fino-anel-bijuteria",
+    "nome": "Anel Broto Fino Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono. Vendido por unidade.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 19,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-broto-cravado-anel-semijoia",
+    "nome": "Anel Broto Cravado Anel Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 15990,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 19,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-broto-pave-anel-bijuteria",
+    "nome": "Anel Broto Pave Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 20,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-pousada-anel-bijuteria",
+    "nome": "Anel Pousada Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 8990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono. Triplo.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono",
+      "triplo"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 20,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-pousada-pave-anel-bijuteria",
+    "nome": "Anel Pousada Pave Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono. Trio.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono",
+      "trio"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 20,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-aro-folha-anel-bijuteria",
+    "nome": "Anel Aro Folha Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono. Personalizada (sob encomenda). Vendido por unidade.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono",
+      "personalizada"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "sob-encomenda",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 20,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-aro-fino-semijoia",
+    "nome": "Anel Aro Fino Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 5990,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 20,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-aro-grosso-semijoia",
+    "nome": "Anel Aro Grosso Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9890,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 20,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-aro-pave-anel-bijuteria",
+    "nome": "Anel Aro Pave Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 3990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 21,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-aro-cravado-anel-bijuteria",
+    "nome": "Anel Aro Cravado Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 21,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-duplo-anel-semijoia",
+    "nome": "Anel Duplo Anel Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 22990,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 21,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-duplo-folha-anel-bijuteria",
+    "nome": "Anel Duplo Folha Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 21,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-duplo-broto-anel-bijuteria",
+    "nome": "Anel Duplo Broto Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 21,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-duplo-galho-anel-bijuteria",
+    "nome": "Anel Duplo Galho Anel Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 7990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 21,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-triplo-veia-bijuteria",
+    "nome": "Anel Triplo Veia Bijuteria",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Anel bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 21,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "anel-triplo-folha-semijoia",
+    "nome": "Anel Triplo Folha Semijoia",
+    "categoria": "aneis",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 12990,
+    "descricao": "Anel semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "anel",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 21,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-broto-link-bijuteria",
+    "nome": "Pulseira Broto Link Bijuteria",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 2990,
+    "descricao": "Pulseira bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "A"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-broto-perlado-bijuteria",
+    "nome": "Pulseira Broto Perlado Bijuteria",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Pulseira bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "B"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-broto-fino-bijuteria",
+    "nome": "Pulseira Broto Fino Bijuteria",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Pulseira bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "C"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-broto-grosso-bijuteria",
+    "nome": "Pulseira Broto Grosso Bijuteria",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 7990,
+    "descricao": "Pulseira bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "D"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-elo-folha-semijoia",
+    "nome": "Pulseira Elo Folha Semijoia",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 8990,
+    "descricao": "Pulseira semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": true,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "E"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-elo-perola-semijoia",
+    "nome": "Pulseira Elo Perola Semijoia",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 14990,
+    "descricao": "Pulseira semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "F"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-elo-fino-bijuteria",
+    "nome": "Pulseira Elo Fino Bijuteria",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 6990,
+    "descricao": "Pulseira bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "G"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-elo-grosso-bijuteria",
+    "nome": "Pulseira Elo Grosso Bijuteria",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 4990,
+    "descricao": "Pulseira bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "H"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-correntao-banho-ouro-semijoia",
+    "nome": "Pulseira Correntão Banho Ouro Semijoia",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 10990,
+    "descricao": "Pulseira correntão dourado com placas. Peça contemporânea, statement.",
+    "fotos": [
+      {
+        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/01-bg-swap.webp",
+        "alt": "Pulseira correntão em ambiente warm-editorial",
+        "fonte": "higgsfield-bg-swap",
+        "width": 1500,
+        "height": 1875
+      },
+      {
+        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/02-detalhe.webp",
+        "alt": "Detalhe macro da corrente e placas",
+        "fonte": "higgsfield-detalhe",
+        "width": 1500,
+        "height": 1500
+      },
+      {
+        "url": "/assets/generated/products/pulseira-correntao-banho-ouro-semijoia/03-lifestyle.webp",
+        "alt": "Modelo Ella usando pulseira correntão",
+        "fonte": "higgsfield-lifestyle",
+        "width": 1500,
+        "height": 1875
+      }
+    ],
+    "tags": [
+      "pulseira",
+      "correntao",
+      "semijoia"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": false,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "I"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-05T17:00:00Z",
+    "atualizadoEm": "2026-05-06T02:30:00Z"
+  },
+  {
+    "slug": "pulseira-elo-galho-semijoia",
+    "nome": "Pulseira Elo Galho Semijoia",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 9890,
+    "descricao": "Pulseira semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "J"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-elo-coracao-semijoia",
+    "nome": "Pulseira Elo Coracao Semijoia",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "semijoia",
+    "precoCents": 16990,
+    "descricao": "Pulseira semijoia da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "semijoia",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": true,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "K"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
+  },
+  {
+    "slug": "pulseira-galho-pulseira-bijuteria",
+    "nome": "Pulseira Galho Pulseira Bijuteria",
+    "categoria": "pulseiras",
+    "banho": "ouro",
+    "tipo": "bijuteria",
+    "precoCents": 5990,
+    "descricao": "Pulseira bijuteria da Coleção Folhas de Outono.",
+    "fotos": [],
+    "tags": [
+      "pulseira",
+      "bijuteria",
+      "folhas-de-outono"
+    ],
+    "promocao": false,
+    "tipoFulfillment": "pronta-entrega",
+    "destaqueHome": false,
+    "maisVendido": false,
+    "ativo": true,
+    "origem": {
+      "catalogoArquivo": "catalogo-outono-2026.pdf",
+      "pagina": 22,
+      "letra": "L"
+    },
+    "fonteFotoFraca": false,
+    "cadastradoEm": "2026-05-06T18:00:00Z",
+    "atualizadoEm": "2026-05-06T18:00:00Z"
   }
 ]

@@ -75,3 +75,33 @@ A política revisada é mais simples, mais uniforme, e tem volume comparável (~
 - Manifest registra cada geração com `camada: "por-peca"`, `pecaSlug`, `categoria` (uma de "produto-ambiente", "produto-detalhe", "produto-em-modelo"), modelo, prompt, seed, data.
 - Modelo Ella usa Soul Character único, treinado uma vez antes do batch (ADR-0012). Durante geração de Foto 3 de cada peça, prompt referencia o `reference_id` do Soul Character.
 - A regra "manicure neutra" da Modelo Ella é importante: aparece em fotos de mão de anel/pulseira; manicure colorida competiria com a peça e quebraria a paleta warm.
+
+---
+
+## Atualização 2026-05-06 (S2.0) — schema permite `fotos: []` (camada placeholder transitória)
+
+### Contexto
+
+S2.0 popula `data/products.json` com ~131 peças novas extraídas do catálogo PDF antes do batch Higgsfield rodar (S3.1). Peças nascem com `fotos: []` e renderizam placeholder SVG silhouette por categoria (ver ADR-0016) na UI até a produção fotográfica acontecer.
+
+`ProductSchema.fotos` antes exigia exatamente `length(3)`. Com peças vazias, validação Zod travava todo `data/products.json`.
+
+### Decisão (tática — mecânica de validação)
+
+`ProductSchema.fotos` passa a aceitar **0 fotos** (peça em camada placeholder, transitória) **ou exatamente 3 fotos** (peça em camada Higgsfield já produzida, conforme política uniforme desta ADR). Length 1 ou 2 continua inválido.
+
+```ts
+fotos: z.array(FotoSchema).refine(
+  (arr) => arr.length === 0 || arr.length === 3,
+  "ADR-0008 + ADR-0016: 0 fotos (placeholder) ou 3 fotos (catálogo Higgsfield)"
+)
+```
+
+### Consequências
+
+- Política "3 fotos uniformes por peça" **mantida** quando peça tem fotos.
+- Camada placeholder vira **estado transitório explícito** — peça com `fotos: []` aparece com silhouette SVG na UI até batch Higgsfield (S3.1) gerar as 3 fotos.
+- Peça com 1 ou 2 fotos é **anti-padrão registrado** — não existe peça meio-fotografada; é tudo ou nada.
+- Schema `maisVendido: z.boolean()` adicionado em paralelo (S2.0 / ADR-0017).
+
+Esta atualização é **tática** (mecânica de validação). Não revoga a decisão decisória da ADR (3 fotos uniformes por peça quando peça é fotografada). Edit inline aceitável conforme precedente CLAUDE.md "Manutenção de ADRs".
