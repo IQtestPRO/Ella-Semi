@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FC } from "react";
+import { useEffect, useRef, useState, type FC } from "react";
 import { useCart } from "../../../lib/cart/store";
 import type { Product } from "../../../lib/schemas";
 
@@ -10,7 +10,7 @@ type Props = {
   variant?: "floating" | "inline";
 };
 
-const BagPlus: FC<{ animating: boolean }> = ({ animating }) => (
+const BagPlus: FC = () => (
   <svg
     width="18"
     height="20"
@@ -21,14 +21,9 @@ const BagPlus: FC<{ animating: boolean }> = ({ animating }) => (
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
-    style={{
-      transform: animating ? "scale(1.15)" : "scale(1)",
-      transition: "transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1)",
-    }}
   >
     <path d="M3 8 L4 22 L18 22 L19 8 Z" />
     <path d="M7 8 V6 a4 4 0 0 1 8 0 V8" />
-    {/* Plus inside */}
     <line x1="11" y1="13" x2="11" y2="17" />
     <line x1="9" y1="15" x2="13" y2="15" />
   </svg>
@@ -50,6 +45,8 @@ const Check: FC = () => (
   </svg>
 );
 
+const FEEDBACK_MS = 1200;
+
 /**
  * Botão "+ adicionar ao carrinho" — variant `floating` sobre a foto do
  * card. Click adiciona ao carrinho e abre o drawer. Feedback visual de
@@ -59,6 +56,14 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
   const add = useCart((s) => s.add);
   const open = useCart((s) => s.open);
   const [feedback, setFeedback] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Cleanup pendente se componente desmontar
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -70,9 +75,10 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
       categoria: product.categoria,
       fotoUrl: product.fotos[0]?.url,
     });
-    setFeedback(true);
     open();
-    setTimeout(() => setFeedback(false), 1200);
+    setFeedback(true);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setFeedback(false), FEEDBACK_MS);
   };
 
   if (variant === "inline") {
@@ -81,6 +87,7 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
         type="button"
         onClick={handleClick}
         aria-label={`Adicionar ${product.nome} ao carrinho`}
+        data-testid="add-to-cart-button"
         className="inline-flex items-center gap-2 rounded-full px-4 py-2 transition-colors"
         style={{
           fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
@@ -92,7 +99,7 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
           color: "#FFF1ED",
         }}
       >
-        {feedback ? <Check /> : <BagPlus animating={false} />}
+        {feedback ? <Check /> : <BagPlus />}
         <span>{feedback ? "Adicionado" : "Adicionar ao carrinho"}</span>
       </button>
     );
@@ -111,7 +118,7 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
         border: "1px solid rgba(217, 154, 48, 0.35)",
       }}
     >
-      {feedback ? <Check /> : <BagPlus animating={feedback} />}
+      {feedback ? <Check /> : <BagPlus />}
     </button>
   );
 };

@@ -30,3 +30,10 @@ h1,
     font-weight: 400;
   }
 }
+
+/* FAB WhatsApp pulse ring (S2.3 / ADR-0020) */
+@keyframes ella-fab-pulse {
+  0%   { transform: scale(1);    opacity: 0.45; }
+  80%  { transform: scale(1.55); opacity: 0;    }
+  100% { transform: scale(1.55); opacity: 0;    }
+}

@@ -22,34 +22,39 @@ const WhatsAppGlyph: FC = () => (
  * Ellen IA da S2.2 (ADR-0020 supersedes ADR-0019).
  *
  * - Position fixed bottom-right, z-index 30 (atrás do CartDrawer 40/50).
- * - Tap target 56x56 px (h-14 w-14) — ≥ HIG 44.
+ * - Tap target 56x56 mobile / 64x64 desktop — ≥ HIG 44.
  * - Cor #25D366 (WhatsApp brand).
  * - Pulse ring sutil pra atrair atenção sem ser agressivo.
  */
 export const WhatsAppFloatButton: FC = () => {
   const isHydrated = useCart((s) => s.isHydrated);
+  const rawCount = useCart((s) => s.itemCount());
+  const itemCount = isHydrated ? rawCount : 0;
 
   const handleClick = () => {
     const items = useCart.getState().items;
     abrirWhatsAppComCarrinho(items);
   };
 
+  const ariaLabel =
+    itemCount > 0
+      ? `Abrir WhatsApp com ${itemCount} ${itemCount === 1 ? "peça" : "peças"} do carrinho`
+      : "Abrir WhatsApp com a Ellen";
+
   return (
     <button
       type="button"
       onClick={handleClick}
-      aria-label="Abrir WhatsApp com seu carrinho"
+      aria-label={ariaLabel}
       data-testid="whatsapp-float-button"
       className="fixed bottom-5 right-5 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95 md:h-16 md:w-16"
       style={{
         backgroundColor: "#25D366",
-        // Render apenas após hidratação pra evitar flash em páginas estáticas
         opacity: isHydrated ? 1 : 0,
         pointerEvents: isHydrated ? "auto" : "none",
         transition: "opacity 240ms ease, transform 200ms ease",
       }}
     >
-      {/* Pulse ring */}
       <span
         aria-hidden="true"
         className="absolute inset-0 rounded-full"
@@ -62,13 +67,6 @@ export const WhatsAppFloatButton: FC = () => {
       <span className="relative">
         <WhatsAppGlyph />
       </span>
-      <style>{`
-        @keyframes ella-fab-pulse {
-          0%   { transform: scale(1);    opacity: 0.45; }
-          80%  { transform: scale(1.55); opacity: 0;    }
-          100% { transform: scale(1.55); opacity: 0;    }
-        }
-      `}</style>
     </button>
   );
 };

@@ -5,8 +5,8 @@ import { CartButton } from "./cart/CartButton";
 export function Header() {
   return (
     <header className="relative flex items-center justify-between px-5 py-4 md:px-10">
-      {/* Spacer esquerdo (mantém logo central no eixo desktop) */}
-      <div aria-hidden="true" className="w-12 md:w-14" />
+      {/* Spacer esquerdo balanceia o CartButton à direita pra logo ficar centralizado */}
+      <div aria-hidden="true" className="h-12 w-12 md:h-14 md:w-14" />
 
       <Link
         href="/"

@@ -14,10 +14,23 @@ beforeEach(() => {
 });
 
 describe("WhatsAppFloatButton", () => {
-  it("renders with accessible label", () => {
+  it("renders with accessible label (empty cart → atendimento geral)", () => {
     render(<WhatsAppFloatButton />);
     expect(
-      screen.getByRole("button", { name: /abrir whatsapp com seu carrinho/i }),
+      screen.getByRole("button", { name: /abrir whatsapp com a ellen/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("aria-label muda pra refletir contagem do carrinho", () => {
+    useCart.getState().add({
+      slug: "x",
+      nome: "X",
+      precoCents: 1000,
+      categoria: "brincos",
+    });
+    render(<WhatsAppFloatButton />);
+    expect(
+      screen.getByRole("button", { name: /abrir whatsapp com 1 peça/i }),
     ).toBeInTheDocument();
   });
 

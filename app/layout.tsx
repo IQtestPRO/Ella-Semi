@@ -17,7 +17,11 @@ const fontBody = Inter({
   display: "swap",
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ella-semijoias.com.br";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "ELLA Semijoias",
   description: "Joias e semijoias premium — atendimento direto pelo WhatsApp.",
 };
