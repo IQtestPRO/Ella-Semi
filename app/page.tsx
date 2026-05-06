@@ -1,25 +1,31 @@
-import { getCampanhaAtual, getProductsDestaque } from "../lib/catalog";
+import {
+  getCampanhaAtual,
+  getMaisVendidos,
+  getProductsDestaque,
+} from "../lib/catalog";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Hero } from "./components/home/Hero";
+import { MaisVendidos } from "./components/home/MaisVendidos";
 import { ProductCard } from "./components/ProductCard";
-import { Sparkle } from "./components/Sparkle";
 
 export default function HomePage() {
   const campanha = getCampanhaAtual();
   const destaques = getProductsDestaque();
+  const maisVendidos = getMaisVendidos();
+
   return (
     <>
       <Header />
-      <main className="flex flex-col items-center gap-16 px-6 py-12">
-        <section className="flex flex-col items-center gap-4">
-          <h1 className="text-5xl">ELLA</h1>
-          <Sparkle size={32} />
-        </section>
+      <main className="flex flex-col">
+        <Hero />
+
+        <MaisVendidos products={maisVendidos} />
 
         {destaques.length > 0 && (
           <section
             aria-labelledby="destaque-heading"
-            className="flex w-full max-w-md flex-col items-center gap-6"
+            className="mx-auto flex w-full max-w-md flex-col items-center gap-6 px-6 py-16"
           >
             <header className="flex flex-col items-center gap-2 text-center">
               <span

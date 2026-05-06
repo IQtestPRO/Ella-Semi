@@ -61,3 +61,49 @@ export function getProductsDestaque(): readonly Product[] {
 export function categoryFromSlug(slug: string): Categoria | null {
   return getProductBySlug(slug)?.categoria ?? null;
 }
+
+/**
+ * Peças marcadas como `maisVendido: true` — alimentam a seção "MAIS VENDIDOS"
+ * da home. Filtra apenas produtos ativos. Ordem estável (mesma do products.json).
+ * S2.0 / ADR-0017.
+ */
+export function getMaisVendidos(): readonly Product[] {
+  return loadProducts().filter((p) => p.ativo && p.maisVendido);
+}
+
+/**
+ * Peças marcadas como `destaqueHome: true` — alimentam a seção "Favoritas da Ella".
+ * Curadoria editorial subjetiva da Ellen, distinta de `maisVendido`. ADR-0004.
+ */
+export function getDestaqueHome(): readonly Product[] {
+  return loadProducts().filter((p) => p.ativo && p.destaqueHome);
+}
+
+/**
+ * Contagem de produtos ativos por categoria — alimenta a seção
+ * "Explore por Categoria" da home. Categorias com 0 peças são omitidas.
+ */
+export function getCategoryCounts(): ReadonlyArray<{
+  categoria: Categoria;
+  count: number;
+}> {
+  const counts = new Map<Categoria, number>();
+  for (const p of loadProducts()) {
+    if (!p.ativo) continue;
+    counts.set(p.categoria, (counts.get(p.categoria) ?? 0) + 1);
+  }
+  const order: Categoria[] = [
+    "brincos",
+    "colares",
+    "pulseiras",
+    "aneis",
+    "conjuntos",
+    "gargantilhas",
+    "tornozeleiras",
+    "piercings",
+    "outros",
+  ];
+  return order
+    .filter((c) => (counts.get(c) ?? 0) > 0)
+    .map((c) => ({ categoria: c, count: counts.get(c) ?? 0 }));
+}

@@ -25,17 +25,38 @@ describe("data/products.json — schema Zod", () => {
     expect(canonico?.fotos).toHaveLength(3);
   });
 
-  it("non-canonical pieces have ativo: false (S1.4 — fotos ausentes até S3.1)", () => {
+  it("canônica brinco-folha-aberta-semijoia mantém ativo:true + 3 fotos reais", () => {
     const products = ProductsSchema.parse(data);
-    const naoCanonicas = products.filter(
-      (p) => p.slug !== "brinco-folha-aberta-semijoia",
+    const canonica = products.find(
+      (p) => p.slug === "brinco-folha-aberta-semijoia",
     );
-    for (const p of naoCanonicas) {
-      expect(
-        p.ativo,
-        `${p.slug} deve estar ativo:false até S3.1 gerar fotos`,
-      ).toBe(false);
+    expect(canonica?.ativo).toBe(true);
+    expect(canonica?.fotos).toHaveLength(3);
+  });
+
+  it("pieces without fotos use camada placeholder — ativo permitido (S2.0/ADR-0008 inline)", () => {
+    const products = ProductsSchema.parse(data);
+    const semFotos = products.filter((p) => p.fotos.length === 0);
+    // S2.0 mudou regra: peças sem foto podem ser ativo:true via placeholder.
+    // Esta asserção apenas garante que coexistem ambos os estados sem violação Zod.
+    for (const p of semFotos) {
+      expect(typeof p.ativo).toBe("boolean");
     }
+  });
+
+  it("S2.0 / ADR-0017 — exatamente 8 peças marcadas maisVendido:true (SEED inicial)", () => {
+    const products = ProductsSchema.parse(data);
+    const seed = products.filter((p) => p.maisVendido === true);
+    expect(seed.length).toBe(8);
+    // SEED deve cobrir mix de categorias
+    const cats = new Set(seed.map((p) => p.categoria));
+    expect(cats.size).toBeGreaterThanOrEqual(4);
+  });
+
+  it("catálogo S2.0 tem ~141 peças total (Outono 2026 PDF + canônicas)", () => {
+    const products = ProductsSchema.parse(data);
+    expect(products.length).toBeGreaterThanOrEqual(135);
+    expect(products.length).toBeLessThanOrEqual(150);
   });
 
   it("all slugs are unique", () => {

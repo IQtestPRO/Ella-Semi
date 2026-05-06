@@ -10,30 +10,32 @@ import {
 
 const CANONICO = "brinco-folha-aberta-semijoia";
 
-describe("Product Catalog (S1.4 TB2)", () => {
+describe("Product Catalog (S2.0 — pós popular catálogo PDF)", () => {
   describe("getAllProducts", () => {
-    it("retorna todas as 10 peças por padrão", () => {
-      expect(getAllProducts().length).toBe(10);
-    });
-    it("filtra ativosOnly: só canônica está ativa em S1.4", () => {
-      const ativos = getAllProducts({ ativosOnly: true });
-      expect(ativos).toHaveLength(1);
-      expect(ativos[0].slug).toBe(CANONICO);
-    });
-    it("retorno é congelado contra mutação direta (readonly array)", () => {
+    it("retorna ~141 peças por padrão (10 S1.x + 131 S2.0)", () => {
       const all = getAllProducts();
-      // TypeScript impede mutação em compile-time; teste documenta intent
+      expect(all.length).toBeGreaterThanOrEqual(135);
+      expect(all.length).toBeLessThanOrEqual(150);
+    });
+    it("filtra ativosOnly: pelo menos 1 ativo (canônica) + S2.0 placeholders ativos", () => {
+      const ativos = getAllProducts({ ativosOnly: true });
+      expect(ativos.length).toBeGreaterThanOrEqual(1);
+      expect(ativos.find((p) => p.slug === CANONICO)).toBeDefined();
+    });
+    it("retorno é array congelado contra mutação direta (readonly em compile-time)", () => {
+      const all = getAllProducts();
       expect(Array.isArray(all)).toBe(true);
     });
   });
 
   describe("getProductBySlug", () => {
-    it("retorna a peça canônica", () => {
+    it("retorna a peça canônica intacta após popular catálogo S2.0", () => {
       const p = getProductBySlug(CANONICO);
       expect(p).not.toBeNull();
       expect(p?.nome).toBe("Brinco Folha Aberta Semijoia");
       expect(p?.precoCents).toBe(9590);
       expect(p?.fotos).toHaveLength(3);
+      expect(p?.destaqueHome).toBe(true);
     });
     it("retorna null pra slug inexistente", () => {
       expect(getProductBySlug("nao-existe")).toBeNull();
@@ -44,21 +46,18 @@ describe("Product Catalog (S1.4 TB2)", () => {
   });
 
   describe("getProductsByCategory", () => {
-    it("retorna 3 brincos no total (1 ativo + 2 inativos)", () => {
-      expect(getProductsByCategory("brincos")).toHaveLength(3);
+    it("retorna várias peças nas categorias populadas", () => {
+      expect(getProductsByCategory("brincos").length).toBeGreaterThan(10);
+      expect(getProductsByCategory("colares").length).toBeGreaterThan(10);
+      expect(getProductsByCategory("aneis").length).toBeGreaterThan(10);
     });
-    it("retorna só 1 brinco ativo (canônica)", () => {
-      const ativos = getProductsByCategory("brincos", { ativosOnly: true });
-      expect(ativos).toHaveLength(1);
-      expect(ativos[0].slug).toBe(CANONICO);
+    it("filtra ativosOnly nas categorias da S2.0", () => {
+      // Canônica de brincos está ativa; S2.0 marca novas peças como ativas com placeholder.
+      const brincosAtivos = getProductsByCategory("brincos", { ativosOnly: true });
+      expect(brincosAtivos.length).toBeGreaterThanOrEqual(1);
+      expect(brincosAtivos.find((p) => p.slug === CANONICO)).toBeDefined();
     });
-    it("retorna 3 colares no total", () => {
-      expect(getProductsByCategory("colares")).toHaveLength(3);
-    });
-    it("retorna 0 colares ativos (todas inativas em S1.4)", () => {
-      expect(getProductsByCategory("colares", { ativosOnly: true })).toHaveLength(0);
-    });
-    it("retorna array vazio pra categoria sem peças", () => {
+    it("retorna array vazio pra categoria sem peças (piercings ainda não populado)", () => {
       expect(getProductsByCategory("piercings")).toHaveLength(0);
       expect(getProductsByCategory("tornozeleiras")).toHaveLength(0);
     });
@@ -78,10 +77,10 @@ describe("Product Catalog (S1.4 TB2)", () => {
   });
 
   describe("getProductsDestaque", () => {
-    it("retorna só peças ATIVAS que estão na lista de destaque (intersecção)", () => {
+    it("retorna pelo menos canônica entre os destaques ativos da campanha", () => {
       const d = getProductsDestaque();
-      expect(d).toHaveLength(1);
-      expect(d[0].slug).toBe(CANONICO);
+      expect(d.length).toBeGreaterThanOrEqual(1);
+      expect(d.find((p) => p.slug === CANONICO)).toBeDefined();
     });
   });
 
