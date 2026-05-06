@@ -83,7 +83,10 @@ next-env.d.ts
 .zencoder/
 
 # Claude Code per-developer
-.claude/settings.local.json
+.claude/
+
+# Sandbox interno (logs Higgsfield, dumps, scratch)
+.scratch/
 
 # Skills install state (regenerável via npx skills add ...)
 .agents/

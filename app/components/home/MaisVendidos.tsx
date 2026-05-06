@@ -31,10 +31,7 @@ export const MaisVendidos: FC<Props> = ({ products }) => {
     >
       <div className="mx-auto max-w-[1280px]">
         <div id="mais-vendidos-heading">
-          <SectionHeading
-            title="MAIS VENDIDOS"
-            subtitle="o que mais sai na loja física"
-          />
+          <SectionHeading title="MAIS VENDIDOS" />
         </div>
 
         {/* Mobile: scroll horizontal snap */}
@@ -49,7 +46,7 @@ export const MaisVendidos: FC<Props> = ({ products }) => {
               className="flex-none"
               style={{ scrollSnapAlign: "start", width: "78%" }}
             >
-              <ProductCard product={p} />
+              <ProductCard product={p} showAddToCart />
             </li>
           ))}
         </ul>
@@ -61,7 +58,7 @@ export const MaisVendidos: FC<Props> = ({ products }) => {
         >
           {products.map((p) => (
             <li key={p.slug}>
-              <ProductCard product={p} />
+              <ProductCard product={p} showAddToCart />
             </li>
           ))}
         </ul>

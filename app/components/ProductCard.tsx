@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Product } from "../../lib/schemas";
 import { formatBRL } from "../../lib/format/currency";
 import { PlaceholderProductImage } from "./product/PlaceholderProductImage";
+import { AddToCartButton } from "./cart/AddToCartButton";
 
 type Props = {
   product: Product;
@@ -14,9 +15,20 @@ type Props = {
    * already communicates the framing).
    */
   showMaisVendidoBadge?: boolean;
+  /**
+   * If `true`, renders a floating "+" cart button at the bottom-right of the
+   * photo. Used by the MAIS VENDIDOS section so users can add the piece
+   * without leaving the home.
+   */
+  showAddToCart?: boolean;
 };
 
-export function ProductCard({ product, eyebrow, showMaisVendidoBadge }: Props) {
+export function ProductCard({
+  product,
+  eyebrow,
+  showMaisVendidoBadge,
+  showAddToCart = false,
+}: Props) {
   const foto = product.fotos[0];
   const preco = formatBRL(product.precoCents);
   const showBadge =
@@ -55,6 +67,7 @@ export function ProductCard({ product, eyebrow, showMaisVendidoBadge }: Props) {
               />
             </div>
           )}
+          {showAddToCart && <AddToCartButton product={product} variant="floating" />}
           {showBadge && (
             <span
               data-testid="mais-vendido-badge"
