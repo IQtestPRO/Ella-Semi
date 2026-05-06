@@ -7,6 +7,7 @@ import {
 } from "../lib/catalog";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { BannerMeio } from "./components/home/BannerMeio";
 import { Categorias } from "./components/home/Categorias";
 import { Hero } from "./components/home/Hero";
 import { MaisVendidos } from "./components/home/MaisVendidos";
@@ -27,6 +28,8 @@ export default function HomePage() {
         <Hero />
 
         <MaisVendidos products={maisVendidos} />
+
+        <BannerMeio />
 
         <Categorias counts={categoryCounts} />
 
