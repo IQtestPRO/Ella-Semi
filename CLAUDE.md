@@ -256,6 +256,7 @@ Resposta: **interromper trabalho atual**, sinalizar problema, propor `/improve-c
 - **ADR-0010** — Fluxo wa.me sem bot: finalização gera `PED-XXXXXX` local, monta mensagem URL-encoded, abre `wa.me/<E.164>?text=...` em aba nova. Sem WhatsApp Business API, sem Z-API/Twilio. Ellen atende manualmente. Snapshot de pedido salvo em `localStorage` (`ella-orders-v1`).
 - **ADR-0012** — Soul Character "Modelo Ella": persona definitiva (mulher ~45–50, morena, warm-editorial soft glam, sofisticada). Treinada uma vez no Higgsfield Soul, `reference_id` em `data/higgsfield-references.json`, reutilizada em toda Foto 3 do catálogo (ADR-0008). Anti-drift checks a cada 20 peças.
 - **ADR-0013** — Estratégia de teste: 7 camadas obrigatórias (Vitest unit + snapshot WhatsApp + RTL integration + Playwright E2E + visual regression + a11y axe-core + Lighthouse perf budget). Atualização 2026-05-05: durante S1.1–S5.x execução é local-only (`pnpm test:e2e`/`:visual`/`:a11y` antes de fechar slice); CI workflow + Lighthouse + Vercel deploy ativam em S6.1.
+- **ADR-0014** — Brand Reference Pack v1.0 (S1.2). Tipografia hero **Bodoni Moda** com weight adaptativo (500 mobile / 400 desktop), tipografia secundária **Inter** mantida, paleta secundária 4 cores warm derivadas (`--color-salmao-claro` `#FFF1ED`, `--color-areia` `#F0DCC4`, `--color-taupe` `#8A6E5C`, `--color-dourado-claro` `#EFC78B`). `assets/prompts/brand-reference.md` v1.0 como BIOS visual canônico — input obrigatório de toda geração Higgsfield a partir de S1.3.
 
 ---
 
