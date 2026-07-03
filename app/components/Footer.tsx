@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { FC } from "react";
+import { getSetting } from "../../lib/settings";
 
 const Sparkle: FC<{ size?: number }> = ({ size = 12 }) => (
   <svg
@@ -13,58 +14,18 @@ const Sparkle: FC<{ size?: number }> = ({ size = 12 }) => (
   </svg>
 );
 
-const COLUMNS: Array<{
-  heading: string;
-  links: Array<{ label: string; href: string; external?: boolean }>;
-}> = [
-  {
-    heading: "Sobre",
-    links: [
-      { label: "A marca", href: "/sobre" },
-      { label: "Manifesto", href: "/sobre#manifesto" },
-      { label: "Privacidade", href: "/privacidade" },
-    ],
-  },
-  {
-    heading: "Categorias",
-    links: [
-      { label: "Brincos", href: "/brincos" },
-      { label: "Colares", href: "/colares" },
-      { label: "Pulseiras", href: "/pulseiras" },
-      { label: "Anéis", href: "/aneis" },
-      { label: "Conjuntos", href: "/conjuntos" },
-    ],
-  },
-  {
-    heading: "Atendimento",
-    links: [
-      {
-        label: "WhatsApp",
-        href: "https://wa.link/adq88g",
-        external: true,
-      },
-      { label: "Política de troca", href: "/troca" },
-      { label: "Sob encomenda", href: "/sob-encomenda" },
-    ],
-  },
-  {
-    heading: "Redes",
-    links: [
-      {
-        label: "Instagram",
-        href: "https://www.instagram.com/ella.semijoias",
-        external: true,
-      },
-      { label: "Email", href: "mailto:contato@ella-semijoias.com.br" },
-    ],
-  },
-];
+/**
+ * Rodapé — conteúdo (colunas, tagline, microcopy) vem das `settings` (banco),
+ * editável pela Ellen no /admin. Links externos abrem em nova aba; internos
+ * usam next/link. ADR-0021.
+ */
+export async function Footer() {
+  const footer = await getSetting("footer");
 
-export function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="w-full bg-[var(--color-preto-warm)] text-[#FFF1ED] mt-12"
+      className="w-full bg-[var(--color-preto-warm)] text-[#FFF1ED]"
     >
       {/* Sparkle divider top */}
       <div className="flex items-center justify-center py-8">
@@ -112,13 +73,13 @@ export function Footer() {
               textTransform: "uppercase",
             }}
           >
-            warm editorial soft glam
+            {footer.wordmarkTagline}
           </p>
         </div>
 
         {/* Columns */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
-          {COLUMNS.map((col) => (
+          {footer.colunas.map((col) => (
             <div key={col.heading} className="flex flex-col gap-3">
               <h3
                 className="text-[#EFC78B]"
@@ -126,7 +87,7 @@ export function Footer() {
                   fontFamily:
                     "var(--font-secondary, Inter, system-ui, sans-serif)",
                   fontSize: "11px",
-                  letterSpacing: "0.22em",
+                  letterSpacing: "0.16em",
                   textTransform: "uppercase",
                   fontWeight: 600,
                 }}
@@ -135,7 +96,7 @@ export function Footer() {
               </h3>
               <ul className="flex flex-col gap-2">
                 {col.links.map((l) => (
-                  <li key={l.href}>
+                  <li key={`${l.label}-${l.href}`}>
                     {l.external ? (
                       <a
                         href={l.href}
@@ -179,11 +140,11 @@ export function Footer() {
             borderColor: "rgba(255, 241, 237, 0.12)",
             fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
             fontSize: "11px",
-            letterSpacing: "0.18em",
+            letterSpacing: "0.16em",
             textTransform: "uppercase",
           }}
         >
-          ELLA Semijoias · Outono 2026 · Niterói RJ
+          {footer.microcopy}
         </div>
       </div>
     </footer>

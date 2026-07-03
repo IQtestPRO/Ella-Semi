@@ -10,6 +10,17 @@
   --color-dourado-claro: #efc78b;
   --font-hero: var(--font-hero);
   --font-body: var(--font-body);
+  /* Vocabulário de easing da marca (lapidação S4) — nunca usar ease default.
+     ease-brand: saída rápida e pouso suave (superfícies/drawer/cards).
+     ease-out-soft: micro-interações de texto/cor. Gera utilities ease-brand /
+     ease-out-soft no Tailwind v4. */
+  --ease-brand: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  /* iOS Safari: não inflar texto em landscape */
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -17,6 +28,26 @@ body {
   color: var(--color-preto-warm);
   font-family: var(--font-body), system-ui, sans-serif;
 }
+
+/* Mobile: sem flash cinza de tap do WebKit/Blink — o feedback é nosso
+   (active:scale + shifts de cor com ease da marca) */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/*
+ * Foco de teclado visível em todo o site (varredura: a11y — foco invisível).
+ * Só aparece para navegação por teclado (:focus-visible), não no clique do
+ * mouse. Anel dourado da marca + offset para contraste sobre fundos warm.
+ */
+:focus-visible {
+  outline: 2px solid var(--color-dourado);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 
 h1,
 .font-hero {
@@ -36,4 +67,73 @@ h1,
   0%   { transform: scale(1);    opacity: 0.45; }
   80%  { transform: scale(1.55); opacity: 0;    }
   100% { transform: scale(1.55); opacity: 0;    }
+}
+
+/* Skeleton shimmer warm (app/loading.tsx) — respiração, não spinner */
+@keyframes ella-shimmer {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+.ella-shimmer {
+  background-color: var(--color-salmao-claro);
+  animation: ella-shimmer 1.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+/* Sparkle twinkle — second read da marca no hover de cards (lapidação S4).
+   transform-box permite escalar o <g> interno sem perder o translate do pai. */
+@keyframes ella-sparkle-twinkle {
+  0%   { transform: scale(1) rotate(0deg); }
+  50%  { transform: scale(1.35) rotate(22deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.ella-sparkle {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.group:hover .ella-sparkle {
+  animation: ella-sparkle-twinkle 280ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Pop — feedback de sucesso (badge do carrinho, check do AddToCart) */
+@keyframes ella-pop {
+  0%   { transform: scale(0.6); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.ella-pop {
+  animation: ella-pop 260ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Entrada do hero — coreografia da primeira impressão (stagger via delay) */
+@keyframes ella-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.ella-rise {
+  animation: ella-rise 600ms var(--ease-brand) both;
+}
+
+/* Reveal on-scroll das seções da home (classe aplicada por IntersectionObserver) */
+.ella-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 550ms var(--ease-brand), transform 550ms var(--ease-brand);
+}
+.ella-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ella-shimmer,
+  .ella-pop,
+  .ella-rise,
+  .group:hover .ella-sparkle {
+    animation: none;
+  }
+  .ella-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

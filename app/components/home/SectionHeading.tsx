@@ -65,9 +65,10 @@ export const SectionHeading: FC<Props> = ({
           className="font-hero text-[var(--color-preto-warm)]"
           style={{
             fontSize: "clamp(28px, 5vw, 48px)",
-            lineHeight: 1.05,
+            lineHeight: 1.15,
             letterSpacing: "0.02em",
             fontWeight: 400,
+            textWrap: "balance",
           }}
         >
           {title}

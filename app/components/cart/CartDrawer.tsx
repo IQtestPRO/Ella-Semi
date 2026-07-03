@@ -4,6 +4,8 @@ import { useEffect, type FC } from "react";
 import { useCart } from "../../../lib/cart/store";
 import { formatBRL } from "../../../lib/format/currency";
 import { abrirWhatsAppComCarrinho } from "../../../lib/cart/whatsapp";
+import { useSiteConfig } from "../SiteConfigProvider";
+import { Sparkle } from "../Sparkle";
 
 const TrashIcon: FC = () => (
   <svg
@@ -52,6 +54,7 @@ export const CartDrawer: FC = () => {
   const clear = useCart((s) => s.clear);
   const totalCents = useCart((s) => s.totalCents());
   const itemCount = useCart((s) => s.itemCount());
+  const config = useSiteConfig();
 
   // Lock body scroll when open
   useEffect(() => {
@@ -75,7 +78,7 @@ export const CartDrawer: FC = () => {
 
   const handleFinalizarWhatsApp = () => {
     if (items.length === 0) return;
-    abrirWhatsAppComCarrinho(items);
+    abrirWhatsAppComCarrinho(items, config);
     clear();
     close();
   };
@@ -86,7 +89,7 @@ export const CartDrawer: FC = () => {
       <div
         aria-hidden={!isOpen}
         onClick={close}
-        className="fixed inset-0 z-40 bg-black/35 transition-opacity duration-300"
+        className="fixed inset-0 z-40 bg-black/35 transition-opacity duration-300 ease-brand"
         style={{
           opacity: isOpen ? 1 : 0,
           pointerEvents: isOpen ? "auto" : "none",
@@ -99,9 +102,12 @@ export const CartDrawer: FC = () => {
         aria-modal="true"
         aria-label="Carrinho"
         data-testid="cart-drawer"
-        className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-[#FFF7EE] shadow-2xl transition-transform duration-300 ease-out"
+        inert={!isOpen}
+        aria-hidden={!isOpen}
+        className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-[#FFF7EE] shadow-2xl transition-transform duration-300 ease-brand will-change-transform"
         style={{
           transform: isOpen ? "translateX(0)" : "translateX(100%)",
+          pointerEvents: isOpen ? "auto" : "none",
         }}
       >
         {/* Header */}
@@ -149,28 +155,29 @@ export const CartDrawer: FC = () => {
         {/* Items */}
         <div className="flex-1 overflow-y-auto">
           {items.length === 0 ? (
-            <div className="flex h-full flex-col items-center justify-center gap-4 px-8 text-center">
+            <div className="flex h-full flex-col items-center justify-center gap-5 px-8 text-center">
+              <Sparkle size={26} />
               <p
+                className="font-hero"
                 style={{
-                  fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
-                  fontSize: "14px",
-                  letterSpacing: "0.02em",
-                  color: "rgba(37, 16, 8, 0.6)",
+                  fontSize: "22px",
+                  fontWeight: 400,
+                  lineHeight: 1.3,
+                  color: "var(--color-preto-warm, #251008)",
+                  maxWidth: "16ch",
                 }}
               >
-                Seu carrinho está vazio.
+                Sua próxima peça favorita está no catálogo.
               </p>
               <a
                 href="/produtos"
                 onClick={close}
-                className="text-[11px] uppercase tracking-[0.22em] transition"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--color-preto-warm)] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#FFF1ED] transition-[background-color,transform] duration-200 ease-brand hover:bg-[#3A2015] active:scale-[0.98]"
                 style={{
-                  color: "var(--color-preto-warm, #251008)",
-                  textDecoration: "underline",
-                  textUnderlineOffset: "4px",
+                  fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
                 }}
               >
-                Ver todas as peças →
+                Ver todas as peças
               </a>
             </div>
           ) : (
@@ -191,6 +198,9 @@ export const CartDrawer: FC = () => {
                         src={item.fotoUrl}
                         alt=""
                         className="h-full w-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
                       />
                     ) : (
                       <div
@@ -239,10 +249,13 @@ export const CartDrawer: FC = () => {
                       <button
                         type="button"
                         onClick={() => setQty(item.slug, item.qty - 1)}
-                        aria-label="Diminuir quantidade"
-                        className="inline-flex h-8 w-8 items-center justify-center rounded-full"
+                        aria-label={
+                          item.qty === 1
+                            ? `Remover ${item.nome}`
+                            : "Diminuir quantidade"
+                        }
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(138,110,92,0.35)] transition-[background-color,border-color,transform] duration-150 ease-brand hover:border-[var(--color-dourado)] hover:bg-[rgba(217,154,48,0.08)] active:scale-95"
                         style={{
-                          border: "1px solid rgba(138, 110, 92, 0.35)",
                           color: "var(--color-preto-warm, #251008)",
                         }}
                       >
@@ -263,9 +276,8 @@ export const CartDrawer: FC = () => {
                         type="button"
                         onClick={() => setQty(item.slug, item.qty + 1)}
                         aria-label="Aumentar quantidade"
-                        className="inline-flex h-8 w-8 items-center justify-center rounded-full"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(138,110,92,0.35)] transition-[background-color,border-color,transform] duration-150 ease-brand hover:border-[var(--color-dourado)] hover:bg-[rgba(217,154,48,0.08)] active:scale-95"
                         style={{
-                          border: "1px solid rgba(138, 110, 92, 0.35)",
                           color: "var(--color-preto-warm, #251008)",
                         }}
                       >
@@ -291,7 +303,7 @@ export const CartDrawer: FC = () => {
                   fontFamily:
                     "var(--font-secondary, Inter, system-ui, sans-serif)",
                   fontSize: "11px",
-                  letterSpacing: "0.22em",
+                  letterSpacing: "0.16em",
                   textTransform: "uppercase",
                   color: "rgba(37, 16, 8, 0.65)",
                 }}
@@ -326,7 +338,7 @@ export const CartDrawer: FC = () => {
               type="button"
               onClick={handleFinalizarWhatsApp}
               data-testid="cart-finalizar-whatsapp"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 transition-colors"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 transition-[filter,transform] duration-200 ease-brand hover:brightness-105 active:scale-[0.98] active:brightness-95"
               style={{
                 fontFamily:
                   "var(--font-secondary, Inter, system-ui, sans-serif)",

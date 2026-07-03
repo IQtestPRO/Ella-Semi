@@ -13,6 +13,26 @@ function generatePedidoId(): string {
   return id;
 }
 
+/** Config pública necessária pro fluxo WhatsApp (vem das settings via provider). */
+export type WhatsAppConfig = {
+  whatsappNumero: string;
+  whatsappLinkGeral: string;
+};
+
+/**
+ * Um número é "válido" pra montar `wa.me` se tem 10–15 dígitos e não é o
+ * placeholder. Se inválido, o fluxo cai no link curto geral em vez de abrir
+ * uma conversa com número inexistente (varredura: WhatsApp placeholder).
+ */
+export function isNumeroValido(numero: string | undefined | null): boolean {
+  if (!numero) return false;
+  const d = numero.replace(/\D/g, "");
+  if (d.length < 10 || d.length > 15) return false;
+  if (/^0+$/.test(d)) return false;
+  if (d === "5500000000000") return false;
+  return true;
+}
+
 /**
  * Monta mensagem WhatsApp formatada e retorna `{ text, url, pedidoId }`.
  *
@@ -20,10 +40,8 @@ function generatePedidoId(): string {
  * enviar manualmente na conversa que já abriu — sem bot, sem WhatsApp Business
  * API (ADR-0010).
  */
-export function montarMensagemWhatsApp(items: CartItem[]) {
+export function montarMensagemWhatsApp(items: CartItem[], numero: string) {
   const pedidoId = generatePedidoId();
-  const numero =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5500000000000"; // placeholder até Ellen passar real
 
   const linhas = items.map(
     (i) =>
@@ -74,18 +92,28 @@ export function salvarSnapshotPedido(
 
 /**
  * Helper compartilhado pelo FAB WhatsApp e pelo botão "Finalizar pelo
- * WhatsApp" do CartDrawer. Abre `wa.me` em aba nova com a mensagem montada
- * (ou `wa.link/adq88g` quando carrinho vazio — atendimento geral). Salva
- * snapshot do pedido. NÃO limpa o carrinho — caller decide (drawer limpa,
- * FAB não — ADR-0020).
+ * WhatsApp" do CartDrawer. Abre `wa.me` em aba nova com a mensagem montada.
+ * Cai no link curto geral (`config.whatsappLinkGeral`) quando o carrinho está
+ * vazio OU quando o número configurado é inválido/placeholder — nunca abre uma
+ * conversa com número inexistente. Salva snapshot do pedido. NÃO limpa o
+ * carrinho — caller decide (ADR-0010 / ADR-0020).
  */
-export function abrirWhatsAppComCarrinho(items: CartItem[]) {
+export function abrirWhatsAppComCarrinho(
+  items: CartItem[],
+  config: WhatsAppConfig,
+) {
   if (typeof window === "undefined") return;
-  if (items.length === 0) {
-    window.open("https://wa.link/adq88g", "_blank", "noopener,noreferrer");
+  const abrirGeral = () =>
+    window.open(config.whatsappLinkGeral, "_blank", "noopener,noreferrer");
+
+  if (items.length === 0 || !isNumeroValido(config.whatsappNumero)) {
+    abrirGeral();
     return;
   }
-  const { url, pedidoId, subtotalCents } = montarMensagemWhatsApp(items);
+  const { url, pedidoId, subtotalCents } = montarMensagemWhatsApp(
+    items,
+    config.whatsappNumero.replace(/\D/g, ""),
+  );
   salvarSnapshotPedido(pedidoId, items, subtotalCents);
   window.open(url, "_blank", "noopener,noreferrer");
 }

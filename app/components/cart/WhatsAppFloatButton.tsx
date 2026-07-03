@@ -3,6 +3,7 @@
 import { type FC } from "react";
 import { useCart } from "../../../lib/cart/store";
 import { abrirWhatsAppComCarrinho } from "../../../lib/cart/whatsapp";
+import { useSiteConfig } from "../SiteConfigProvider";
 
 const WhatsAppGlyph: FC = () => (
   <svg
@@ -30,10 +31,11 @@ export const WhatsAppFloatButton: FC = () => {
   const isHydrated = useCart((s) => s.isHydrated);
   const rawCount = useCart((s) => s.itemCount());
   const itemCount = isHydrated ? rawCount : 0;
+  const config = useSiteConfig();
 
   const handleClick = () => {
     const items = useCart.getState().items;
-    abrirWhatsAppComCarrinho(items);
+    abrirWhatsAppComCarrinho(items, config);
   };
 
   const ariaLabel =
@@ -47,12 +49,13 @@ export const WhatsAppFloatButton: FC = () => {
       onClick={handleClick}
       aria-label={ariaLabel}
       data-testid="whatsapp-float-button"
-      className="fixed bottom-5 right-5 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95 md:h-16 md:w-16"
+      className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-5 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg hover:scale-105 active:scale-95 md:h-16 md:w-16"
       style={{
         backgroundColor: "#25D366",
         opacity: isHydrated ? 1 : 0,
         pointerEvents: isHydrated ? "auto" : "none",
-        transition: "opacity 240ms ease, transform 200ms ease",
+        transition:
+          "opacity 240ms var(--ease-out-soft), transform 200ms var(--ease-brand)",
       }}
     >
       <span

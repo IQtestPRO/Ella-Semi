@@ -54,9 +54,10 @@ export const CartButton: FC = () => {
       {/* Badge */}
       {itemCount > 0 && (
         <span
+          key={itemCount}
           aria-hidden="true"
           data-testid="cart-badge"
-          className="absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5"
+          className="ella-pop absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5"
           style={{
             backgroundColor: "#D99A30",
             color: "#FFF1ED",

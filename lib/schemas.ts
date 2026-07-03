@@ -8,6 +8,8 @@ export const FotoSchema = z.object({
     "higgsfield-lifestyle",
     "higgsfield-detalhe",
     "foto-real-ellen-via-bg-swap",
+    // ADR-0022: upload livre pelo /admin (foto enviada pela Ellen direto).
+    "upload-admin",
   ]),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
@@ -51,16 +53,21 @@ export const TipoFulfillmentSchema = z.enum([
 export const ProductSchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "slug must be kebab-case"),
   nome: z.string().min(1),
+  // Código de referência da loja física (prefixo por categoria: BR/CO/CH/BRA/PL/CJ
+  // + número, ex. CO763). Exibido na página da peça e usado no atendimento.
+  codigo: z.string().optional(),
   categoria: CategoriaSchema,
   banho: BanhoSchema,
   tipo: z.enum(["semijoia", "bijuteria"]),
   precoCents: z.number().int().nonnegative(),
   precoPromocionalCents: z.number().int().nonnegative().optional(),
   descricao: z.string().min(1),
-  fotos: z.array(FotoSchema).refine(
-    (arr) => arr.length === 0 || arr.length === 3,
-    "ADR-0008 + ADR-0016: 0 fotos (camada placeholder) ou 3 fotos (catálogo Higgsfield)"
-  ),
+  // ADR-0022 (supersede ponto rígido de ADR-0008/0016): qualquer quantidade de
+  // fotos (0 = camada placeholder; 1+ = galeria). O admin permite upload livre,
+  // então a Ellen pode ter 1, 2, 4… fotos por peça.
+  fotos: z.array(FotoSchema),
+  // Vídeo de produto (Cinema Studio) — renderiza como último item da galeria.
+  videoUrl: z.string().optional(),
   variantes: z.array(VarianteSchema).optional(),
   tags: z.array(z.string()).optional(),
   promocao: z.boolean(),

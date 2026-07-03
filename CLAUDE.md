@@ -277,6 +277,9 @@ Resposta: **interromper trabalho atual**, sinalizar problema, propor `/improve-c
 
 ---
 
+- **ADR-0021** — Data layer **Turso (libsql)** + painel **/admin** (CMS para a Ellen). Supersede ADR-0004/0005 **só no ponto** "JSON como armazenamento de produção". `lib/catalog` vira async/DB-backed (mesma API), camada `settings` (chave→JSON) para conteúdo editável, auth por cookie HMAC + middleware, seed único dos 141 produtos. Páginas de dados `force-dynamic` → edição aparece na hora. JSON legado vira semente, não fonte de produção.
+- **ADR-0022** — **Upload livre de imagens** pelo /admin (foto da Ellen via `sharp`→WebP→BLOB no Turso, servida em `/api/images/[id]`). Supersede ADR-0006 **para o caminho do admin** e relaxa "0 ou 3 fotos" (ADR-0008/0016): `Product.fotos` aceita qualquer quantidade; `fonte` ganha `upload-admin`. Higgsfield segue válido/recomendado para a camada de marca, não mais obrigatório para toda imagem.
+
 ## Manutenção de ADRs (precedente registrado 2026-05-05)
 
 - **Edit inline em ADR existente é permitido** quando a mudança é **executiva/tática** (onde, quando, como — ex.: "CI roda em S6.1 em vez de já no Slice 1"). Use uma seção `## Atualização YYYY-MM-DD` no fim da ADR. Histórico fica via `git log` da ADR.

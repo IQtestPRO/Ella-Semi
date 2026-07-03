@@ -7,6 +7,8 @@ type Props = {
   videoSrc?: string;
   /** Optional override for the still fallback (defaults to /hero/hero-fallback.webp) */
   fallbackSrc?: string;
+  /** Frase editorial sob o wordmark (editável no /admin). */
+  subtitulo?: string;
 };
 
 /**
@@ -21,10 +23,14 @@ type Props = {
 export function Hero({
   videoSrc = "/hero/hero-loop.mp4",
   fallbackSrc = "/hero/hero-fallback.webp",
+  subtitulo = "warm editorial soft glam · outono 2026",
 }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
+  // Art direction mobile-first: celular em pé recebe mídia 9:16 dedicada
+  // (Higgsfield NB Pro 2K + Cinema Studio) — nada de landscape cortada.
+  const [isPortrait, setIsPortrait] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -34,48 +40,80 @@ export function Hero({
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(orientation: portrait) and (max-width: 820px)");
+    setIsPortrait(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsPortrait(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   const showVideo = !reduceMotion && !videoFailed;
+  // Assets portrait são padrão da marca (não editáveis no admin por ora); se a
+  // Ellen trocar o hero no admin, o desktop muda e o mobile mantém o par 9:16.
+  const usaPortrait = isPortrait && fallbackSrc === "/hero/hero-fallback.webp";
+  const efetivoVideo = usaPortrait ? "/hero/hero-loop-portrait.mp4" : videoSrc;
+  const efetivoFallback = usaPortrait
+    ? "/hero/hero-fallback-portrait.webp"
+    : fallbackSrc;
 
   return (
     <section
       aria-label="Hero ELLA — warm editorial soft glam"
       className="relative w-full overflow-hidden"
       style={{
-        // 80vh desktop, 60vh mobile (clamped)
-        height: "clamp(60vh, 80vh, 880px)",
+        // 80% do viewport visível (svh = estável com a barra do browser), teto 880px
+        height: "min(80svh, 880px)",
         background:
           "linear-gradient(135deg, #F8E0CD 0%, #F0DCC4 35%, #E8D2BB 70%, #D9BFA1 100%)",
       }}
       data-testid="hero"
     >
-      {/* Static fallback — always rendered as base layer */}
-      <img
-        src={fallbackSrc}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ opacity: showVideo ? 0 : 1, transition: "opacity 600ms ease" }}
-        onError={(e) => {
-          // If fallback also fails, hide it (gradient remains visible)
-          (e.currentTarget as HTMLImageElement).style.display = "none";
-        }}
-      />
+      {/* Static fallback — always rendered as base layer. <picture> faz a art
+          direction ANTES da hidratação: celular em pé baixa direto a 9:16. */}
+      <picture>
+        {fallbackSrc === "/hero/hero-fallback.webp" && (
+          <source
+            media="(orientation: portrait) and (max-width: 820px)"
+            srcSet="/hero/hero-fallback-portrait.webp"
+          />
+        )}
+        <img
+          src={fallbackSrc}
+          alt=""
+          aria-hidden="true"
+          // LCP da home: busca prioritária do still do hero (varredura: perf).
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{
+            opacity: showVideo ? 0 : 1,
+            transition: "opacity 600ms var(--ease-out-soft)",
+          }}
+          onError={(e) => {
+            // If fallback also fails, hide it (gradient remains visible)
+            (e.currentTarget as HTMLImageElement).style.display = "none";
+          }}
+        />
+      </picture>
 
-      {/* Video layer — only when motion allowed and not failed */}
+      {/* Video layer — only when motion allowed and not failed. key força
+          reload quando a orientação muda (portrait ↔ landscape). */}
       {showVideo && (
         <video
+          key={efetivoVideo}
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          poster={fallbackSrc}
+          poster={efetivoFallback}
           preload="metadata"
           className="absolute inset-0 h-full w-full object-cover"
           onError={() => setVideoFailed(true)}
           data-testid="hero-video"
         >
-          <source src={videoSrc} type="video/mp4" />
+          <source src={efetivoVideo} type="video/mp4" />
         </video>
       )}
 
@@ -92,7 +130,7 @@ export function Hero({
       {/* Centered overlay text */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
         <h1
-          className="font-hero text-white"
+          className="font-hero text-white ella-rise"
           style={{
             fontSize: "clamp(56px, 11vw, 132px)",
             fontWeight: "var(--hero-weight, 400)",
@@ -104,12 +142,14 @@ export function Hero({
           ELLA
         </h1>
 
-        {/* Sparkle dourado divider */}
+        {/* Sparkle dourado divider — entrada staggered (2º tempo da coreografia).
+            Wrapper anima; o filho preserva o opacity 0.92 de repouso. */}
         <div
           aria-hidden="true"
-          className="mt-6 mb-5 flex items-center gap-3"
-          style={{ opacity: 0.92 }}
+          className="ella-rise mt-6 mb-5"
+          style={{ animationDelay: "120ms" }}
         >
+        <div className="flex items-center gap-3" style={{ opacity: 0.92 }}>
           <span
             className="block"
             style={{
@@ -130,19 +170,23 @@ export function Hero({
             }}
           />
         </div>
+        </div>
 
         <p
-          className="text-white/95"
+          className="text-white/95 ella-rise"
           style={{
             fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
             fontSize: "clamp(13px, 2.4vw, 16px)",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
             fontWeight: 400,
+            lineHeight: 1.9,
+            textWrap: "balance",
             textShadow: "0 1px 6px rgba(37, 16, 8, 0.35)",
+            animationDelay: "200ms",
           }}
         >
-          warm editorial soft glam · outono 2026
+          {subtitulo}
         </p>
       </div>
 
@@ -162,7 +206,7 @@ export function Hero({
             fontWeight: 300,
           }}
         >
-          rolê
+          descer
         </span>
         <svg
           width="14"

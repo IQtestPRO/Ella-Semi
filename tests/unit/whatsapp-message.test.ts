@@ -19,9 +19,11 @@ const SAMPLE: CartItem[] = [
   },
 ];
 
+const NUMERO = "5521999998888";
+
 describe("montarMensagemWhatsApp", () => {
   it("generates a PED-XXXXXX id with 6 alphanumeric chars (no 0/O/1/I)", () => {
-    const { pedidoId } = montarMensagemWhatsApp(SAMPLE);
+    const { pedidoId } = montarMensagemWhatsApp(SAMPLE, NUMERO);
     expect(pedidoId).toMatch(/^PED-[A-Z2-9]{6}$/);
     expect(pedidoId).not.toContain("0");
     expect(pedidoId).not.toContain("1");
@@ -30,7 +32,7 @@ describe("montarMensagemWhatsApp", () => {
   });
 
   it("includes each item with quantity in the message text", () => {
-    const { text } = montarMensagemWhatsApp(SAMPLE);
+    const { text } = montarMensagemWhatsApp(SAMPLE, NUMERO);
     expect(text).toContain("Brinco Folha Suspensa Semijoia");
     expect(text).toContain("Colar Galho Pendente Semijoia");
     expect(text).toContain("x1");
@@ -38,19 +40,18 @@ describe("montarMensagemWhatsApp", () => {
   });
 
   it("computes correct subtotal", () => {
-    const { subtotalCents } = montarMensagemWhatsApp(SAMPLE);
+    const { subtotalCents } = montarMensagemWhatsApp(SAMPLE, NUMERO);
     // 6990*1 + 8990*2 = 6990 + 17980 = 24970
     expect(subtotalCents).toBe(24970);
   });
 
   it("URL is wa.me with URL-encoded message", () => {
-    const { url } = montarMensagemWhatsApp(SAMPLE);
+    const { url } = montarMensagemWhatsApp(SAMPLE, NUMERO);
     expect(url).toMatch(/^https:\/\/wa\.me\/\d+\?text=/);
   });
 
-  it("uses NEXT_PUBLIC_WHATSAPP_NUMBER if defined, fallback otherwise", () => {
-    const { url } = montarMensagemWhatsApp(SAMPLE);
-    // Em testes não temos env var → usa fallback 5500000000000
-    expect(url).toContain("5500000000000");
+  it("usa o número passado como argumento (editável no /admin via settings)", () => {
+    const { url } = montarMensagemWhatsApp(SAMPLE, NUMERO);
+    expect(url).toContain(NUMERO);
   });
 });

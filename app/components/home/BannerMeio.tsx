@@ -43,7 +43,7 @@ export function BannerMeio({
       aria-label="Banner editorial"
       className="relative w-full overflow-hidden"
       style={{
-        height: "clamp(280px, 38vh, 460px)",
+        height: "clamp(280px, 38svh, 460px)",
         background:
           "linear-gradient(120deg, #F0DCC4 0%, #E8D2BB 45%, #D9BFA1 100%)",
       }}
@@ -54,7 +54,10 @@ export function BannerMeio({
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
-        style={{ opacity: showVideo ? 0 : 1, transition: "opacity 600ms ease" }}
+        style={{
+          opacity: showVideo ? 0 : 1,
+          transition: "opacity 600ms var(--ease-out-soft)",
+        }}
         onError={(e) => {
           (e.currentTarget as HTMLImageElement).style.display = "none";
         }}

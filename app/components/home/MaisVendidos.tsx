@@ -40,13 +40,13 @@ export const MaisVendidos: FC<Props> = ({ products }) => {
           style={{ scrollSnapType: "x mandatory" }}
           data-testid="mais-vendidos-scroll-mobile"
         >
-          {products.map((p) => (
+          {products.map((p, i) => (
             <li
               key={p.slug}
               className="flex-none"
               style={{ scrollSnapAlign: "start", width: "78%" }}
             >
-              <ProductCard product={p} showAddToCart />
+              <ProductCard product={p} showAddToCart priority={i < 2} />
             </li>
           ))}
         </ul>
@@ -56,9 +56,9 @@ export const MaisVendidos: FC<Props> = ({ products }) => {
           className="hidden grid-cols-2 gap-x-6 gap-y-12 md:grid lg:grid-cols-4"
           data-testid="mais-vendidos-grid-desktop"
         >
-          {products.map((p) => (
+          {products.map((p, i) => (
             <li key={p.slug}>
-              <ProductCard product={p} showAddToCart />
+              <ProductCard product={p} showAddToCart priority={i < 4} />
             </li>
           ))}
         </ul>

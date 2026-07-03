@@ -37,7 +37,7 @@ const CHIP_LABELS: Array<{ value: Categoria | "todos"; label: string }> = [
   { value: "pulseiras", label: "Pulseiras" },
   { value: "aneis", label: "Anéis" },
   { value: "conjuntos", label: "Conjuntos" },
-  { value: "gargantilhas", label: "Gargantilhas" },
+  { value: "gargantilhas", label: "Chokers" },
   { value: "tornozeleiras", label: "Tornozeleiras" },
 ];
 
@@ -132,23 +132,18 @@ export function TodasAsPecas({ products }: Props) {
                       dispatch({ type: "set-categoria", categoria: value })
                     }
                     aria-pressed={active}
-                    className="rounded-full px-4 py-2 transition-colors"
+                    className={`rounded-full border px-4 py-2 transition-[background-color,color,border-color,transform] duration-200 ease-brand active:scale-[0.97] ${
+                      active
+                        ? "border-[rgba(37,16,8,0.92)] bg-[rgba(37,16,8,0.92)] text-[#FFF1ED]"
+                        : "border-[rgba(138,110,92,0.25)] bg-[rgba(255,241,237,0.6)] text-[rgba(37,16,8,0.78)] hover:bg-[#FFF1ED]"
+                    }`}
                     style={{
                       fontFamily:
                         "var(--font-secondary, Inter, system-ui, sans-serif)",
                       fontSize: "12px",
-                      letterSpacing: "0.14em",
+                      letterSpacing: "0.16em",
                       textTransform: "uppercase",
                       fontWeight: 500,
-                      backgroundColor: active
-                        ? "rgba(37, 16, 8, 0.92)"
-                        : "rgba(255, 241, 237, 0.6)",
-                      color: active
-                        ? "#FFF1ED"
-                        : "rgba(37, 16, 8, 0.78)",
-                      border: active
-                        ? "1px solid rgba(37, 16, 8, 0.92)"
-                        : "1px solid rgba(138, 110, 92, 0.25)",
                     }}
                   >
                     {label}
@@ -167,7 +162,7 @@ export function TodasAsPecas({ products }: Props) {
                 fontFamily:
                   "var(--font-secondary, Inter, system-ui, sans-serif)",
                 fontSize: "11px",
-                letterSpacing: "0.18em",
+                letterSpacing: "0.16em",
                 textTransform: "uppercase",
               }}
             >
@@ -182,11 +177,11 @@ export function TodasAsPecas({ products }: Props) {
                   sort: e.target.value as SortOption,
                 })
               }
-              className="rounded-sm bg-transparent px-3 py-2 outline-none focus:ring-2"
+              // text-base no mobile: select <16px dispara zoom de foco no iOS
+              className="rounded-sm bg-transparent px-3 py-2 text-base outline-none focus:ring-2 md:text-[12px]"
               style={{
                 fontFamily:
                   "var(--font-secondary, Inter, system-ui, sans-serif)",
-                fontSize: "12px",
                 letterSpacing: "0.06em",
                 color: "rgba(37, 16, 8, 0.92)",
                 border: "1px solid rgba(138, 110, 92, 0.3)",
@@ -219,7 +214,8 @@ export function TodasAsPecas({ products }: Props) {
           </div>
         ) : (
           <ul
-            className="grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 md:gap-x-6 md:gap-y-12 lg:grid-cols-3"
+            key={`${state.categoria}-${state.sort}`}
+            className="ella-rise grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 md:gap-x-6 md:gap-y-12 lg:grid-cols-3"
             data-testid="todas-as-pecas-grid"
           >
             {visible.map((p) => (
@@ -236,7 +232,7 @@ export function TodasAsPecas({ products }: Props) {
           style={{
             fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
             fontSize: "11px",
-            letterSpacing: "0.18em",
+            letterSpacing: "0.16em",
             textTransform: "uppercase",
           }}
           data-testid="visible-count"

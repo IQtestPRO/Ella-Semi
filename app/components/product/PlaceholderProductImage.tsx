@@ -134,8 +134,13 @@ const SILHUETA_BY_CATEGORIA: Record<Categoria, FC<SilhuetaProps>> = {
 
 const Sparkle: FC = () => (
   <g transform="translate(168, 32)" fill="#D99A30" aria-hidden="true">
-    <path d="M0,-9 L1.6,-1.6 L9,0 L1.6,1.6 L0,9 L-1.6,1.6 L-9,0 L-1.6,-1.6 Z" />
-    <circle cx="0" cy="0" r="1.4" fill="#FFFFFF" opacity="0.7" />
+    {/* Grupo interno animável: o transform CSS do twinkle não pode
+        sobrescrever o translate do atributo acima (.ella-sparkle usa
+        transform-box: fill-box — definido em globals.css). */}
+    <g className="ella-sparkle">
+      <path d="M0,-9 L1.6,-1.6 L9,0 L1.6,1.6 L0,9 L-1.6,1.6 L-9,0 L-1.6,-1.6 Z" />
+      <circle cx="0" cy="0" r="1.4" fill="#FFFFFF" opacity="0.7" />
+    </g>
   </g>
 );
 
@@ -144,6 +149,12 @@ type Props = {
   alt?: string;
   showLabel?: boolean;
   className?: string;
+  /**
+   * Aspect-ratio do wrapper. Consumidores que precisam de ratio próprio
+   * (ex.: Categorias com `aspect-[4/3] md:aspect-square`) passam aqui —
+   * evita duas utilities `aspect-*` conflitando na cascata do Tailwind.
+   */
+  aspectClassName?: string;
 };
 
 export const PlaceholderProductImage: FC<Props> = ({
@@ -151,6 +162,7 @@ export const PlaceholderProductImage: FC<Props> = ({
   alt,
   showLabel = true,
   className = "",
+  aspectClassName = "aspect-square",
 }) => {
   const Silhueta = SILHUETA_BY_CATEGORIA[categoria] ?? SilhuetaOutros;
   const accessibleLabel =
@@ -161,7 +173,9 @@ export const PlaceholderProductImage: FC<Props> = ({
       role="img"
       aria-label={accessibleLabel}
       data-categoria={categoria}
-      className={`relative aspect-square overflow-hidden ${className}`.trim()}
+      className={["relative overflow-hidden", aspectClassName, className]
+        .filter(Boolean)
+        .join(" ")}
       style={{
         background:
           "linear-gradient(135deg, #FFD9CC 0%, #F8E0CD 45%, #F0DCC4 100%)",

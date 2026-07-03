@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
 
 // CartDrawer e WhatsAppFloatButton são puramente client-side. Carregam
 // após hidratação pra reduzir JS inicial e evitar mismatch de SSR com
@@ -21,6 +22,9 @@ const WhatsAppFloatButton = dynamic(
  * as rotas via `app/layout.tsx`. Substituiu chatbot da S2.2 (ADR-0020).
  */
 export function GlobalUI() {
+  const pathname = usePathname();
+  // O painel /admin não mostra carrinho nem FAB do WhatsApp.
+  if (pathname?.startsWith("/admin")) return null;
   return (
     <>
       <CartDrawer />

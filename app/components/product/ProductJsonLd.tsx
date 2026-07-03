@@ -1,13 +1,19 @@
 import type { Product } from "../../../lib/schemas";
+import { SITE_URL } from "../../../lib/site";
 
+// URLs absolutas no JSON-LD são exigidas pelo Google p/ rich results
+// (varredura: SEO "JSON-LD usa URLs relativas").
 export function ProductJsonLd({ product }: { product: Product }) {
   const precoEfetivoCents = product.precoPromocionalCents ?? product.precoCents;
+  const abs = (path: string) => `${SITE_URL}${path}`;
   const productLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.nome,
     description: product.descricao,
-    image: product.fotos.map((f) => f.url),
+    image: product.fotos.map((f) =>
+      f.url.startsWith("http") ? f.url : abs(f.url),
+    ),
     sku: product.slug,
     brand: { "@type": "Brand", name: "ELLA Semijoias" },
     category: product.categoria,
@@ -18,7 +24,7 @@ export function ProductJsonLd({ product }: { product: Product }) {
       availability: product.ativo
         ? "https://schema.org/InStock"
         : "https://schema.org/OutOfStock",
-      url: `/${product.categoria}/${product.slug}`,
+      url: abs(`/${product.categoria}/${product.slug}`),
     },
   };
 
@@ -26,18 +32,18 @@ export function ProductJsonLd({ product }: { product: Product }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 1, name: "Home", item: abs("/") },
       {
         "@type": "ListItem",
         position: 2,
         name: product.categoria,
-        item: `/${product.categoria}`,
+        item: abs(`/${product.categoria}`),
       },
       {
         "@type": "ListItem",
         position: 3,
         name: product.nome,
-        item: `/${product.categoria}/${product.slug}`,
+        item: abs(`/${product.categoria}/${product.slug}`),
       },
     ],
   };

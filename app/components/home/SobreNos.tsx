@@ -8,32 +8,13 @@ type FaqItem = {
   a: string;
 };
 
-const FAQ: FaqItem[] = [
-  {
-    q: "Como compro uma peça?",
-    a: "Você adiciona a peça ao carrinho e clica em finalizar pelo WhatsApp. Abrimos a conversa com a Ellen direto no app, com sua escolha já formatada — sem cadastro, sem checkout no site.",
-  },
-  {
-    q: "Vocês entregam pra todo Brasil?",
-    a: "Sim. O frete é combinado pelo WhatsApp junto com seu endereço. A Ellen passa o valor antes de fechar o pedido.",
-  },
-  {
-    q: "As peças têm garantia?",
-    a: "Semijoias têm garantia de 6 meses a 1 ano contra defeitos de fabricação. A garantia não cobre mau uso nem pinos de brincos. Bijuterias não têm garantia.",
-  },
-  {
-    q: "Posso trocar uma peça depois?",
-    a: "Sim — exceto peças em promoção, que não são trocadas. Pra trocar, fala com a Ellen no WhatsApp em até 7 dias da entrega.",
-  },
-  {
-    q: "Como funcionam peças sob encomenda?",
-    a: "Cordões personalizados (gravação, comprimento sob medida) e peças sob encomenda exigem pagamento prévio. A Ellen confirma prazo e valor antes de iniciar a produção.",
-  },
-  {
-    q: "Atendimento personalizado?",
-    a: "Direto pela Ellen no WhatsApp. Você pode pedir foto extra de uma peça, tirar dúvida sobre tamanho, ou montar um look — atendimento humano, sem bot.",
-  },
-];
+type SobreContent = {
+  titulo: string;
+  subtitulo: string;
+  paragrafos: string[];
+  ctaTexto: string;
+  ctaHref: string;
+};
 
 const Plus: FC<{ open: boolean }> = ({ open }) => (
   <svg
@@ -45,7 +26,7 @@ const Plus: FC<{ open: boolean }> = ({ open }) => (
     strokeWidth="1.4"
     strokeLinecap="round"
     aria-hidden="true"
-    className="transition-transform duration-300"
+    className="transition-transform duration-300 ease-brand"
     style={{
       transform: open ? "rotate(45deg)" : "rotate(0deg)",
     }}
@@ -55,22 +36,25 @@ const Plus: FC<{ open: boolean }> = ({ open }) => (
   </svg>
 );
 
-export function SobreNos() {
+export function SobreNos({
+  sobre,
+  faq,
+}: {
+  sobre: SobreContent;
+  faq: FaqItem[];
+}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section
       aria-labelledby="sobre-nos-heading"
-      className="w-full bg-[var(--color-salmao-claro)] px-5 py-20 md:px-10 md:py-28"
+      className="w-full bg-[var(--color-salmao-claro)] px-5 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto grid max-w-[1180px] gap-16 md:grid-cols-2 md:gap-20">
         {/* Coluna 1 — Manifesto */}
         <div className="flex flex-col gap-6">
           <div id="sobre-nos-heading">
-            <SectionHeading
-              title="Sobre a ELLA"
-              subtitle="warm editorial soft glam"
-            />
+            <SectionHeading title={sobre.titulo} subtitle={sobre.subtitulo} />
           </div>
           <div
             className="flex flex-col gap-5 text-[var(--color-preto-warm)]/85"
@@ -82,37 +66,34 @@ export function SobreNos() {
               letterSpacing: "0.01em",
             }}
           >
-            <p>
-              A ELLA nasceu em Niterói pra mulheres que escolhem peças pra
-              acompanhar o dia inteiro — do café da manhã ao jantar. Semijoias
-              com banho que dura, design contemporâneo e atendimento direto
-              com a Ellen.
-            </p>
-            <p>
-              Sem checkout impessoal. Você escolhe, finaliza pelo WhatsApp, e a
-              gente conversa. Cada peça sai com cuidado — porque cada peça
-              continua uma história em ouro.
-            </p>
+            {sobre.paragrafos.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
 
           <a
-            href="https://wa.link/adq88g"
+            href={sobre.ctaHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-flex w-fit items-center gap-2 rounded-full px-5 py-3 transition-colors"
+            className="group mt-2 inline-flex w-fit items-center gap-2 rounded-full px-5 py-3 transition-[filter,transform] duration-200 ease-brand hover:brightness-125 active:scale-[0.98]"
             style={{
               fontFamily:
                 "var(--font-secondary, Inter, system-ui, sans-serif)",
               fontSize: "12px",
-              letterSpacing: "0.18em",
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
               fontWeight: 600,
               backgroundColor: "var(--color-preto-warm, #251008)",
               color: "#FFF1ED",
             }}
           >
-            <span>Falar com a Ellen</span>
-            <span aria-hidden="true">→</span>
+            <span>{sobre.ctaTexto}</span>
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-200 ease-brand group-hover:translate-x-0.5"
+            >
+              →
+            </span>
           </a>
         </div>
 
@@ -124,7 +105,7 @@ export function SobreNos() {
               fontFamily:
                 "var(--font-secondary, Inter, system-ui, sans-serif)",
               fontSize: "11px",
-              letterSpacing: "0.22em",
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
               fontWeight: 600,
             }}
@@ -133,7 +114,7 @@ export function SobreNos() {
           </h3>
 
           <ul className="flex flex-col" data-testid="faq-list">
-            {FAQ.map((item, i) => {
+            {faq.map((item, i) => {
               const open = openIndex === i;
               return (
                 <li
@@ -150,7 +131,7 @@ export function SobreNos() {
                     style={{
                       fontFamily:
                         "var(--font-secondary, Inter, system-ui, sans-serif)",
-                      fontSize: "14px",
+                      fontSize: "15px",
                       letterSpacing: "0.01em",
                       fontWeight: 500,
                       color: "var(--color-preto-warm, #251008)",
@@ -165,9 +146,10 @@ export function SobreNos() {
                     id={`faq-panel-${i}`}
                     role="region"
                     aria-labelledby={`faq-q-${i}`}
-                    className="grid overflow-hidden transition-all duration-300 ease-out"
+                    className="grid overflow-hidden"
                     style={{
                       gridTemplateRows: open ? "1fr" : "0fr",
+                      transition: "grid-template-rows 300ms var(--ease-brand)",
                     }}
                   >
                     <div className="overflow-hidden">
@@ -176,9 +158,11 @@ export function SobreNos() {
                         style={{
                           fontFamily:
                             "var(--font-secondary, Inter, system-ui, sans-serif)",
-                          fontSize: "13.5px",
+                          fontSize: "14px",
                           lineHeight: 1.65,
                           letterSpacing: "0.01em",
+                          opacity: open ? 1 : 0,
+                          transition: "opacity 220ms var(--ease-brand)",
                         }}
                       >
                         {item.a}

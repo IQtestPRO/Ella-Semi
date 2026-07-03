@@ -2,7 +2,22 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { WhatsAppFloatButton } from "../../app/components/cart/WhatsAppFloatButton";
+import { SiteConfigProvider } from "../../app/components/SiteConfigProvider";
 import { useCart } from "../../lib/cart/store";
+import type { ReactElement } from "react";
+
+const NUMERO = "5521999998888";
+const LINK_GERAL = "https://wa.link/adq88g";
+
+function renderWithConfig(ui: ReactElement) {
+  return render(
+    <SiteConfigProvider
+      config={{ whatsappNumero: NUMERO, whatsappLinkGeral: LINK_GERAL }}
+    >
+      {ui}
+    </SiteConfigProvider>,
+  );
+}
 
 const openSpy = vi.fn();
 beforeEach(() => {
@@ -15,7 +30,7 @@ beforeEach(() => {
 
 describe("WhatsAppFloatButton", () => {
   it("renders with accessible label (empty cart → atendimento geral)", () => {
-    render(<WhatsAppFloatButton />);
+    renderWithConfig(<WhatsAppFloatButton />);
     expect(
       screen.getByRole("button", { name: /abrir whatsapp com a ellen/i }),
     ).toBeInTheDocument();
@@ -28,7 +43,7 @@ describe("WhatsAppFloatButton", () => {
       precoCents: 1000,
       categoria: "brincos",
     });
-    render(<WhatsAppFloatButton />);
+    renderWithConfig(<WhatsAppFloatButton />);
     expect(
       screen.getByRole("button", { name: /abrir whatsapp com 1 peça/i }),
     ).toBeInTheDocument();
@@ -36,7 +51,7 @@ describe("WhatsAppFloatButton", () => {
 
   it("clicking opens wa.link/adq88g when cart is empty", async () => {
     const user = userEvent.setup();
-    render(<WhatsAppFloatButton />);
+    renderWithConfig(<WhatsAppFloatButton />);
     await user.click(screen.getByTestId("whatsapp-float-button"));
     expect(openSpy).toHaveBeenCalledWith(
       "https://wa.link/adq88g",
@@ -53,7 +68,7 @@ describe("WhatsAppFloatButton", () => {
       precoCents: 6990,
       categoria: "brincos",
     });
-    render(<WhatsAppFloatButton />);
+    renderWithConfig(<WhatsAppFloatButton />);
     await user.click(screen.getByTestId("whatsapp-float-button"));
     expect(openSpy).toHaveBeenCalledTimes(1);
     const [url] = openSpy.mock.calls[0];
@@ -63,7 +78,7 @@ describe("WhatsAppFloatButton", () => {
   });
 
   it("button has minimum 44x44 tap target (h-14 w-14 = 56)", () => {
-    render(<WhatsAppFloatButton />);
+    renderWithConfig(<WhatsAppFloatButton />);
     const btn = screen.getByTestId("whatsapp-float-button");
     expect(btn.className).toMatch(/\bh-14\b/);
     expect(btn.className).toMatch(/\bw-14\b/);
@@ -77,7 +92,7 @@ describe("WhatsAppFloatButton", () => {
       precoCents: 1000,
       categoria: "brincos",
     });
-    render(<WhatsAppFloatButton />);
+    renderWithConfig(<WhatsAppFloatButton />);
     await user.click(screen.getByTestId("whatsapp-float-button"));
     expect(useCart.getState().items).toHaveLength(1);
   });

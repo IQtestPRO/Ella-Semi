@@ -21,6 +21,11 @@ type Props = {
    * without leaving the home.
    */
   showAddToCart?: boolean;
+  /**
+   * `true` nos primeiros cards visíveis de cada grade: a foto carrega com
+   * prioridade (sem lazy) — melhora o LCP no mobile e desktop.
+   */
+  priority?: boolean;
 };
 
 export function ProductCard({
@@ -28,6 +33,7 @@ export function ProductCard({
   eyebrow,
   showMaisVendidoBadge,
   showAddToCart = false,
+  priority = false,
 }: Props) {
   const foto = product.fotos[0];
   const preco = formatBRL(product.precoCents);
@@ -55,8 +61,10 @@ export function ProductCard({
               alt={foto.alt}
               width={foto.width}
               height={foto.height}
-              sizes="(max-width: 640px) 320px, 320px"
-              className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+              sizes="(max-width: 640px) 50vw, 320px"
+              priority={priority}
+              loading={priority ? "eager" : undefined}
+              className="h-full w-full transform-gpu object-cover transition-transform duration-300 ease-out-soft group-hover:scale-[1.04]"
             />
           ) : (
             <div className="absolute inset-0">
@@ -93,8 +101,12 @@ export function ProductCard({
               {eyebrow}
             </span>
           )}
-          <h2 className="font-hero text-2xl leading-tight">{product.nome}</h2>
-          <p className="text-base text-[var(--color-preto-warm)]/80">{preco}</p>
+          <h2 className="font-hero text-[clamp(1.0625rem,4.6vw,1.5rem)] leading-[1.15]">
+            {product.nome}
+          </h2>
+          <p className="text-[15px] font-medium tracking-[0.02em] text-[var(--color-preto-warm)] transition-colors duration-200 ease-out-soft group-hover:text-[#A47525]">
+            {preco}
+          </p>
         </div>
       </article>
     </Link>

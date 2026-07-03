@@ -8,6 +8,10 @@ import { Footer } from "../components/Footer";
 import { getProductsByCategory } from "../../lib/catalog";
 import { CategoriaSchema, type Categoria } from "../../lib/schemas";
 
+// ISR: página servida do cache da CDN (rápida) e regenerada a cada 5min —
+// e IMEDIATAMENTE quando a Ellen salva no /admin (revalidatePath nas mutações).
+export const revalidate = 300;
+
 type Params = { categoria: string };
 
 const PRETTY_LABEL: Record<Categoria, string> = {
@@ -16,22 +20,24 @@ const PRETTY_LABEL: Record<Categoria, string> = {
   pulseiras: "Pulseiras",
   aneis: "Anéis",
   conjuntos: "Conjuntos",
-  gargantilhas: "Gargantilhas",
+  gargantilhas: "Chokers",
   tornozeleiras: "Tornozeleiras",
   piercings: "Piercings",
   outros: "Outros",
 };
 
+// Subtítulos atemporais, centrados no produto (não na campanha sazonal).
+// Varredura: conteúdo "subtítulos de categoria hardcodam Folhas de Outono".
 const SUBTITLES: Record<Categoria, string> = {
-  brincos: "todas as peças de brinco da Coleção Folhas de Outono",
-  colares: "todas as peças de colar da Coleção Folhas de Outono",
-  pulseiras: "todas as peças de pulseira da Coleção Folhas de Outono",
-  aneis: "todas as peças de anel da Coleção Folhas de Outono",
-  conjuntos: "kits coordenados da Coleção Folhas de Outono",
-  gargantilhas: "todas as peças de gargantilha da Coleção Folhas de Outono",
-  tornozeleiras: "todas as peças de tornozeleira da Coleção Folhas de Outono",
-  piercings: "todas as peças de piercing da Coleção Folhas de Outono",
-  outros: "outras peças da Coleção Folhas de Outono",
+  brincos: "brincos em semijoia — banho de ouro, prata e ródio",
+  colares: "colares e correntes para usar sozinhos ou em camadas",
+  pulseiras: "pulseiras e correntões para compor o look",
+  aneis: "anéis em semijoia, do solitário ao statement",
+  conjuntos: "conjuntos coordenados de colar e brinco",
+  gargantilhas: "chokers e gargantilhas para valorizar o colo",
+  tornozeleiras: "tornozeleiras delicadas em semijoia",
+  piercings: "piercings e brincos de pressão em semijoia",
+  outros: "peças especiais da ELLA",
 };
 
 export async function generateStaticParams(): Promise<Params[]> {
@@ -62,8 +68,9 @@ export async function generateMetadata({
   }
   const label = PRETTY_LABEL[parsed.data];
   return {
-    title: `${label} — ELLA Semijoias`,
+    title: label,
     description: SUBTITLES[parsed.data],
+    alternates: { canonical: `/${parsed.data}` },
   };
 }
 
@@ -78,7 +85,9 @@ export default async function CategoriaRoute({
     notFound();
   }
 
-  const products = getProductsByCategory(parsed.data, { ativosOnly: true });
+  const products = await getProductsByCategory(parsed.data, {
+    ativosOnly: true,
+  });
   const label = PRETTY_LABEL[parsed.data];
   const subtitle = SUBTITLES[parsed.data];
 
@@ -125,9 +134,9 @@ export default async function CategoriaRoute({
             </div>
           ) : (
             <ul className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 md:gap-y-12 lg:grid-cols-3">
-              {products.map((p) => (
+              {products.map((p, i) => (
                 <li key={p.slug}>
-                  <ProductCard product={p} />
+                  <ProductCard product={p} priority={i < 4} />
                 </li>
               ))}
             </ul>

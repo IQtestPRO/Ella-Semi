@@ -3,14 +3,38 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { SobreNos } from "../../app/components/home/SobreNos";
 
+const SOBRE = {
+  titulo: "Sobre a ELLA",
+  subtitulo: "warm editorial soft glam",
+  paragrafos: [
+    "A ELLA nasceu em Niterói pra mulheres que escolhem peças pra acompanhar o dia inteiro.",
+    "Sem checkout impessoal. Você escolhe, finaliza pelo WhatsApp.",
+  ],
+  ctaTexto: "Falar com a Ellen",
+  ctaHref: "https://wa.link/adq88g",
+};
+
+const FAQ = [
+  { q: "Como compro uma peça?", a: "Adiciona ao carrinho e finaliza pelo WhatsApp." },
+  { q: "Vocês entregam pra todo Brasil?", a: "Sim, frete combinado no WhatsApp." },
+  { q: "As peças têm garantia?", a: "Semijoias têm garantia de 6 meses a 1 ano." },
+  { q: "Posso trocar uma peça depois?", a: "Sim — exceto peças em promoção (troca em 7 dias)." },
+  { q: "Como funcionam peças sob encomenda?", a: "Exigem pagamento prévio." },
+  { q: "Atendimento personalizado?", a: "Direto pela Ellen no WhatsApp." },
+];
+
+function renderSobre() {
+  return render(<SobreNos sobre={SOBRE} faq={FAQ} />);
+}
+
 describe("SobreNos", () => {
   it("renders the section heading", () => {
-    render(<SobreNos />);
+    renderSobre();
     expect(screen.getByRole("heading", { name: /Sobre a ELLA/i })).toBeInTheDocument();
   });
 
   it("includes the manifesto with WhatsApp CTA", () => {
-    render(<SobreNos />);
+    renderSobre();
     expect(screen.getByText(/Niterói/i)).toBeInTheDocument();
     const cta = screen.getByRole("link", { name: /Falar com a Ellen/i });
     expect(cta).toHaveAttribute("href", "https://wa.link/adq88g");
@@ -18,21 +42,21 @@ describe("SobreNos", () => {
   });
 
   it("renders 6 FAQ items", () => {
-    render(<SobreNos />);
+    renderSobre();
     const list = screen.getByTestId("faq-list");
     const items = list.querySelectorAll("li");
     expect(items.length).toBe(6);
   });
 
   it("first FAQ item is open by default", () => {
-    render(<SobreNos />);
+    renderSobre();
     const firstQ = screen.getByRole("button", { name: /Como compro uma peça/i });
     expect(firstQ).toHaveAttribute("aria-expanded", "true");
   });
 
   it("clicking a closed FAQ item opens it", async () => {
     const user = userEvent.setup();
-    render(<SobreNos />);
+    renderSobre();
     const fq = screen.getByRole("button", { name: /garantia/i });
     expect(fq).toHaveAttribute("aria-expanded", "false");
     await user.click(fq);
@@ -41,7 +65,7 @@ describe("SobreNos", () => {
 
   it("clicking an open FAQ item closes it", async () => {
     const user = userEvent.setup();
-    render(<SobreNos />);
+    renderSobre();
     const firstQ = screen.getByRole("button", { name: /Como compro uma peça/i });
     expect(firstQ).toHaveAttribute("aria-expanded", "true");
     await user.click(firstQ);
@@ -50,7 +74,7 @@ describe("SobreNos", () => {
 
   it("only one FAQ panel is open at a time", async () => {
     const user = userEvent.setup();
-    render(<SobreNos />);
+    renderSobre();
     await user.click(screen.getByRole("button", { name: /troca/i }));
     expect(
       screen.getByRole("button", { name: /Como compro uma peça/i }),

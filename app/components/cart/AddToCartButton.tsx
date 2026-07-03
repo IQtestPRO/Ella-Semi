@@ -71,7 +71,7 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
     add({
       slug: product.slug,
       nome: product.nome,
-      precoCents: product.precoCents,
+      precoCents: product.precoPromocionalCents ?? product.precoCents,
       categoria: product.categoria,
       fotoUrl: product.fotos[0]?.url,
     });
@@ -92,14 +92,20 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
         style={{
           fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
           fontSize: "12px",
-          letterSpacing: "0.14em",
+          letterSpacing: "0.16em",
           textTransform: "uppercase",
           fontWeight: 600,
           backgroundColor: feedback ? "#A47525" : "var(--color-preto-warm, #251008)",
           color: "#FFF1ED",
         }}
       >
-        {feedback ? <Check /> : <BagPlus />}
+        {feedback ? (
+          <span className="ella-pop inline-flex">
+            <Check />
+          </span>
+        ) : (
+          <BagPlus />
+        )}
         <span>{feedback ? "Adicionado" : "Adicionar ao carrinho"}</span>
       </button>
     );
@@ -118,7 +124,13 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
         border: "1px solid rgba(217, 154, 48, 0.35)",
       }}
     >
-      {feedback ? <Check /> : <BagPlus />}
+      {feedback ? (
+        <span className="ella-pop inline-flex">
+          <Check />
+        </span>
+      ) : (
+        <BagPlus />
+      )}
     </button>
   );
 };

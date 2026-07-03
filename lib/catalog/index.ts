@@ -1,94 +1,178 @@
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { cache } from "react";
+import { db } from "../db";
 import {
   CampanhaAtualSchema,
-  ProductsSchema,
+  ProductSchema,
   type CampanhaAtual,
   type Categoria,
   type Product,
 } from "../schemas";
+import type { Row } from "@libsql/client";
 
-let _products: readonly Product[] | null = null;
-let _campanha: CampanhaAtual | null = null;
+/**
+ * Camada de leitura do catálogo — agora sobre Turso/libsql (ADR-0021,
+ * supersede ADR-0004/0005 no ponto "JSON como armazenamento de produção").
+ *
+ * Mantém a MESMA API pública de antes, porém assíncrona: cada função retorna
+ * Promise. Server Components fazem `await`. A carga total de produtos e a
+ * campanha são memoizadas por request via React `cache()` — uma query por
+ * request, igual ao comportamento antigo de cache em módulo.
+ */
 
-function loadProducts(): readonly Product[] {
-  if (_products === null) {
-    const raw = readFileSync(resolve("data/products.json"), "utf-8");
-    _products = ProductsSchema.parse(JSON.parse(raw));
+// ── Mapeamento de linha do banco -> domínio (validado por Zod) ──────────────
+
+const num = (v: Row[string]): number => Number(v);
+const optNum = (v: Row[string]): number | undefined =>
+  v === null || v === undefined ? undefined : Number(v);
+const optBool = (v: Row[string]): boolean | undefined =>
+  v === null || v === undefined ? undefined : Number(v) === 1;
+const parseJson = <T>(v: Row[string], fallback: T): T => {
+  if (typeof v !== "string" || v.length === 0) return fallback;
+  try {
+    return JSON.parse(v) as T;
+  } catch {
+    return fallback;
   }
-  return _products;
+};
+
+function rowToProduct(r: Row): Product {
+  return ProductSchema.parse({
+    slug: r.slug,
+    nome: r.nome,
+    codigo: r.codigo ?? undefined,
+    categoria: r.categoria,
+    banho: r.banho,
+    tipo: r.tipo,
+    precoCents: num(r.precoCents),
+    precoPromocionalCents: optNum(r.precoPromocionalCents),
+    descricao: r.descricao,
+    fotos: parseJson(r.fotos, [] as Product["fotos"]),
+    videoUrl: r.videoUrl ?? undefined,
+    variantes: r.variantes
+      ? parseJson(r.variantes, undefined as Product["variantes"])
+      : undefined,
+    tags: r.tags ? parseJson(r.tags, undefined as Product["tags"]) : undefined,
+    promocao: Number(r.promocao) === 1,
+    tipoFulfillment: r.tipoFulfillment,
+    destaqueHome: Number(r.destaqueHome) === 1,
+    maisVendido: Number(r.maisVendido) === 1,
+    ativo: Number(r.ativo) === 1,
+    origem: r.origem
+      ? parseJson(r.origem, undefined as Product["origem"])
+      : undefined,
+    fonteFotoFraca: optBool(r.fonteFotoFraca),
+    cadastradoEm: r.cadastradoEm,
+    atualizadoEm: r.atualizadoEm,
+  });
 }
 
-function loadCampanha(): CampanhaAtual {
-  if (_campanha === null) {
-    const raw = readFileSync(resolve("data/campanha-atual.json"), "utf-8");
-    _campanha = CampanhaAtualSchema.parse(JSON.parse(raw));
-  }
-  return _campanha;
+function rowToCampanha(r: Row): CampanhaAtual {
+  return CampanhaAtualSchema.parse({
+    slug: r.slug,
+    nomeExibicao: r.nomeExibicao,
+    manifesto: r.manifesto,
+    heroVideo: r.heroVideo ?? undefined,
+    heroImagem: r.heroImagem ?? undefined,
+    ctaTexto: r.ctaTexto,
+    produtosDestaqueSlugs: parseJson(r.produtosDestaqueSlugs, [] as string[]),
+    ativa: Number(r.ativa) === 1,
+    atualizadoEm: r.atualizadoEm,
+  });
 }
+
+// ── Carga memoizada por request ─────────────────────────────────────────────
+
+const loadProducts = cache(async (): Promise<readonly Product[]> => {
+  const rs = await db.execute(
+    "SELECT * FROM products ORDER BY ordem ASC, nome ASC",
+  );
+  return rs.rows.map(rowToProduct);
+});
+
+const loadCampanha = cache(async (): Promise<CampanhaAtual> => {
+  const rs = await db.execute("SELECT * FROM campanha WHERE id = 1 LIMIT 1");
+  if (rs.rows.length === 0) {
+    throw new Error(
+      "Campanha não encontrada no banco. Rode `node scripts/seed-db.mjs`.",
+    );
+  }
+  return rowToCampanha(rs.rows[0]);
+});
+
+// ── API pública (igual à anterior, agora async) ─────────────────────────────
 
 export type CatalogQueryOpts = { ativosOnly?: boolean };
 
-export function getAllProducts(opts?: CatalogQueryOpts): readonly Product[] {
-  const all = loadProducts();
+export async function getAllProducts(
+  opts?: CatalogQueryOpts,
+): Promise<readonly Product[]> {
+  const all = await loadProducts();
   return opts?.ativosOnly ? all.filter((p) => p.ativo) : all;
 }
 
-export function getProductBySlug(slug: string): Product | null {
+export async function getProductBySlug(slug: string): Promise<Product | null> {
   if (!slug) return null;
-  return loadProducts().find((p) => p.slug === slug) ?? null;
+  const all = await loadProducts();
+  return all.find((p) => p.slug === slug) ?? null;
 }
 
-export function getProductsByCategory(
+export async function getProductsByCategory(
   categoria: Categoria,
   opts?: CatalogQueryOpts,
-): readonly Product[] {
-  const filtered = loadProducts().filter((p) => p.categoria === categoria);
+): Promise<readonly Product[]> {
+  const all = await loadProducts();
+  const filtered = all.filter((p) => p.categoria === categoria);
   return opts?.ativosOnly ? filtered.filter((p) => p.ativo) : filtered;
 }
 
-export function getCampanhaAtual(): CampanhaAtual {
+export async function getCampanhaAtual(): Promise<CampanhaAtual> {
   return loadCampanha();
 }
 
-export function getProductsDestaque(): readonly Product[] {
-  const campanha = loadCampanha();
+export async function getProductsDestaque(): Promise<readonly Product[]> {
+  const campanha = await loadCampanha();
   if (!campanha.ativa) return [];
   const slugSet = new Set(campanha.produtosDestaqueSlugs);
-  return loadProducts().filter((p) => p.ativo && slugSet.has(p.slug));
+  const all = await loadProducts();
+  // Preserva a ordem dos slugs definida na campanha (curadoria da Ellen).
+  return campanha.produtosDestaqueSlugs
+    .map((slug) => all.find((p) => p.slug === slug))
+    .filter((p): p is Product => !!p && p.ativo && slugSet.has(p.slug));
 }
 
-export function categoryFromSlug(slug: string): Categoria | null {
-  return getProductBySlug(slug)?.categoria ?? null;
+export async function categoryFromSlug(slug: string): Promise<Categoria | null> {
+  const p = await getProductBySlug(slug);
+  return p?.categoria ?? null;
 }
 
 /**
  * Peças marcadas como `maisVendido: true` — alimentam a seção "MAIS VENDIDOS"
- * da home. Filtra apenas produtos ativos. Ordem estável (mesma do products.json).
- * S2.0 / ADR-0017.
+ * da home. Filtra apenas produtos ativos. S2.0 / ADR-0017.
  */
-export function getMaisVendidos(): readonly Product[] {
-  return loadProducts().filter((p) => p.ativo && p.maisVendido);
+export async function getMaisVendidos(): Promise<readonly Product[]> {
+  const all = await loadProducts();
+  return all.filter((p) => p.ativo && p.maisVendido);
 }
 
 /**
- * Peças marcadas como `destaqueHome: true` — alimentam a seção "Favoritas da Ella".
+ * Peças marcadas como `destaqueHome: true` — alimentam "Favoritas da Ella".
  * Curadoria editorial subjetiva da Ellen, distinta de `maisVendido`. ADR-0004.
  */
-export function getDestaqueHome(): readonly Product[] {
-  return loadProducts().filter((p) => p.ativo && p.destaqueHome);
+export async function getDestaqueHome(): Promise<readonly Product[]> {
+  const all = await loadProducts();
+  return all.filter((p) => p.ativo && p.destaqueHome);
 }
 
 /**
- * Contagem de produtos ativos por categoria — alimenta a seção
- * "Explore por Categoria" da home. Categorias com 0 peças são omitidas.
+ * Contagem de produtos ativos por categoria — alimenta "Explore por Categoria".
+ * Categorias com 0 peças são omitidas.
  */
-export function getCategoryCounts(): ReadonlyArray<{
-  categoria: Categoria;
-  count: number;
-}> {
+export async function getCategoryCounts(): Promise<
+  ReadonlyArray<{ categoria: Categoria; count: number }>
+> {
+  const all = await loadProducts();
   const counts = new Map<Categoria, number>();
-  for (const p of loadProducts()) {
+  for (const p of all) {
     if (!p.ativo) continue;
     counts.set(p.categoria, (counts.get(p.categoria) ?? 0) + 1);
   }

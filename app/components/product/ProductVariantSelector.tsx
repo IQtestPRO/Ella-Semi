@@ -31,7 +31,9 @@ export function ProductVariantSelector({ product, onSelectionChange }: Props) {
         const opcao = v.opcoes.find((o) => o.rotulo === next[v.tipo]);
         return acc + (opcao?.precoCentsAjuste ?? 0);
       }, 0);
-      onSelectionChange(product.precoCents + ajusteTotal, next);
+      // Base promocional quando existir — senão a promo se perde ao variar.
+      const baseCents = product.precoPromocionalCents ?? product.precoCents;
+      onSelectionChange(baseCents + ajusteTotal, next);
     }
   }
 
@@ -52,7 +54,7 @@ export function ProductVariantSelector({ product, onSelectionChange }: Props) {
                   type="button"
                   aria-pressed={ativo}
                   onClick={() => selecionar(variante.tipo, opcao.rotulo)}
-                  className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                  className={`rounded-full border px-4 py-2 text-sm transition-[color,background-color,border-color,transform] duration-200 ease-brand active:scale-[0.96] ${
                     ativo
                       ? "border-[var(--color-preto-warm)] bg-[var(--color-preto-warm)] text-[var(--color-salmao-claro)]"
                       : "border-[var(--color-preto-warm)]/30 bg-transparent text-[var(--color-preto-warm)] hover:border-[var(--color-preto-warm)]/70"
