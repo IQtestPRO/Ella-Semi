@@ -5,9 +5,9 @@ import { SobreNos } from "../../app/components/home/SobreNos";
 
 const SOBRE = {
   titulo: "Sobre a ELLA",
-  subtitulo: "warm editorial soft glam",
+  subtitulo: "feito à mão, desde 1998",
   paragrafos: [
-    "A ELLA nasceu em Niterói pra mulheres que escolhem peças pra acompanhar o dia inteiro.",
+    "A ELLA nasceu em Rio Bonito, no Rio de Janeiro, em 1998 — das mãos de Ellen Lopes Alves.",
     "Sem checkout impessoal. Você escolhe, finaliza pelo WhatsApp.",
   ],
   ctaTexto: "Falar com a Ellen",
@@ -35,7 +35,7 @@ describe("SobreNos", () => {
 
   it("includes the manifesto with WhatsApp CTA", () => {
     renderSobre();
-    expect(screen.getByText(/Niterói/i)).toBeInTheDocument();
+    expect(screen.getByText(/Rio Bonito/i)).toBeInTheDocument();
     const cta = screen.getByRole("link", { name: /Falar com a Ellen/i });
     expect(cta).toHaveAttribute("href", "https://wa.link/adq88g");
     expect(cta).toHaveAttribute("target", "_blank");

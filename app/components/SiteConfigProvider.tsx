@@ -14,7 +14,7 @@ export type SiteConfig = {
 };
 
 const DEFAULT_CONFIG: SiteConfig = {
-  whatsappNumero: "5500000000000",
+  whatsappNumero: "5521996249802",
   whatsappLinkGeral: "https://wa.link/adq88g",
 };
 

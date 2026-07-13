@@ -60,9 +60,9 @@ test.describe("Home S2.0 — reformulada", () => {
     expect(countAfter).not.toBe(countBefore);
   });
 
-  test("Footer mostra 4 colunas + microcopy ELLA Niterói", async ({ page }) => {
+  test("Footer mostra 4 colunas + microcopy ELLA Rio Bonito", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText(/ELLA Semijoias · Outono 2026 · Niterói RJ/)).toBeVisible();
+    await expect(page.getByText(/ELLA Semijoias · Rio Bonito · Rio de Janeiro/)).toBeVisible();
     // Verifica os 4 headings de coluna
     for (const col of ["Sobre", "Categorias", "Atendimento", "Redes"]) {
       await expect(

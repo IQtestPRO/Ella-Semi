@@ -38,7 +38,7 @@ const BANHO_LABEL: Record<string, string> = {
  */
 function metaDescription(nome: string, banho: string, precoCents: number): string {
   const banhoTxt = BANHO_LABEL[banho] ?? "semijoia";
-  return `${nome} em ${banhoTxt}. ${formatBRL(precoCents)}. Atendimento e pedido direto pelo WhatsApp com a Ellen — ELLA Semijoias, Niterói.`;
+  return `${nome} em ${banhoTxt}. ${formatBRL(precoCents)}. Atendimento e pedido direto pelo WhatsApp com a Ellen — ELLA Semijoias, Rio Bonito RJ.`;
 }
 
 export async function generateMetadata({

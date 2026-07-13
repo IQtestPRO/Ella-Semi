@@ -93,11 +93,11 @@ export type SettingValue<K extends SettingKey> = z.infer<
 export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
   marca: {
     whatsappNumero:
-      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5500000000000",
+      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5521996249802",
     whatsappLinkGeral: "https://wa.link/adq88g",
-    instagram: "https://www.instagram.com/ella.semijoias",
-    instagramHandle: "@ella.semijoias",
-    email: "contato@ella-semijoias.com.br",
+    instagram: "https://www.instagram.com/ella_usasemijoias/",
+    instagramHandle: "@ella_usasemijoias",
+    email: "ellasemijoiasebijuterias@gmail.com",
   },
   hero: {
     subtitulo: "warm editorial soft glam · outono 2026",
@@ -111,10 +111,11 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
   },
   sobre: {
     titulo: "Sobre a ELLA",
-    subtitulo: "warm editorial soft glam",
+    subtitulo: "feito à mão, desde 1998",
     paragrafos: [
-      "A ELLA nasceu em Niterói pra mulheres que escolhem peças pra acompanhar o dia inteiro — do café da manhã ao jantar. Semijoias com banho que dura, design contemporâneo e atendimento direto com a Ellen.",
-      "Sem checkout impessoal. Você escolhe, finaliza pelo WhatsApp, e a gente conversa. Cada peça sai com cuidado — porque cada peça continua uma história em ouro.",
+      "A ELLA nasceu em Rio Bonito, no Rio de Janeiro, em 1998 — das mãos de Ellen Lopes Alves, criando peças exclusivas e feitas à mão. Com o tempo, a loja cresceu para as semijoias, sempre com materiais de qualidade e o mesmo cuidado do primeiro dia.",
+      "Nossa missão é embelezar e elevar a autoestima de mulheres que merecem o melhor dos acessórios — semijoias com banho que dura, design contemporâneo e peças pra acompanhar você do café da manhã ao jantar.",
+      "Sem checkout impessoal. Você escolhe, finaliza pelo WhatsApp, e a gente conversa direto. Cada peça sai com cuidado — porque cada peça continua uma história em ouro.",
     ],
     ctaTexto: "Falar com a Ellen",
     ctaHref: "https://wa.link/adq88g",
@@ -149,7 +150,7 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
   },
   footer: {
     wordmarkTagline: "warm editorial soft glam",
-    microcopy: "ELLA Semijoias · Outono 2026 · Niterói RJ",
+    microcopy: "ELLA Semijoias · Rio Bonito · Rio de Janeiro",
     colunas: [
       {
         heading: "Sobre",
@@ -184,12 +185,12 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
         links: [
           {
             label: "Instagram",
-            href: "https://www.instagram.com/ella.semijoias",
+            href: "https://www.instagram.com/ella_usasemijoias/",
             external: true,
           },
           {
             label: "Email",
-            href: "mailto:contato@ella-semijoias.com.br",
+            href: "mailto:ellasemijoiasebijuterias@gmail.com",
             external: true,
           },
         ],
