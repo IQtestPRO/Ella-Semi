@@ -31,6 +31,19 @@ export function Hero({
   // Art direction mobile-first: celular em pé recebe mídia 9:16 dedicada
   // (Higgsfield NB Pro 2K + Cinema Studio) — nada de landscape cortada.
   const [isPortrait, setIsPortrait] = useState(false);
+  // Só montamos o <video> depois da 1ª renderização no cliente, quando já
+  // sabemos a orientação. Assim o celular baixa SÓ o loop 9:16 (não o par
+  // landscape+portrait) e o vídeo certo já entra montado — sem troca dupla.
+  const [mounted, setMounted] = useState(false);
+
+  const showVideo = !reduceMotion && !videoFailed;
+  // Assets portrait são padrão da marca (não editáveis no admin por ora); se a
+  // Ellen trocar o hero no admin, o desktop muda e o mobile mantém o par 9:16.
+  const usaPortrait = isPortrait && fallbackSrc === "/hero/hero-fallback.webp";
+  const efetivoVideo = usaPortrait ? "/hero/hero-loop-portrait.mp4" : videoSrc;
+  const efetivoFallback = usaPortrait
+    ? "/hero/hero-fallback-portrait.webp"
+    : fallbackSrc;
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -48,14 +61,17 @@ export function Hero({
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  const showVideo = !reduceMotion && !videoFailed;
-  // Assets portrait são padrão da marca (não editáveis no admin por ora); se a
-  // Ellen trocar o hero no admin, o desktop muda e o mobile mantém o par 9:16.
-  const usaPortrait = isPortrait && fallbackSrc === "/hero/hero-fallback.webp";
-  const efetivoVideo = usaPortrait ? "/hero/hero-loop-portrait.mp4" : videoSrc;
-  const efetivoFallback = usaPortrait
-    ? "/hero/hero-fallback-portrait.webp"
-    : fallbackSrc;
+  useEffect(() => setMounted(true), []);
+
+  // iOS/Android às vezes não disparam o autoplay quando o <video> é inserido
+  // via JS depois da hidratação. Chamamos play() explicitamente (muted+inline
+  // = permitido pela política de autoplay). Silenciamos rejeição de promessa.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || !mounted || !showVideo) return;
+    const p = v.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  }, [efetivoVideo, mounted, showVideo]);
 
   return (
     <section
@@ -97,9 +113,11 @@ export function Hero({
         />
       </picture>
 
-      {/* Video layer — only when motion allowed and not failed. key força
-          reload quando a orientação muda (portrait ↔ landscape). */}
-      {showVideo && (
+      {/* Video layer — só monta no cliente (mounted) com a orientação já
+          resolvida: celular baixa apenas o 9:16. key força reload quando a
+          orientação muda (portrait ↔ landscape). webkit/x5-playsinline cobrem
+          WebViews antigas de Android além do playsInline padrão do iOS. */}
+      {mounted && showVideo && (
         <video
           key={efetivoVideo}
           ref={videoRef}
@@ -111,7 +129,15 @@ export function Hero({
           preload="metadata"
           className="absolute inset-0 h-full w-full object-cover"
           onError={() => setVideoFailed(true)}
+          onLoadedData={(e) => {
+            const p = e.currentTarget.play();
+            if (p && typeof p.catch === "function") p.catch(() => {});
+          }}
           data-testid="hero-video"
+          {...({
+            "webkit-playsinline": "true",
+            "x5-playsinline": "true",
+          } as Record<string, string>)}
         >
           <source src={efetivoVideo} type="video/mp4" />
         </video>
