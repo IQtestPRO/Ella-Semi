@@ -75,7 +75,7 @@ export function SobreNos({
             href={sobre.ctaHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-2 inline-flex w-fit items-center gap-2 rounded-full px-5 py-3 transition-[filter,transform] duration-200 ease-brand hover:brightness-125 active:scale-[0.98]"
+            className="group mt-2 inline-flex min-h-[44px] w-fit items-center gap-2 rounded-full px-5 py-3 transition-[filter,transform] duration-200 ease-brand hover:brightness-125 active:scale-[0.98]"
             style={{
               fontFamily:
                 "var(--font-secondary, Inter, system-ui, sans-serif)",

@@ -88,7 +88,7 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
         onClick={handleClick}
         aria-label={`Adicionar ${product.nome} ao carrinho`}
         data-testid="add-to-cart-button"
-        className="inline-flex items-center gap-2 rounded-full px-4 py-2 transition-colors"
+        className="inline-flex min-h-[44px] items-center gap-2 rounded-full px-5 py-2.5 transition-[transform,background-color] duration-200 ease-out-soft active:scale-[0.97]"
         style={{
           fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
           fontSize: "12px",

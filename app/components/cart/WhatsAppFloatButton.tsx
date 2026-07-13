@@ -60,11 +60,10 @@ export const WhatsAppFloatButton: FC = () => {
     >
       <span
         aria-hidden="true"
-        className="absolute inset-0 rounded-full"
+        className="ella-fab-pulse absolute inset-0 rounded-full"
         style={{
           backgroundColor: "#25D366",
           opacity: 0.35,
-          animation: "ella-fab-pulse 2.4s ease-out infinite",
         }}
       />
       <span className="relative">

@@ -46,7 +46,12 @@ export const MaisVendidos: FC<Props> = ({ products }) => {
               className="flex-none"
               style={{ scrollSnapAlign: "start", width: "78%" }}
             >
-              <ProductCard product={p} showAddToCart priority={i < 2} />
+              <ProductCard
+                product={p}
+                showAddToCart
+                priority={i < 2}
+                sizes="(max-width: 640px) 80vw, 320px"
+              />
             </li>
           ))}
         </ul>

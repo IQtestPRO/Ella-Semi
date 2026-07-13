@@ -26,6 +26,12 @@ type Props = {
    * prioridade (sem lazy) — melhora o LCP no mobile e desktop.
    */
   priority?: boolean;
+  /**
+   * `sizes` do next/image. Default cobre as grades de 2 col no mobile. Trilhos
+   * com card largo (MAIS VENDIDOS, ~80vw) passam um valor maior pra foto não
+   * subir borrada — a foto é o ponto de conversão.
+   */
+  sizes?: string;
 };
 
 export function ProductCard({
@@ -34,6 +40,7 @@ export function ProductCard({
   showMaisVendidoBadge,
   showAddToCart = false,
   priority = false,
+  sizes = "(max-width: 640px) 50vw, 320px",
 }: Props) {
   const foto = product.fotos[0];
   const preco = formatBRL(product.precoCents);
@@ -61,7 +68,7 @@ export function ProductCard({
               alt={foto.alt}
               width={foto.width}
               height={foto.height}
-              sizes="(max-width: 640px) 50vw, 320px"
+              sizes={sizes}
               priority={priority}
               loading={priority ? "eager" : undefined}
               className="h-full w-full transform-gpu object-cover transition-transform duration-300 ease-out-soft group-hover:scale-[1.04]"
@@ -79,10 +86,10 @@ export function ProductCard({
           {showBadge && (
             <span
               data-testid="mais-vendido-badge"
-              className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[9px] uppercase shadow-sm"
+              className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] uppercase shadow-sm"
               style={{
                 backgroundColor: "rgba(255, 247, 238, 0.92)",
-                color: "#A47525",
+                color: "#7A5214",
                 letterSpacing: "0.16em",
                 fontFamily:
                   "var(--font-secondary, Inter, system-ui, sans-serif)",

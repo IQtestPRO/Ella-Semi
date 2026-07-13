@@ -62,11 +62,15 @@ h1,
   }
 }
 
-/* FAB WhatsApp pulse ring (S2.3 / ADR-0020) */
+/* FAB WhatsApp pulse ring (S2.3 / ADR-0020) — classe (não inline) pra
+   respeitar prefers-reduced-motion e o easing da marca. */
 @keyframes ella-fab-pulse {
   0%   { transform: scale(1);    opacity: 0.45; }
   80%  { transform: scale(1.55); opacity: 0;    }
   100% { transform: scale(1.55); opacity: 0;    }
+}
+.ella-fab-pulse {
+  animation: ella-fab-pulse 2.4s var(--ease-out-soft) infinite;
 }
 
 /* Skeleton shimmer warm (app/loading.tsx) — respiração, não spinner */
@@ -128,6 +132,7 @@ h1,
   .ella-shimmer,
   .ella-pop,
   .ella-rise,
+  .ella-fab-pulse,
   .group:hover .ella-sparkle {
     animation: none;
   }

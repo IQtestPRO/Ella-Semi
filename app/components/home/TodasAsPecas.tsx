@@ -132,7 +132,7 @@ export function TodasAsPecas({ products }: Props) {
                       dispatch({ type: "set-categoria", categoria: value })
                     }
                     aria-pressed={active}
-                    className={`rounded-full border px-4 py-2 transition-[background-color,color,border-color,transform] duration-200 ease-brand active:scale-[0.97] ${
+                    className={`inline-flex min-h-[44px] items-center justify-center rounded-full border px-4 py-2.5 transition-[background-color,color,border-color,transform] duration-200 ease-brand active:scale-[0.97] ${
                       active
                         ? "border-[rgba(37,16,8,0.92)] bg-[rgba(37,16,8,0.92)] text-[#FFF1ED]"
                         : "border-[rgba(138,110,92,0.25)] bg-[rgba(255,241,237,0.6)] text-[rgba(37,16,8,0.78)] hover:bg-[#FFF1ED]"
@@ -178,7 +178,7 @@ export function TodasAsPecas({ products }: Props) {
                 })
               }
               // text-base no mobile: select <16px dispara zoom de foco no iOS
-              className="rounded-sm bg-transparent px-3 py-2 text-base outline-none focus:ring-2 md:text-[12px]"
+              className="min-h-[44px] rounded-sm bg-transparent px-3 py-2 text-base outline-none focus:ring-2 md:text-[12px]"
               style={{
                 fontFamily:
                   "var(--font-secondary, Inter, system-ui, sans-serif)",

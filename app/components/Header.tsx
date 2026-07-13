@@ -61,12 +61,18 @@ export function Header() {
       </div>
 
       {/* Nav mínima de texto — caminho persistente pro catálogo em toda página */}
+      {/* Nav mobile-first: faixa rolável horizontal (nunca estoura a viewport
+          em 360px) e centrada no desktop; cada Link com 44px de altura de
+          toque. Barra de rolagem escondida. */}
       <nav
         aria-label="Categorias"
-        className="flex items-center justify-center gap-2 px-5 pb-2.5 pt-1 md:gap-3"
+        className="flex items-center justify-start gap-2 overflow-x-auto px-5 pb-1.5 pt-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:justify-center md:gap-3 md:overflow-visible"
       >
         {NAV_LINKS.map((item, i) => (
-          <span key={item.href} className="flex items-center gap-2 md:gap-3">
+          <span
+            key={item.href}
+            className="flex shrink-0 items-center gap-2 md:gap-3"
+          >
             {i > 0 && (
               <span
                 aria-hidden="true"
@@ -77,7 +83,7 @@ export function Header() {
             )}
             <Link
               href={item.href}
-              className="text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--color-preto-warm)]/70 transition-colors duration-200 ease-out-soft hover:text-[var(--color-preto-warm)] md:text-[11px]"
+              className="inline-flex min-h-[44px] items-center whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--color-preto-warm)]/70 transition-colors duration-200 ease-out-soft hover:text-[var(--color-preto-warm)] active:text-[var(--color-preto-warm)] md:text-[11px]"
             >
               {item.label}
             </Link>

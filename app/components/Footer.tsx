@@ -94,7 +94,7 @@ export async function Footer() {
               >
                 {col.heading}
               </h3>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col gap-0.5">
                 {col.links.map((l) => (
                   <li key={`${l.label}-${l.href}`}>
                     {l.external ? (
@@ -102,7 +102,7 @@ export async function Footer() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#FFF1ED]/85 transition hover:text-[#FFF1ED]"
+                        className="flex min-h-[44px] items-center text-[#FFF1ED]/85 transition-colors duration-200 ease-out-soft hover:text-[#FFF1ED] active:opacity-70"
                         style={{
                           fontFamily:
                             "var(--font-secondary, Inter, system-ui, sans-serif)",
@@ -115,7 +115,7 @@ export async function Footer() {
                     ) : (
                       <Link
                         href={l.href}
-                        className="text-[#FFF1ED]/85 transition hover:text-[#FFF1ED]"
+                        className="flex min-h-[44px] items-center text-[#FFF1ED]/85 transition-colors duration-200 ease-out-soft hover:text-[#FFF1ED] active:opacity-70"
                         style={{
                           fontFamily:
                             "var(--font-secondary, Inter, system-ui, sans-serif)",

@@ -89,7 +89,7 @@ export const CartDrawer: FC = () => {
       <div
         aria-hidden={!isOpen}
         onClick={close}
-        className="fixed inset-0 z-40 bg-black/35 transition-opacity duration-300 ease-brand"
+        className="fixed inset-0 z-40 bg-black/35 transition-opacity duration-300 ease-brand motion-reduce:transition-none"
         style={{
           opacity: isOpen ? 1 : 0,
           pointerEvents: isOpen ? "auto" : "none",
@@ -104,7 +104,7 @@ export const CartDrawer: FC = () => {
         data-testid="cart-drawer"
         inert={!isOpen}
         aria-hidden={!isOpen}
-        className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-[#FFF7EE] shadow-2xl transition-transform duration-300 ease-brand will-change-transform"
+        className="fixed right-0 top-0 z-50 flex h-[100dvh] w-full max-w-md flex-col bg-[#FFF7EE] shadow-2xl transition-transform duration-300 ease-brand will-change-transform motion-reduce:transition-none"
         style={{
           transform: isOpen ? "translateX(0)" : "translateX(100%)",
           pointerEvents: isOpen ? "auto" : "none",
@@ -172,7 +172,7 @@ export const CartDrawer: FC = () => {
               <a
                 href="/produtos"
                 onClick={close}
-                className="inline-flex items-center justify-center rounded-full bg-[var(--color-preto-warm)] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#FFF1ED] transition-[background-color,transform] duration-200 ease-brand hover:bg-[#3A2015] active:scale-[0.98]"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[var(--color-preto-warm)] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#FFF1ED] transition-[background-color,transform] duration-200 ease-brand hover:bg-[#3A2015] active:scale-[0.98]"
                 style={{
                   fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
                 }}
@@ -229,7 +229,7 @@ export const CartDrawer: FC = () => {
                         type="button"
                         onClick={() => remove(item.slug)}
                         aria-label={`Remover ${item.nome} do carrinho`}
-                        className="-mr-1 -mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5"
+                        className="-mr-1 -mt-1 inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-black/5"
                         style={{ color: "rgba(37, 16, 8, 0.5)" }}
                       >
                         <TrashIcon />
@@ -294,8 +294,13 @@ export const CartDrawer: FC = () => {
         {/* Footer com subtotal + CTA WhatsApp */}
         {items.length > 0 && (
           <div
-            className="border-t px-5 py-4 md:px-6 md:py-5"
-            style={{ borderColor: "rgba(138, 110, 92, 0.2)" }}
+            className="border-t px-5 pt-4 md:px-6 md:pt-5"
+            style={{
+              borderColor: "rgba(138, 110, 92, 0.2)",
+              // Safe-area: em iPhone com home indicator o CTA verde não encosta
+              // na barra de gestos nem some sob ela.
+              paddingBottom: "calc(1rem + env(safe-area-inset-bottom))",
+            }}
           >
             <div className="mb-4 flex items-baseline justify-between">
               <span

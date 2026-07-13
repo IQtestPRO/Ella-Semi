@@ -153,6 +153,18 @@ export function Hero({
         }}
       />
 
+      {/* Scrim radial atrás do wordmark — o texto branco fica legível mesmo
+          sobre frames claros da mídia warm (o gradiente de baixo quase não
+          cobre o centro onde o ELLA fica). Mobile-first. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(62% 46% at 50% 46%, rgba(37, 16, 8, 0.32) 0%, rgba(37, 16, 8, 0.13) 55%, transparent 80%)",
+        }}
+      />
+
       {/* Centered overlay text */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
         <h1
@@ -202,7 +214,7 @@ export function Hero({
           className="text-white/95 ella-rise"
           style={{
             fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
-            fontSize: "clamp(13px, 2.4vw, 16px)",
+            fontSize: "clamp(14px, 2.4vw, 16px)",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
             fontWeight: 400,

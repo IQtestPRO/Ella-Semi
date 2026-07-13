@@ -42,7 +42,7 @@ export function ProductGallery({ product }: { product: Product }) {
         // Mobile: carrossel com snap (1 foto por tela). Desktop: pilha editorial.
         className={
           multi
-            ? "flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:snap-none lg:flex-col lg:overflow-visible"
+            ? "flex items-start snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:snap-none lg:flex-col lg:overflow-visible"
             : "flex flex-col gap-3"
         }
         tabIndex={multi ? 0 : undefined}
@@ -82,7 +82,10 @@ export function ProductGallery({ product }: { product: Product }) {
             className={`overflow-hidden bg-[var(--color-salmao-claro)] ${
               multi ? "w-full shrink-0 snap-center lg:shrink" : ""
             }`.trim()}
-            style={{ aspectRatio: "3 / 4" }}
+            // Mesmo ratio das fotos (evita esticar/recortar o carrossel no mobile).
+            style={{
+              aspectRatio: `${product.fotos[0].width} / ${product.fotos[0].height}`,
+            }}
           >
             {/* Vídeo de produto (Cinema Studio) — vitrine viva, sem controles */}
             <video
