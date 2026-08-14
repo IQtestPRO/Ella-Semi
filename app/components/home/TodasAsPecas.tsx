@@ -50,16 +50,21 @@ const SORT_LABELS: Array<{ value: SortOption; label: string }> = [
 
 type Props = {
   products: readonly Product[];
+  /**
+   * Nome da Campanha Atual (ex.: "Summer Glow"). Vem do banco — nunca
+   * hardcodar estação aqui: trocar de campanha não pode exigir deploy.
+   */
+  colecao?: string;
 };
 
 /**
- * Seção "Todas as Peças · outono 2026" — grid filtrável client-side.
+ * Seção "Todas as peças" — grid filtrável client-side.
  *
  * Estado local via useReducer (decisão UI; não persistir em Zustand —
  * filtro é descartável por sessão). Filtro instantâneo client-side, sem
  * reload. Empty state quando categoria selecionada não tem peças.
  */
-export function TodasAsPecas({ products }: Props) {
+export function TodasAsPecas({ products, colecao }: Props) {
   const [state, dispatch] = useReducer(filterReducer, initialState);
 
   const visible = useMemo(() => {
@@ -106,7 +111,7 @@ export function TodasAsPecas({ products }: Props) {
       <div className="mx-auto max-w-[1280px]">
         <div id="todas-as-pecas-heading">
           <SectionHeading
-            title="TODAS AS PEÇAS · outono 2026"
+            title={colecao ? `TODAS AS PEÇAS · ${colecao}` : "TODAS AS PEÇAS"}
             subtitle="filtre por categoria · ordene como preferir"
           />
         </div>

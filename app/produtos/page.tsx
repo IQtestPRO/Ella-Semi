@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { TodasAsPecas } from "../components/home/TodasAsPecas";
-import { getAllProducts } from "../../lib/catalog";
+import { getAllProducts, getCampanhaAtual } from "../../lib/catalog";
 
 // ISR: página servida do cache da CDN (rápida) e regenerada a cada 5min —
 // e IMEDIATAMENTE quando a Ellen salva no /admin (revalidatePath nas mutações).
@@ -17,7 +17,10 @@ export const metadata: Metadata = {
 };
 
 export default async function ProdutosRoute() {
-  const products = await getAllProducts({ ativosOnly: true });
+  const [products, campanha] = await Promise.all([
+    getAllProducts({ ativosOnly: true }),
+    getCampanhaAtual(),
+  ]);
 
   return (
     <>
@@ -41,7 +44,10 @@ export default async function ProdutosRoute() {
             </span>
           </nav>
         </div>
-        <TodasAsPecas products={products} />
+        <TodasAsPecas
+          products={products}
+          colecao={campanha.ativa ? campanha.nomeExibicao : undefined}
+        />
       </main>
       <Footer />
     </>

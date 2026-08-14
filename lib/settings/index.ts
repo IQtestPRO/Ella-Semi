@@ -100,7 +100,7 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
     email: "ellasemijoiasebijuterias@gmail.com",
   },
   hero: {
-    subtitulo: "warm editorial soft glam · outono 2026",
+    subtitulo: "summer glow · primavera 2027",
     videoUrl: "/hero/hero-loop.mp4",
     fallbackUrl: "/hero/hero-fallback.webp",
   },

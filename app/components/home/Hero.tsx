@@ -23,7 +23,7 @@ type Props = {
 export function Hero({
   videoSrc = "/hero/hero-loop.mp4",
   fallbackSrc = "/hero/hero-fallback.webp",
-  subtitulo = "warm editorial soft glam · outono 2026",
+  subtitulo = "summer glow · primavera 2027",
 }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [reduceMotion, setReduceMotion] = useState(false);

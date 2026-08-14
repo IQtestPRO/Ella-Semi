@@ -14,10 +14,10 @@ const CANONICO = "colar-coracao-madreperola-semijoia-763"; // CO763, produto rea
 
 describe("Product Catalog (Turso — ADR-0021)", () => {
   describe("getAllProducts", () => {
-    it("retorna o catálogo completo (141 seed Outono + 52 produtos reais)", async () => {
+    it("retorna o catálogo completo (141 seed + 52 reais + 115 Summer Glow)", async () => {
       const all = await getAllProducts();
-      expect(all.length).toBeGreaterThanOrEqual(190);
-      expect(all.length).toBeLessThanOrEqual(260);
+      expect(all.length).toBeGreaterThanOrEqual(300);
+      expect(all.length).toBeLessThanOrEqual(400);
     });
     it("filtra ativosOnly: pelo menos 1 ativo (canônica)", async () => {
       const ativos = await getAllProducts({ ativosOnly: true });
@@ -36,7 +36,8 @@ describe("Product Catalog (Turso — ADR-0021)", () => {
       expect(p).not.toBeNull();
       expect(p?.nome).toBe("Colar coração madrepérola semijoia");
       expect(p?.precoCents).toBe(9890);
-      expect(p?.codigo).toBe("CO763");
+      // Código alinhado ao catálogo Summer Glow (era CO763 no catálogo antigo).
+      expect(p?.codigo).toBe("06C");
       expect(p?.fotos.length).toBeGreaterThanOrEqual(1);
       expect(p?.maisVendido).toBe(true);
     });
@@ -68,18 +69,16 @@ describe("Product Catalog (Turso — ADR-0021)", () => {
   });
 
   describe("getCampanhaAtual", () => {
-    it("retorna Outono 2026 ativa", async () => {
+    it("retorna Summer Glow ativa", async () => {
       const c = await getCampanhaAtual();
-      expect(c.slug).toBe("outono-2026");
-      expect(c.nomeExibicao).toBe("Folhas de Outono");
+      expect(c.slug).toBe("summer-glow-2027");
+      expect(c.nomeExibicao).toBe("Summer Glow");
       expect(c.ativa).toBe(true);
     });
     it("destaca produtos reais em produtosDestaqueSlugs", async () => {
       const c = await getCampanhaAtual();
       expect(c.produtosDestaqueSlugs.length).toBeGreaterThanOrEqual(6);
-      expect(c.produtosDestaqueSlugs).toContain(
-        "conjunto-semijoia-perolas-cravejadas-10642",
-      );
+      expect(c.produtosDestaqueSlugs).toContain("conjunto-coracao-bojudo-05g");
     });
   });
 
@@ -88,7 +87,7 @@ describe("Product Catalog (Turso — ADR-0021)", () => {
       const d = await getProductsDestaque();
       expect(d.length).toBeGreaterThanOrEqual(6);
       expect(
-        d.find((p) => p.slug === "conjunto-semijoia-perolas-cravejadas-10642"),
+        d.find((p) => p.slug === "conjunto-coracao-bojudo-05g"),
       ).toBeDefined();
     });
   });

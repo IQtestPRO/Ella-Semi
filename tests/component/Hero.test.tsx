@@ -27,7 +27,7 @@ describe("Hero", () => {
     render(<Hero />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("ELLA");
     expect(
-      screen.getByText(/warm editorial soft glam · outono 2026/i),
+      screen.getByText(/summer glow · primavera 2027/i),
     ).toBeInTheDocument();
   });
 
