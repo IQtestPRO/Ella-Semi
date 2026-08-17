@@ -39,7 +39,14 @@ export function Hero({
   // Assets portrait são padrão da marca (não editáveis no admin por ora); se a
   // Ellen trocar o hero no admin, o desktop muda e o mobile mantém o par 9:16.
   const usaPortrait = isPortrait && fallbackSrc === "/hero/hero-fallback.webp";
-  const efetivoVideo = usaPortrait ? "/hero/hero-loop-portrait.mp4" : videoSrc;
+  // Se o vídeo foi desligado no /admin (videoSrc vazio), o celular NÃO pode
+  // cair no par 9:16 fixo — antes o loop antigo voltava a tocar por cima da
+  // foto nova e a troca de imagem parecia não ter funcionado.
+  const efetivoVideo = !videoSrc
+    ? ""
+    : usaPortrait
+      ? "/hero/hero-loop-portrait.mp4"
+      : videoSrc;
   // videoSrc vazio = a Ellen tirou o vídeo no /admin de propósito → só a foto.
   const showVideo = !reduceMotion && !videoFailed && Boolean(efetivoVideo);
   const efetivoFallback = usaPortrait
