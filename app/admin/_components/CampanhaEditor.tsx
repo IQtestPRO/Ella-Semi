@@ -8,15 +8,28 @@ import {
   TextArea,
   Toggle,
   SaveBar,
+  StepCard,
   useSaveState,
   apiSend,
-  Label,
 } from "./ui";
-import { SingleImageField } from "./ImageUploader";
 import type { CampanhaAtual } from "../../../lib/schemas";
 
-type ProdOption = { slug: string; nome: string; categoria: string };
+type ProdOption = {
+  slug: string;
+  nome: string;
+  categoria: string;
+  fotoUrl?: string;
+};
 
+/**
+ * Vitrine de destaque da página inicial (ADR-0024).
+ *
+ * Tirados desta tela: "Identificador (interno)" (slug cru, com regra de
+ * minúsculas e hífen), "Texto do botão" e o cartão de imagem/vídeo. Os três
+ * eram gravados no banco e NENHUM componente do site os lê — a Ellen editava,
+ * lia "Salvo! Já aparece no site", não achava e concluía que o painel quebrou.
+ * A escolha das peças agora é feita vendo a FOTO, não uma lista de texto.
+ */
 export function CampanhaEditor({
   campanha,
   produtos,
@@ -28,20 +41,33 @@ export function CampanhaEditor({
   const save = useSaveState();
 
   const [nomeExibicao, setNomeExibicao] = useState(campanha.nomeExibicao);
-  const [slug, setSlug] = useState(campanha.slug);
   const [manifesto, setManifesto] = useState(campanha.manifesto);
-  const [ctaTexto, setCtaTexto] = useState(campanha.ctaTexto);
-  const [heroImagem, setHeroImagem] = useState(campanha.heroImagem ?? "");
-  const [heroVideo, setHeroVideo] = useState(campanha.heroVideo ?? "");
   const [ativa, setAtiva] = useState(campanha.ativa);
   const [selecionados, setSelecionados] = useState<string[]>(
     campanha.produtosDestaqueSlugs,
   );
   const [q, setQ] = useState("");
 
+  const porSlug = useMemo(() => {
+    const m = new Map<string, ProdOption>();
+    for (const p of produtos) m.set(p.slug, p);
+    return m;
+  }, [produtos]);
+
   const filtrados = useMemo(() => {
-    const n = q.trim().toLowerCase();
-    return produtos.filter((p) => !n || p.nome.toLowerCase().includes(n));
+    const n = q
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .trim();
+    if (!n) return produtos;
+    return produtos.filter((p) =>
+      p.nome
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "")
+        .toLowerCase()
+        .includes(n),
+    );
   }, [produtos, q]);
 
   function toggle(slugSel: string) {
@@ -56,18 +82,20 @@ export function CampanhaEditor({
     if (selecionados.length === 0) {
       save.run(async () => ({
         ok: false,
-        error: "Escolha pelo menos uma peça em destaque.",
+        error: "Escolha pelo menos uma peça para aparecer em destaque.",
       }));
       return;
     }
     const ok = await save.run(() =>
       apiSend("PUT", "/api/admin/campanha", {
-        slug: slug.trim() || "campanha",
+        // Campos que o site não mostra continuam gravados como estavam, para
+        // não perder dado — mas saíram da tela (ADR-0024).
+        slug: campanha.slug || "destaque",
         nomeExibicao: nomeExibicao.trim(),
         manifesto: manifesto.trim(),
-        ctaTexto: ctaTexto.trim(),
-        heroImagem: heroImagem || undefined,
-        heroVideo: heroVideo || undefined,
+        ctaTexto: campanha.ctaTexto,
+        heroImagem: campanha.heroImagem,
+        heroVideo: campanha.heroVideo,
         produtosDestaqueSlugs: selecionados,
         ativa,
       }),
@@ -77,112 +105,179 @@ export function CampanhaEditor({
 
   return (
     <div className="flex flex-col gap-5">
-      <Card
-        title="Campanha em destaque"
-        description="É a seção sazonal da home (ex.: Outono na ELLA). Some da home quando desligada."
+      <StepCard
+        step={1}
+        title="Ligar ou desligar a vitrine"
+        hint="Desligada, essa parte some da página inicial."
+      >
+        <Toggle
+          label="Mostrar a vitrine de destaque na página inicial"
+          checked={ativa}
+          onChange={setAtiva}
+        />
+      </StepCard>
+
+      <StepCard
+        step={2}
+        title="Título e frase da vitrine"
+        hint="Aparecem na página inicial, logo acima das peças escolhidas."
       >
         <div className="flex flex-col gap-4">
-          <Toggle
-            label="Mostrar campanha na home"
-            checked={ativa}
-            onChange={setAtiva}
-          />
           <TextInput
-            label="Nome que aparece"
+            label="Título da vitrine"
+            hint="ex.: Summer Glow"
             value={nomeExibicao}
             onChange={(e) => setNomeExibicao(e.target.value)}
-            placeholder="Ex.: Folhas de Outono"
-          />
-          <TextInput
-            label="Identificador (interno)"
-            hint="só letras minúsculas e hífen"
-            value={slug}
-            onChange={(e) => setSlug(e.target.value)}
-            placeholder="outono-2026"
+            placeholder="Ex.: Summer Glow"
           />
           <TextArea
-            label="Texto / manifesto"
+            label="Frase que aparece embaixo do título"
             value={manifesto}
             onChange={(e) => setManifesto(e.target.value)}
+            placeholder="Uma frase curta sobre essas peças."
           />
-          <TextInput
-            label="Texto do botão"
-            value={ctaTexto}
-            onChange={(e) => setCtaTexto(e.target.value)}
-            placeholder="Ver peças desta estação"
-          />
+          <div className="rounded-xl bg-[var(--color-salmao-claro)]/70 px-4 py-3">
+            <p className="text-sm font-medium text-[var(--color-taupe)]">
+              No site vai sair assim:
+            </p>
+            <p className="mt-1 text-[15px] text-[var(--color-preto-warm)]">
+              <strong>Em destaque agora · {nomeExibicao || "—"}</strong>
+              <br />
+              {manifesto || "—"}
+            </p>
+          </div>
         </div>
-      </Card>
+      </StepCard>
 
-      <Card title="Imagem / vídeo da campanha">
-        <div className="flex flex-col gap-4">
-          <SingleImageField
-            label="Imagem de destaque"
-            hint="usada quando não há vídeo"
-            value={heroImagem}
-            onChange={setHeroImagem}
-          />
-          <TextInput
-            label="Link do vídeo (opcional)"
-            hint="cole a URL de um .mp4 se tiver"
-            value={heroVideo}
-            onChange={(e) => setHeroVideo(e.target.value)}
-            placeholder="/assets/generated/campanha/...mp4"
-          />
-        </div>
-      </Card>
-
-      <Card
-        title="Peças em destaque"
-        description={`${selecionados.length} selecionada(s). Aparecem na home e na página /campanha.`}
+      <StepCard
+        step={3}
+        title="Escolher as peças"
+        hint="Elas aparecem na página inicial, logo abaixo das categorias. O ideal é de 6 a 10 peças."
       >
-        <input
+        {/* Escolhidas primeiro, com foto e na ordem em que saem no site */}
+        <div className="mb-5">
+          <p className="mb-2 text-[15px] font-medium text-[var(--color-preto-warm)]">
+            Escolhidas: {selecionados.length}
+            {selecionados.length > 0 && " — nesta ordem no site"}
+          </p>
+          {selecionados.length === 0 ? (
+            <p className="rounded-xl border border-dashed border-[var(--color-areia)] px-4 py-5 text-center text-[15px] text-[var(--color-taupe)]">
+              Nenhuma peça escolhida ainda. Toque nas peças abaixo.
+            </p>
+          ) : (
+            <ul className="flex flex-wrap gap-2">
+              {selecionados.map((s, i) => {
+                const p = porSlug.get(s);
+                return (
+                  <li key={s} className="relative">
+                    <button
+                      type="button"
+                      onClick={() => toggle(s)}
+                      title={`Tirar ${p?.nome ?? s} da vitrine`}
+                      className="block h-24 w-20 overflow-hidden rounded-lg border border-[var(--color-dourado-claro)] bg-[var(--color-salmao-claro)]"
+                    >
+                      {p?.fotoUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={p.fotoUrl}
+                          alt={p.nome}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <span className="flex h-full w-full items-center justify-center px-1 text-center text-[11px] text-[var(--color-taupe)]">
+                          {p?.nome ?? s}
+                        </span>
+                      )}
+                    </button>
+                    <span className="absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-preto-warm)] text-xs font-semibold text-[var(--color-salmao-claro)]">
+                      {i + 1}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+
+        <TextInput
+          label="Procurar peça pelo nome"
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Buscar peça…"
-          className="mb-3 w-full rounded-xl border border-[var(--color-areia)] bg-white px-4 py-3 outline-none focus:border-[var(--color-dourado-claro)] focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
+          placeholder="Ex.: colar coração"
         />
-        <div className="max-h-80 overflow-y-auto rounded-xl border border-[var(--color-areia)]">
+
+        <ul className="mt-3 grid max-h-[420px] grid-cols-3 gap-2 overflow-y-auto sm:grid-cols-4 md:grid-cols-5">
           {filtrados.map((p) => {
             const checked = selecionados.includes(p.slug);
             return (
-              <button
-                type="button"
-                key={p.slug}
-                onClick={() => toggle(p.slug)}
-                className={`flex w-full items-center gap-3 border-b border-[var(--color-areia)]/60 px-4 py-2.5 text-left transition last:border-0 ${
-                  checked
-                    ? "bg-[var(--color-dourado-claro)]/20"
-                    : "hover:bg-[var(--color-salmao-claro)]/50"
-                }`}
-              >
-                <span
-                  className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border ${
+              <li key={p.slug}>
+                <button
+                  type="button"
+                  onClick={() => toggle(p.slug)}
+                  aria-pressed={checked}
+                  className={`relative block w-full overflow-hidden rounded-lg border-2 transition ${
                     checked
-                      ? "border-[var(--color-preto-warm)] bg-[var(--color-preto-warm)] text-white"
-                      : "border-[var(--color-taupe)]"
+                      ? "border-[var(--color-preto-warm)]"
+                      : "border-transparent hover:border-[var(--color-areia)]"
                   }`}
                 >
-                  {checked ? "✓" : ""}
-                </span>
-                <span className="text-sm text-[var(--color-preto-warm)]">
-                  {p.nome}
-                </span>
-                <span className="ml-auto text-xs text-[var(--color-taupe)]">
-                  {p.categoria}
-                </span>
-              </button>
+                  <div className="aspect-[4/5] bg-[var(--color-salmao-claro)]">
+                    {p.fotoUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={p.fotoUrl}
+                        alt={p.nome}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <span className="flex h-full w-full items-center justify-center px-1 text-center text-[11px] text-[var(--color-taupe)]">
+                        sem foto
+                      </span>
+                    )}
+                  </div>
+                  {checked && (
+                    <span className="absolute right-1 top-1 rounded-full bg-[var(--color-preto-warm)] px-2 py-0.5 text-[11px] font-semibold text-[var(--color-salmao-claro)]">
+                      ✓
+                    </span>
+                  )}
+                  <span className="block px-1.5 py-1.5 text-left text-[13px] leading-snug text-[var(--color-preto-warm)]">
+                    {p.nome}
+                  </span>
+                </button>
+              </li>
             );
           })}
-        </div>
+        </ul>
+        {filtrados.length === 0 && (
+          <p className="mt-3 text-[15px] text-[var(--color-taupe)]">
+            Não achei nenhuma peça com esse nome.
+          </p>
+        )}
+      </StepCard>
+
+      <Card>
+        <p className="text-[15px] leading-snug text-[var(--color-taupe)]">
+          Quer trocar a <strong>foto grande</strong> do começo do site? Isso fica
+          em{" "}
+          <a
+            href="/admin/conteudo#foto-topo"
+            className="font-medium text-[var(--color-preto-warm)] underline underline-offset-4"
+          >
+            Textos e fotos do site
+          </a>
+          .
+        </p>
       </Card>
 
-      <div className="sticky bottom-0 -mx-4 border-t border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/95 px-4 py-3 backdrop-blur md:mx-0 md:rounded-2xl md:border md:px-5">
+      <div
+        className="sticky bottom-0 -mx-4 border-t border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/95 px-4 py-3 backdrop-blur md:mx-0 md:rounded-2xl md:border md:px-5"
+        style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
+      >
         <SaveBar
           status={save.status}
           message={save.message}
           onSave={handleSave}
-          saveLabel="Salvar campanha"
+          saveLabel="Salvar"
         />
       </div>
     </div>

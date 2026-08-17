@@ -12,6 +12,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [verSenha, setVerSenha] = useState(false);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -27,8 +28,10 @@ function LoginForm() {
       router.push(next);
       router.refresh();
     } else {
-      const data = await res.json().catch(() => ({}));
-      setError(data.error ?? "Não foi possível entrar.");
+      await res.json().catch(() => ({}));
+      setError(
+        "Nome de acesso ou senha errados. Veja se o CAPS LOCK do teclado não está ligado e tente de novo.",
+      );
     }
   }
 
@@ -42,6 +45,10 @@ function LoginForm() {
           <p className="mt-1 text-sm uppercase tracking-[0.28em] text-[var(--color-taupe)]">
             painel
           </p>
+          <p className="mt-4 text-[15px] leading-snug text-[var(--color-preto-warm)]">
+            Este é o painel da loja. Aqui você muda as peças, as fotos e os
+            textos do seu site.
+          </p>
         </div>
 
         <form
@@ -49,34 +56,48 @@ function LoginForm() {
           className="flex flex-col gap-4 rounded-2xl border border-[var(--color-areia)] bg-white p-6 shadow-sm"
         >
           <label className="block">
-            <span className="mb-1.5 block text-sm font-medium text-[var(--color-preto-warm)]">
-              Usuário
+            <span className="mb-1.5 block text-[15px] font-medium text-[var(--color-preto-warm)]">
+              Nome de acesso
             </span>
             <input
               type="text"
               autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-4 py-3 outline-none focus:border-[var(--color-dourado-claro)] focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
+              placeholder="AdminEllen"
+              className="min-h-[52px] w-full rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-4 text-base outline-none focus:border-[var(--color-dourado-claro)] focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
               required
             />
           </label>
           <label className="block">
-            <span className="mb-1.5 block text-sm font-medium text-[var(--color-preto-warm)]">
+            <span className="mb-1.5 block text-[15px] font-medium text-[var(--color-preto-warm)]">
               Senha
             </span>
-            <input
-              type="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-4 py-3 outline-none focus:border-[var(--color-dourado-claro)] focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
-              required
-            />
+            <div className="flex gap-2">
+              <input
+                type={verSenha ? "text" : "password"}
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="min-h-[52px] w-full rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-4 text-base outline-none focus:border-[var(--color-dourado-claro)] focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setVerSenha((v) => !v)}
+                aria-pressed={verSenha}
+                className="min-h-[52px] flex-shrink-0 rounded-xl border border-[var(--color-areia)] px-3 text-[15px] font-medium text-[var(--color-preto-warm)] transition hover:border-[var(--color-taupe)]"
+              >
+                {verSenha ? "Esconder" : "Mostrar"}
+              </button>
+            </div>
           </label>
 
           {error && (
-            <p className="rounded-lg bg-[#b3261e]/10 px-3 py-2 text-sm text-[#b3261e]">
+            <p
+              role="alert"
+              className="rounded-xl bg-[#fdecea] px-4 py-3 text-[15px] leading-snug text-[#8c1d18]"
+            >
               {error}
             </p>
           )}
@@ -84,15 +105,11 @@ function LoginForm() {
           <button
             type="submit"
             disabled={busy}
-            className="mt-2 rounded-xl bg-[var(--color-preto-warm)] px-5 py-3 text-sm font-semibold text-[var(--color-salmao-claro)] transition hover:opacity-90 disabled:opacity-50"
+            className="mt-2 min-h-[52px] rounded-xl bg-[var(--color-preto-warm)] px-5 text-base font-semibold text-[var(--color-salmao-claro)] transition hover:opacity-90 disabled:opacity-50"
           >
             {busy ? "Entrando…" : "Entrar"}
           </button>
         </form>
-
-        <p className="mt-6 text-center text-xs text-[var(--color-taupe)]">
-          Acesso restrito · ELLA Semijoias
-        </p>
       </div>
     </main>
   );

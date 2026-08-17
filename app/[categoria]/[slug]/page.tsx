@@ -49,7 +49,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) {
-    return { title: "Peça não encontrada" };
+    // A rota é ISR e os slugs nascem no /admin, então não dá para fixar a lista
+    // com dynamicParams=false: o notFound() renderiza a 404 certa mas a
+    // resposta sai como HTTP 200 (soft 404). O noindex impede o Google de
+    // indexar peça inexistente como se fosse página boa.
+    return {
+      title: "Peça não encontrada",
+      robots: { index: false, follow: true },
+    };
   }
   const desc = metaDescription(product.nome, product.banho, product.precoCents);
   const canonical = `/${product.categoria}/${product.slug}`;

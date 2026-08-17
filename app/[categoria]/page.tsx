@@ -12,6 +12,12 @@ import { CategoriaSchema, type Categoria } from "../../lib/schemas";
 // e IMEDIATAMENTE quando a Ellen salva no /admin (revalidatePath nas mutações).
 export const revalidate = 300;
 
+// Só as 9 categorias do enum existem como página. Sem isto, /campanha e
+// /qualquer-coisa respondiam HTTP 200 com "Categoria não encontrada" (soft 404)
+// — o notFound() do componente já vinha tarde demais para trocar o status, e o
+// Google indexava página fantasma. Fora da lista agora é 404 de verdade.
+export const dynamicParams = false;
+
 type Params = { categoria: string };
 
 const PRETTY_LABEL: Record<Categoria, string> = {

@@ -11,13 +11,17 @@ export default async function AdminCampanha() {
   ]);
 
   return (
-    <AdminShell title="Campanha da home">
+    <AdminShell
+      title="Vitrine de destaque"
+      subtitulo="As peças que aparecem em destaque na página inicial, logo abaixo das categorias."
+    >
       <CampanhaEditor
         campanha={campanha}
         produtos={produtos.map((p) => ({
           slug: p.slug,
           nome: p.nome,
           categoria: p.categoria,
+          fotoUrl: p.fotos[0]?.url,
         }))}
       />
     </AdminShell>

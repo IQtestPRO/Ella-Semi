@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
+  Advanced,
   Card,
   TextInput,
   TextArea,
@@ -14,6 +15,10 @@ import {
   Label,
 } from "./ui";
 import { SingleImageField } from "./ImageUploader";
+import {
+  formatarWhatsAppVisivel,
+  normalizarWhatsAppBR,
+} from "../../../lib/format/whatsapp";
 import type {
   SettingValue,
 } from "../../../lib/settings";
@@ -40,8 +45,8 @@ export function HeroEditor({ value }: { value: SettingValue<"hero"> }) {
 
   return (
     <Card
-      title="Topo do site (Hero)"
-      description="A primeira tela grande com o nome ELLA. Foto e textinho de baixo."
+      title="A foto grande que abre o site"
+      description="É a primeira coisa que a cliente vê, com o nome ELLA por cima."
       footer={
         <SaveBar
           status={save.status}
@@ -51,24 +56,27 @@ export function HeroEditor({ value }: { value: SettingValue<"hero"> }) {
       }
     >
       <div className="flex flex-col gap-4">
-        <TextInput
-          label="Frase de baixo"
-          value={subtitulo}
-          onChange={(e) => setSubtitulo(e.target.value)}
-          placeholder="warm editorial soft glam · outono 2026"
-        />
         <SingleImageField
-          label="Foto do topo"
-          hint="aparece atrás do nome ELLA"
+          label="Foto do começo do site"
+          hint="fica atrás do nome ELLA"
           value={fallbackUrl}
           onChange={setFallbackUrl}
         />
         <TextInput
-          label="Link do vídeo do topo (opcional)"
-          hint="cole a URL de um .mp4 se tiver"
-          value={videoUrl}
-          onChange={(e) => setVideoUrl(e.target.value)}
+          label="Frase pequena embaixo do nome ELLA"
+          value={subtitulo}
+          onChange={(e) => setSubtitulo(e.target.value)}
+          placeholder="warm editorial soft glam"
         />
+        <Advanced label="Opções avançadas (mexer só com ajuda)">
+          <TextInput
+            label="Endereço do vídeo do começo do site"
+            hint="deixe vazio para mostrar só a foto"
+            value={videoUrl}
+            onChange={(e) => setVideoUrl(e.target.value)}
+            placeholder="/hero/hero-loop.mp4"
+          />
+        </Advanced>
       </div>
     </Card>
   );
@@ -88,8 +96,8 @@ export function BannerEditor({
 
   return (
     <Card
-      title="Banner do meio"
-      description="A faixa com frase no meio da home."
+      title="A foto com frase no meio do site"
+      description="A faixa larga que aparece no meio da página inicial."
       footer={
         <SaveBar
           status={save.status}
@@ -99,22 +107,26 @@ export function BannerEditor({
       }
     >
       <div className="flex flex-col gap-4">
-        <TextInput
-          label="Frase"
-          value={texto}
-          onChange={(e) => setTexto(e.target.value)}
-          placeholder="Cada peça, uma história em ouro."
-        />
         <SingleImageField
-          label="Foto do banner"
+          label="Foto dessa faixa"
           value={fallbackUrl}
           onChange={setFallbackUrl}
         />
         <TextInput
-          label="Link do vídeo (opcional)"
-          value={videoUrl}
-          onChange={(e) => setVideoUrl(e.target.value)}
+          label="Frase que aparece por cima da foto"
+          value={texto}
+          onChange={(e) => setTexto(e.target.value)}
+          placeholder="Cada peça, uma história em ouro."
         />
+        <Advanced label="Opções avançadas (mexer só com ajuda)">
+          <TextInput
+            label="Endereço do vídeo dessa faixa"
+            hint="deixe vazio para mostrar só a foto"
+            value={videoUrl}
+            onChange={(e) => setVideoUrl(e.target.value)}
+            placeholder="/banners/banner-meio.mp4"
+          />
+        </Advanced>
       </div>
     </Card>
   );
@@ -136,8 +148,8 @@ export function SobreEditor({ value }: { value: SettingValue<"sobre"> }) {
 
   return (
     <Card
-      title="Sobre a ELLA"
-      description="O texto que conta a história da marca."
+      title="Minha história"
+      description='O texto "Sobre a ELLA" que aparece perto do fim da página inicial.'
       footer={
         <SaveBar
           status={save.status}
@@ -168,24 +180,37 @@ export function SobreEditor({ value }: { value: SettingValue<"sobre"> }) {
           />
         </div>
         <div>
-          <Label>Parágrafos</Label>
-          <div className="flex flex-col gap-3">
+          <Label hint="cada trecho vira um parágrafo no site">
+            O texto da sua história
+          </Label>
+          <div className="flex flex-col gap-4">
             {paragrafos.map((p, i) => (
-              <div key={i} className="flex gap-2">
-                <textarea
-                  value={p}
-                  onChange={(e) => setPar(i, e.target.value)}
-                  className="min-h-[80px] w-full rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-4 py-3 leading-relaxed outline-none focus:border-[var(--color-dourado-claro)] focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
-                />
+              <div key={i}>
+                <label className="block">
+                  <span className="mb-1.5 block text-sm font-medium text-[var(--color-preto-warm)]">
+                    {i + 1}º trecho
+                  </span>
+                  <textarea
+                    value={p}
+                    onChange={(e) => setPar(i, e.target.value)}
+                    className="min-h-[96px] w-full rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-4 py-3 text-base leading-relaxed outline-none focus:border-[var(--color-dourado-claro)] focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
+                  />
+                </label>
                 <button
                   type="button"
-                  onClick={() =>
-                    setParagrafos((cur) => cur.filter((_, idx) => idx !== i))
-                  }
-                  className="self-start rounded-lg px-2 py-2 text-sm text-[#b3261e] hover:bg-[#b3261e]/10"
-                  aria-label="Remover parágrafo"
+                  onClick={() => {
+                    const trecho = p.trim().slice(0, 60);
+                    if (
+                      window.confirm(
+                        `Apagar o ${i + 1}º trecho?\n\n"${trecho}${p.length > 60 ? "…" : ""}"\n\nEle some do site.`,
+                      )
+                    ) {
+                      setParagrafos((cur) => cur.filter((_, idx) => idx !== i));
+                    }
+                  }}
+                  className="mt-1.5 inline-flex min-h-[44px] items-center rounded-lg px-3 text-[15px] font-medium text-[#b3261e] transition hover:bg-[#b3261e]/10"
                 >
-                  ✕
+                  Apagar este trecho
                 </button>
               </div>
             ))}
@@ -193,7 +218,7 @@ export function SobreEditor({ value }: { value: SettingValue<"sobre"> }) {
               variant="ghost"
               onClick={() => setParagrafos((cur) => [...cur, ""])}
             >
-              + Adicionar parágrafo
+              + Adicionar mais um trecho
             </Button>
           </div>
         </div>
@@ -228,8 +253,8 @@ export function FaqEditor({ value }: { value: SettingValue<"faq"> }) {
 
   return (
     <Card
-      title="Perguntas frequentes (FAQ)"
-      description="As perguntas e respostas que aparecem na seção Sobre."
+      title="Perguntas e respostas para as clientes"
+      description="Aparecem no fim da página inicial, do lado da sua história."
       footer={
         <SaveBar
           status={save.status}
@@ -248,24 +273,38 @@ export function FaqEditor({ value }: { value: SettingValue<"faq"> }) {
             key={i}
             className="rounded-xl border border-[var(--color-areia)] p-3"
           >
-            <input
-              value={it.q}
-              onChange={(e) => set(i, "q", e.target.value)}
-              placeholder="Pergunta"
-              className="mb-2 w-full rounded-lg border border-[var(--color-areia)] bg-white px-3 py-2 font-medium outline-none focus:border-[var(--color-dourado-claro)]"
-            />
-            <textarea
-              value={it.a}
-              onChange={(e) => set(i, "a", e.target.value)}
-              placeholder="Resposta"
-              className="min-h-[70px] w-full rounded-lg border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-3 py-2 leading-relaxed outline-none focus:border-[var(--color-dourado-claro)]"
-            />
+            <label className="mb-2 block">
+              <Label>Pergunta {i + 1} — o que a cliente quer saber</Label>
+              <input
+                value={it.q}
+                onChange={(e) => set(i, "q", e.target.value)}
+                placeholder="Ex.: Vocês entregam para todo o Brasil?"
+                className="w-full rounded-lg border border-[var(--color-areia)] bg-white px-3 py-2.5 text-base font-medium outline-none focus:border-[var(--color-dourado-claro)]"
+              />
+            </label>
+            <label className="block">
+              <Label>Sua resposta</Label>
+              <textarea
+                value={it.a}
+                onChange={(e) => set(i, "a", e.target.value)}
+                placeholder="Ex.: Sim! O frete a gente combina pelo WhatsApp."
+                className="min-h-[80px] w-full rounded-lg border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-3 py-2.5 text-base leading-relaxed outline-none focus:border-[var(--color-dourado-claro)]"
+              />
+            </label>
             <button
               type="button"
-              onClick={() => setItens((cur) => cur.filter((_, idx) => idx !== i))}
-              className="mt-2 text-sm text-[#b3261e] hover:underline"
+              onClick={() => {
+                if (
+                  window.confirm(
+                    `Apagar a pergunta "${it.q || "(sem texto)"}"?\n\nEla some do site.`,
+                  )
+                ) {
+                  setItens((cur) => cur.filter((_, idx) => idx !== i));
+                }
+              }}
+              className="mt-2 inline-flex min-h-[44px] items-center rounded-lg px-3 text-[15px] font-medium text-[#b3261e] transition hover:bg-[#b3261e]/10"
             >
-              Remover pergunta
+              Apagar esta pergunta
             </button>
           </div>
         ))}
@@ -288,24 +327,28 @@ export function ContatoEditor({ value }: { value: SettingValue<"marca"> }) {
   const [whatsappLinkGeral, setWhatsappLinkGeral] = useState(
     value.whatsappLinkGeral,
   );
-  const [instagram, setInstagram] = useState(value.instagram);
   const [instagramHandle, setInstagramHandle] = useState(value.instagramHandle);
   const [email, setEmail] = useState(value.email);
 
+  // Consertamos o número na hora: quem digita "(21) 99624-9802" salvava sem o
+  // 55 e todo pedido do carrinho parava de chegar, sem erro nenhum na tela.
+  const numeroOk = normalizarWhatsAppBR(whatsappNumero);
+  const arroba = instagramHandle.replace(/^@+/, "").trim();
+
   return (
     <Card
-      title="Contato e redes"
-      description="O número de WhatsApp aqui é o que recebe os pedidos do carrinho."
+      title="WhatsApp e redes"
+      description="É para este WhatsApp que chegam os pedidos do carrinho do site."
       footer={
         <SaveBar
           status={save.status}
           message={save.message}
           onSave={() =>
             persist({
-              whatsappNumero: whatsappNumero.replace(/\D/g, ""),
+              whatsappNumero: numeroOk ?? whatsappNumero,
               whatsappLinkGeral,
-              instagram,
-              instagramHandle,
+              instagram: `https://www.instagram.com/${arroba}/`,
+              instagramHandle: `@${arroba}`,
               email,
             })
           }
@@ -313,36 +356,60 @@ export function ContatoEditor({ value }: { value: SettingValue<"marca"> }) {
       }
     >
       <div className="flex flex-col gap-4">
-        <TextInput
-          label="WhatsApp (com DDD e país)"
-          hint="só números, ex.: 5521999998888"
-          value={whatsappNumero}
-          onChange={(e) => setWhatsappNumero(e.target.value)}
-          placeholder="5521999998888"
-        />
-        <TextInput
-          label="Link curto do WhatsApp (atendimento geral)"
-          value={whatsappLinkGeral}
-          onChange={(e) => setWhatsappLinkGeral(e.target.value)}
-          placeholder="https://wa.link/xxxxxx"
-        />
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div>
           <TextInput
-            label="Link do Instagram"
-            value={instagram}
-            onChange={(e) => setInstagram(e.target.value)}
+            label="Seu número de WhatsApp"
+            hint="com o DDD, do jeito que você fala"
+            value={whatsappNumero}
+            onChange={(e) => setWhatsappNumero(e.target.value)}
+            placeholder="(21) 99624-9802"
           />
-          <TextInput
-            label="@ do Instagram"
-            value={instagramHandle}
-            onChange={(e) => setInstagramHandle(e.target.value)}
-          />
+          {numeroOk ? (
+            <div className="mt-2 rounded-xl bg-[#e8f2e5] px-4 py-3">
+              <p className="text-[15px] text-[#2f5127]">
+                Os pedidos vão chegar em{" "}
+                <strong>{formatarWhatsAppVisivel(numeroOk)}</strong>
+              </p>
+              <a
+                href={`https://wa.me/${numeroOk}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex min-h-[44px] items-center text-[15px] font-medium text-[#2f5127] underline underline-offset-4"
+              >
+                Testar: abrir esta conversa no WhatsApp ↗
+              </a>
+            </div>
+          ) : (
+            <p className="mt-2 rounded-xl bg-[#fdecea] px-4 py-3 text-[15px] text-[#8c1d18]">
+              Falta alguma coisa nesse número. Escreva com o DDD, assim:{" "}
+              <strong>(21) 99624-9802</strong>
+            </p>
+          )}
         </div>
+
         <TextInput
-          label="E-mail de contato"
+          label="Seu @ do Instagram"
+          hint="só o nome, sem o resto do endereço"
+          value={instagramHandle}
+          onChange={(e) => setInstagramHandle(e.target.value)}
+          placeholder="@ella_usasemijoias"
+        />
+        <TextInput
+          label="Seu e-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="ellasemijoiasebijuterias@gmail.com"
         />
+
+        <Advanced label="Opções avançadas (mexer só com ajuda)">
+          <TextInput
+            label="Link curto do WhatsApp"
+            hint="aquele wa.link que você criou — deixe como está se não souber"
+            value={whatsappLinkGeral}
+            onChange={(e) => setWhatsappLinkGeral(e.target.value)}
+            placeholder="https://wa.link/xxxxxx"
+          />
+        </Advanced>
       </div>
     </Card>
   );
@@ -402,8 +469,8 @@ export function FooterEditor({ value }: { value: SettingValue<"footer"> }) {
 
   return (
     <Card
-      title="Rodapé"
-      description="As colunas de links e o textinho final do site."
+      title="O finalzinho do site"
+      description="As duas frases e os menus que ficam lá embaixo, no fim da página."
       footer={
         <SaveBar
           status={save.status}
@@ -424,16 +491,18 @@ export function FooterEditor({ value }: { value: SettingValue<"footer"> }) {
       <div className="flex flex-col gap-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <TextInput
-            label="Frase sob o nome ELLA"
+            label="Frase logo abaixo do nome ELLA"
             value={wordmarkTagline}
             onChange={(e) => setWordmarkTagline(e.target.value)}
           />
           <TextInput
-            label="Linha final"
+            label="Última linha do site"
+            hint="onde fica a cidade, por exemplo"
             value={microcopy}
             onChange={(e) => setMicrocopy(e.target.value)}
           />
         </div>
+        <Advanced label="Os menus do finalzinho (mexer só com ajuda)">
         <div className="grid gap-4 md:grid-cols-2">
           {colunas.map((c, ci) => (
             <div
@@ -463,9 +532,16 @@ export function FooterEditor({ value }: { value: SettingValue<"footer"> }) {
                     />
                     <button
                       type="button"
-                      onClick={() => removeLink(ci, li)}
-                      className="px-1.5 text-[#b3261e]"
-                      aria-label="Remover link"
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            `Apagar o link "${l.label || "(sem texto)"}" do finalzinho do site?`,
+                          )
+                        )
+                          removeLink(ci, li);
+                      }}
+                      className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-[#b3261e] transition hover:bg-[#b3261e]/10"
+                      aria-label={`Apagar o link ${l.label || "sem texto"}`}
                     >
                       ✕
                     </button>
@@ -474,14 +550,15 @@ export function FooterEditor({ value }: { value: SettingValue<"footer"> }) {
                 <button
                   type="button"
                   onClick={() => addLink(ci)}
-                  className="text-left text-xs text-[var(--color-preto-warm)] hover:underline"
+                  className="inline-flex min-h-[44px] items-center rounded-lg px-2 text-left text-[15px] font-medium text-[var(--color-preto-warm)] transition hover:bg-[var(--color-salmao-claro)]"
                 >
-                  + link
+                  + Adicionar link
                 </button>
               </div>
             </div>
           ))}
         </div>
+        </Advanced>
       </div>
     </Card>
   );
@@ -496,8 +573,8 @@ export function SeoEditor({ value }: { value: SettingValue<"seo"> }) {
 
   return (
     <Card
-      title="Google e compartilhamento (SEO)"
-      description="Título e descrição do site no Google e quando o link é colado no WhatsApp."
+      title="Como o site aparece no Google"
+      description="Não muda a aparência do site — é o textinho que sai na busca do Google e quando alguém manda o site no WhatsApp."
       footer={
         <SaveBar
           status={save.status}

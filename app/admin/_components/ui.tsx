@@ -73,6 +73,89 @@ export function Card({
   );
 }
 
+/**
+ * Passo numerado. Dá ordem visual ao formulário ("preencha 1, depois 2") em vez
+ * de uma parede de campos. Título grande porque a leitura precisa funcionar
+ * para quem enxerga mal.
+ */
+export function StepCard({
+  step,
+  title,
+  hint,
+  children,
+  footer,
+}: {
+  step: number | string;
+  title: string;
+  hint?: string;
+  children: ReactNode;
+  footer?: ReactNode;
+}) {
+  return (
+    <section className="rounded-2xl border border-[var(--color-areia)] bg-white shadow-sm">
+      <header className="flex items-start gap-3 border-b border-[var(--color-areia)]/70 px-4 py-4 md:px-6">
+        <span
+          aria-hidden="true"
+          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-preto-warm)] text-base font-semibold text-[var(--color-salmao-claro)]"
+        >
+          {step}
+        </span>
+        <span className="min-w-0">
+          <h2 className="text-xl font-semibold leading-tight text-[var(--color-preto-warm)]">
+            {title}
+          </h2>
+          {hint && (
+            <p className="mt-1 text-[15px] leading-snug text-[var(--color-taupe)]">
+              {hint}
+            </p>
+          )}
+        </span>
+      </header>
+      <div className="px-4 py-5 md:px-6">{children}</div>
+      {footer && (
+        <footer className="flex items-center justify-end gap-3 border-t border-[var(--color-areia)]/70 px-4 py-4 md:px-6">
+          {footer}
+        </footer>
+      )}
+    </section>
+  );
+}
+
+/**
+ * Gaveta fechada por padrão. Tudo que uma pessoa leiga NUNCA precisa mexer
+ * (código interno, banho, tipo, link de vídeo) mora aqui — fora do caminho
+ * principal, mas sem perder o recurso para quem precisa.
+ */
+export function Advanced({
+  children,
+  label = "Opções avançadas",
+  hint = "Você quase nunca precisa mexer aqui.",
+}: {
+  children: ReactNode;
+  label?: string;
+  hint?: string;
+}) {
+  return (
+    <details className="group rounded-2xl border border-dashed border-[var(--color-areia)] bg-white/60">
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-4 py-4 md:px-6 [&::-webkit-details-marker]:hidden">
+        <span
+          aria-hidden="true"
+          className="text-[var(--color-taupe)] transition-transform duration-200 ease-brand group-open:rotate-90"
+        >
+          ▸
+        </span>
+        <span className="text-[15px] font-medium text-[var(--color-preto-warm)]">
+          {label}
+        </span>
+        <span className="text-sm text-[var(--color-taupe)]">— {hint}</span>
+      </summary>
+      <div className="border-t border-[var(--color-areia)]/70 px-4 py-5 md:px-6">
+        {children}
+      </div>
+    </details>
+  );
+}
+
 // ── campos ──────────────────────────────────────────────────────────────────
 
 export function Label({
@@ -155,6 +238,45 @@ export function Select({
           </option>
         ))}
       </select>
+    </label>
+  );
+}
+
+/**
+ * Preço em reais, com o "R$" dentro do campo e teclado numérico no celular.
+ * Fonte grande: valor é o dado que mais gera medo de errar.
+ */
+export function PriceInput({
+  label,
+  hint,
+  value,
+  onChange,
+  placeholder = "69,90",
+}: {
+  label: string;
+  hint?: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+}) {
+  return (
+    <label className="block">
+      <Label hint={hint}>{label}</Label>
+      <div className="relative">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg font-medium text-[var(--color-taupe)]"
+        >
+          R$
+        </span>
+        <input
+          inputMode="decimal"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          className="w-full rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 py-3 pl-12 pr-4 text-lg font-medium text-[var(--color-preto-warm)] outline-none transition focus:border-[var(--color-dourado-claro)] focus:bg-white focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
+        />
+      </div>
     </label>
   );
 }

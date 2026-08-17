@@ -140,74 +140,65 @@ export function MultiImageField({
     if (novas.length) onChange([...photos, ...novas]);
   }
 
-  function move(i: number, dir: -1 | 1) {
-    const j = i + dir;
-    if (j < 0 || j >= photos.length) return;
-    const next = [...photos];
-    [next[i], next[j]] = [next[j], next[i]];
-    onChange(next);
-  }
-
   function remove(i: number) {
     onChange(photos.filter((_, idx) => idx !== i));
   }
 
-  function setAlt(i: number, alt: string) {
-    onChange(photos.map((p, idx) => (idx === i ? { ...p, alt } : p)));
+  /** Promove a foto a capa (posição 1) num toque só — sem subir de 1 em 1. */
+  function tornarCapa(i: number) {
+    if (i === 0) return;
+    const next = [...photos];
+    const [alvo] = next.splice(i, 1);
+    onChange([alvo, ...next]);
   }
 
   return (
     <div>
-      <Label hint={hint}>{label}</Label>
+      {label && <Label hint={hint}>{label}</Label>}
       <div className="flex flex-col gap-3">
         {photos.length === 0 && (
-          <p className="rounded-xl border border-dashed border-[var(--color-areia)] px-4 py-6 text-center text-sm text-[var(--color-taupe)]">
-            Nenhuma foto ainda. Sem foto, a peça mostra a silhueta padrão da
-            marca no site.
+          <p className="rounded-xl border border-dashed border-[var(--color-areia)] px-4 py-6 text-center text-[15px] text-[var(--color-taupe)]">
+            Nenhuma foto ainda. Toque no botão abaixo para enviar a primeira.
           </p>
         )}
         {photos.map((p, i) => (
           <div
             key={`${p.url}-${i}`}
-            className="flex items-start gap-3 rounded-xl border border-[var(--color-areia)] bg-white p-3"
+            className="flex items-center gap-3 rounded-xl border border-[var(--color-areia)] bg-white p-3"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={p.url}
-              alt=""
-              className="h-20 w-20 flex-shrink-0 rounded-lg object-cover"
-            />
-            <div className="flex flex-1 flex-col gap-2">
-              <input
-                value={p.alt}
-                onChange={(e) => setAlt(i, e.target.value)}
-                placeholder="Descrição da foto (para acessibilidade)"
-                className="w-full rounded-lg border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-3 py-2 text-base md:text-sm"
+            <div className="relative flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={p.url}
+                alt=""
+                className="h-24 w-24 rounded-lg object-cover"
               />
-              <div className="flex items-center gap-3 text-xs">
-                <span className="text-[var(--color-taupe)]">Foto {i + 1}</span>
-                <button
-                  type="button"
-                  onClick={() => move(i, -1)}
-                  disabled={i === 0}
-                  className="rounded px-2 py-1 text-[var(--color-preto-warm)] disabled:opacity-30 hover:bg-[var(--color-salmao-claro)]"
-                >
-                  ↑ subir
-                </button>
-                <button
-                  type="button"
-                  onClick={() => move(i, 1)}
-                  disabled={i === photos.length - 1}
-                  className="rounded px-2 py-1 text-[var(--color-preto-warm)] disabled:opacity-30 hover:bg-[var(--color-salmao-claro)]"
-                >
-                  ↓ descer
-                </button>
+              {i === 0 && (
+                <span className="absolute left-1 top-1 rounded-full bg-[var(--color-preto-warm)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-salmao-claro)]">
+                  Capa
+                </span>
+              )}
+            </div>
+            <div className="flex flex-1 flex-col items-start gap-2">
+              <span className="text-[15px] text-[var(--color-preto-warm)]">
+                {i === 0 ? "Aparece na vitrine" : `Foto ${i + 1}`}
+              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                {i !== 0 && (
+                  <button
+                    type="button"
+                    onClick={() => tornarCapa(i)}
+                    className="inline-flex min-h-[44px] items-center rounded-lg border border-[var(--color-areia)] px-3 text-sm font-medium text-[var(--color-preto-warm)] transition hover:border-[var(--color-dourado-claro)] hover:bg-[var(--color-salmao-claro)]/60"
+                  >
+                    Usar como capa
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={() => remove(i)}
-                  className="ml-auto rounded px-2 py-1 text-[#b3261e] hover:bg-[#b3261e]/10"
+                  className="inline-flex min-h-[44px] items-center rounded-lg px-3 text-sm font-medium text-[#b3261e] transition hover:bg-[#b3261e]/10"
                 >
-                  Excluir
+                  Tirar esta foto
                 </button>
               </div>
             </div>
@@ -229,10 +220,11 @@ export function MultiImageField({
           variant="ghost"
           onClick={() => inputRef.current?.click()}
           disabled={busy}
+          className="min-h-[52px] text-base"
         >
-          {busy ? "Enviando…" : "+ Adicionar foto"}
+          {busy ? "Enviando…" : "📷  Enviar foto do celular ou computador"}
         </Button>
-        {error && <span className="text-xs text-[#b3261e]">{error}</span>}
+        {error && <span className="text-sm text-[#b3261e]">{error}</span>}
       </div>
     </div>
   );

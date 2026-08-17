@@ -15,23 +15,37 @@ import { db } from "../db";
 
 // ── Schemas ────────────────────────────────────────────────────────────────
 
+/** Aceita "instagram.com/ella" e completa o https:// em vez de recusar. */
+const urlTolerante = z.preprocess((v) => {
+  if (typeof v !== "string") return v;
+  const s = v.trim();
+  if (!s) return s;
+  return /^https?:\/\//i.test(s) ? s : `https://${s}`;
+}, z.string().url());
+
 export const MarcaSchema = z.object({
-  whatsappNumero: z.string().regex(/^\d{10,15}$/, "número E.164 só dígitos"),
-  whatsappLinkGeral: z.string().url(),
-  instagram: z.string().url(),
+  // Exige o código do país: sem o 55 o wa.me não abre e todo pedido do
+  // carrinho some em silêncio. A UI normaliza antes de enviar (lib/format/whatsapp).
+  whatsappNumero: z
+    .string()
+    .regex(/^55\d{10,11}$/, "precisa ser 55 + DDD + número"),
+  whatsappLinkGeral: urlTolerante,
+  instagram: urlTolerante,
   instagramHandle: z.string().min(1),
   email: z.string().email(),
 });
 
 export const HeroSchema = z.object({
   subtitulo: z.string().min(1),
-  videoUrl: z.string().min(1),
+  // Vídeo é opcional de verdade: o rótulo na tela diz "(opcional)", então
+  // apagar o campo não pode travar o salvamento com "Dados inválidos".
+  videoUrl: z.string().default(""),
   fallbackUrl: z.string().min(1),
 });
 
 export const BannerMeioSchema = z.object({
   texto: z.string().min(1),
-  videoUrl: z.string().min(1),
+  videoUrl: z.string().default(""),
   fallbackUrl: z.string().min(1),
 });
 

@@ -36,7 +36,8 @@ export function BannerMeio({
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  const showVideo = !reduceMotion && !videoFailed;
+  // videoSrc vazio = a Ellen tirou o vídeo no /admin de propósito → só a foto.
+  const showVideo = !reduceMotion && !videoFailed && Boolean(videoSrc);
 
   return (
     <section

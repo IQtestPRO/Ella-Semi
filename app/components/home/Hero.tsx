@@ -36,11 +36,12 @@ export function Hero({
   // landscape+portrait) e o vídeo certo já entra montado — sem troca dupla.
   const [mounted, setMounted] = useState(false);
 
-  const showVideo = !reduceMotion && !videoFailed;
   // Assets portrait são padrão da marca (não editáveis no admin por ora); se a
   // Ellen trocar o hero no admin, o desktop muda e o mobile mantém o par 9:16.
   const usaPortrait = isPortrait && fallbackSrc === "/hero/hero-fallback.webp";
   const efetivoVideo = usaPortrait ? "/hero/hero-loop-portrait.mp4" : videoSrc;
+  // videoSrc vazio = a Ellen tirou o vídeo no /admin de propósito → só a foto.
+  const showVideo = !reduceMotion && !videoFailed && Boolean(efetivoVideo);
   const efetivoFallback = usaPortrait
     ? "/hero/hero-fallback-portrait.webp"
     : fallbackSrc;
