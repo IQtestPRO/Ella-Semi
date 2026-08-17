@@ -18,8 +18,8 @@ describe("catalog helpers (Turso — ADR-0021)", () => {
       }
     });
 
-    it("seed inicial tem 8 peças (S2.0 / ADR-0017)", async () => {
-      expect((await getMaisVendidos()).length).toBe(8);
+    it("a home tem uma vitrine de mais vendidos cheia o bastante", async () => {
+      expect((await getMaisVendidos()).length).toBeGreaterThanOrEqual(4);
     });
   });
 
@@ -44,16 +44,26 @@ describe("catalog helpers (Turso — ADR-0021)", () => {
   });
 
   describe("getCategoryCounts", () => {
-    it("returns category counts in canonical order", async () => {
+    it("respeita a ordem canônica entre as categorias presentes", async () => {
       const counts = await getCategoryCounts();
       const cats = counts.map((c) => c.categoria);
-      const idxBrincos = cats.indexOf("brincos");
-      const idxColares = cats.indexOf("colares");
-      const idxPulseiras = cats.indexOf("pulseiras");
-      expect(idxBrincos).toBeLessThan(idxColares);
-      expect(idxColares).toBeLessThan(idxPulseiras);
-      // anéis sem estoque real ativo → omitida da home
-      expect(cats.indexOf("aneis")).toBe(-1);
+      const CANONICA = [
+        "brincos",
+        "colares",
+        "pulseiras",
+        "aneis",
+        "conjuntos",
+        "gargantilhas",
+        "tornozeleiras",
+        "piercings",
+        "outros",
+      ];
+      // Só as categorias com peça no ar aparecem — e na ordem canônica.
+      // (Decisão do Pak 2026-08-17: o site mostra apenas peças com foto, então
+      // categorias inteiras podem ficar de fora.)
+      const ordem = cats.map((c) => CANONICA.indexOf(c));
+      expect(ordem).toEqual([...ordem].sort((a, b) => a - b));
+      expect(ordem.every((i) => i >= 0)).toBe(true);
     });
 
     it("only includes categories with at least 1 active product", async () => {
