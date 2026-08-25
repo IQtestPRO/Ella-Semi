@@ -102,3 +102,6 @@ skills-lock.json
 # Agents projetos restantes
 .mux/
 .bob/
+
+# Dumps da auditoria de catalogo (imagens exportadas do banco, ADR-0026)
+.scratch-audit/
