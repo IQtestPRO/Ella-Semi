@@ -1,0 +1,129 @@
+{
+  "_doc": "Agrupamento por PEÇA REAL dos códigos ambíguos do lote Imagensnovas (ADR-0025). Feito olhando as 127 fotos: a Ellen usa nomes diferentes para a mesma peça e às vezes omite a cor, então o texto do arquivo sozinho separava demais (13 'peças' no EAL 456 que na verdade são 5 cores). Os números são os das folhas de conferência (#001…#127). Códigos que não estão aqui têm um nome só e foram agrupados pelo próprio arquivo.",
+  "codigos": {
+    "BFE 544": [
+      { "nome": "Colar cascalho coral com pingentes alga", "fotos": [1, 2, 3] }
+    ],
+    "EAL 382": [
+      { "nome": "Colar corrente elos com pingente coração", "fotos": [4, 8, 7] },
+      { "nome": "Colar corrente bolas com pingente coração", "fotos": [5, 6] },
+      { "nome": "Colar corrente elos dourado", "fotos": [9, 10] },
+      { "nome": "Colar corrente grossa prateada", "fotos": [11, 12, 13] }
+    ],
+    "EAL 402": [
+      { "nome": "Colar cristais e contas de vidro azul e verde", "fotos": [14, 15] }
+    ],
+    "EAL 450": [
+      { "nome": "Colar longo fio trançado azul com pingentes peixe", "fotos": [16, 17] }
+    ],
+    "EAL 456": [
+      { "nome": "Colar pedra natural azul com medalha", "fotos": [18, 20] },
+      { "nome": "Colar pedra natural bordô com medalha", "fotos": [19, 25] },
+      { "nome": "Colar pedra natural verde com medalha", "fotos": [21, 22, 24, 26, 27, 28, 30, 33] },
+      { "nome": "Colar pedra natural turquesa com entremeio dourado", "fotos": [23, 29] },
+      { "nome": "Colar pedra natural turquesa com pérola", "fotos": [31, 32] }
+    ],
+    "EAL 458": [
+      { "nome": "Pulseira de couro com correntes", "fotos": [34, 35, 36, 37, 38] }
+    ],
+    "EAL 803": [
+      { "nome": "Colar ou pulseira de fio colorido", "fotos": [39, 40] },
+      { "nome": "Colar fio São Francisco com letra", "fotos": [41, 44] },
+      { "nome": "Colar fio São Francisco com 3 entremeios", "fotos": [42, 43] }
+    ],
+    "EAL 805": [
+      { "nome": "Colar pedra murano com pingente pedra natural", "fotos": [45, 46, 47] }
+    ],
+    "EAL 815": [
+      { "nome": "Colar duplo corrente prateado", "fotos": [48, 49] }
+    ],
+    "EAL 823": [
+      { "nome": "Colar triplo com medalha São Bento", "fotos": [50, 51] },
+      { "nome": "Colar duplo fio trançado com pingente pedra natural", "fotos": [52, 53, 54] }
+    ],
+    "EAL 825": [
+      { "nome": "Colar corda trançada com pingente estrela", "fotos": [55, 56] }
+    ],
+    "EAL 829": [
+      { "nome": "Colar malha preto com pingentes praia", "fotos": [57, 58, 59, 60] }
+    ],
+    "EAL 830": [
+      { "nome": "Colar contas turquesa com pingente", "fotos": [61, 62] },
+      { "nome": "Colar contas com fecho na frente e pérola", "fotos": [63, 64, 65, 66] }
+    ],
+    "EAL 832": [
+      { "nome": "Choker emborrachado coral com pingente sol", "fotos": [67, 69] },
+      { "nome": "Choker emborrachado caramelo com pingente sol", "fotos": [68, 70] },
+      { "nome": "Colar duplo emborrachado com bolas azuis", "fotos": [71] }
+    ],
+    "EAL 837": [
+      { "nome": "Colar contas turquesa com pingente alga azul", "fotos": [72, 73] }
+    ],
+    "EAL 839": [
+      { "nome": "Colar cristal azul com pingente estrela", "fotos": [74, 75] }
+    ],
+    "EAL 841": [
+      { "nome": "Colar miçangas turquesa com pingente estrela", "fotos": [76, 77] },
+      { "nome": "Colar miçangas com cristais e peixe madrepérola", "fotos": [78, 80] },
+      { "nome": "Colar miçangas branco com estrelas", "fotos": [79] },
+      { "nome": "Colar miçangas branco com peixes turquesa", "fotos": [81, 82] }
+    ],
+    "EAL 842": [
+      { "nome": "Colar duplo contas turquesa com pingente peixe", "fotos": [83, 84] }
+    ],
+    "EAL 844": [
+      { "nome": "Colar pedra murano verde com pingente sol coral", "fotos": [85, 86] }
+    ],
+    "EAL 845": [
+      { "nome": "Colar metade corrente metade corda com pingente", "fotos": [87, 88] },
+      { "nome": "Colar pedras naturais com pingentes alga e peixe", "fotos": [89, 90] }
+    ],
+    "EAL 8613": [
+      { "nome": "Colar pedra natural coral com medalha Entrega teu Caminho", "fotos": [91, 92] },
+      { "nome": "Colar pedras naturais violeta com pingente", "fotos": [93] }
+    ],
+    "EDB 0600": [
+      { "nome": "Colar fio encerado longo com medalha N. Senhora", "fotos": [94, 95] }
+    ],
+    "EFE 6665": [
+      { "nome": "Trio brincos ponto de luz verde", "fotos": [96, 97] }
+    ],
+    "EGY 211": [
+      { "nome": "Brinco duo aço flor e ponto de luz", "fotos": [98, 99] }
+    ],
+    "EMA 3032": [
+      { "nome": "Trio brincos semijoia bolinhas douradas", "fotos": [100, 101, 102, 103] }
+    ],
+    "EOG 343": [
+      { "nome": "Colar prata ponto de luz e estrela", "fotos": [104, 105] }
+    ],
+    "EOG 595": [
+      { "nome": "Colar semijoia corrente rígida com pérola", "fotos": [106, 107, 108, 109] }
+    ],
+    "EPB 002": [
+      { "nome": "Colar semijoia olho grego", "fotos": [110, 111] }
+    ],
+    "EPK 12275": [
+      { "nome": "Conjunto semijoia gota duo", "fotos": [112, 113] }
+    ],
+    "EPK 12934": [
+      { "nome": "Brinco semijoia trabalhado", "fotos": [114, 115] }
+    ],
+    "EPK 17541": [
+      { "nome": "Trio brincos semijoia cravejado colorido", "fotos": [116, 117] }
+    ],
+    "ERS 12472": [
+      { "nome": "Colar semijoia longo com medalhinhas redondas", "fotos": [118, 119] }
+    ],
+    "ESH 1117": [
+      { "nome": "Colar corrente grossa trançada", "fotos": [120, 121] }
+    ],
+    "ETU 102": [
+      { "nome": "Brinco argola aberta com pérola", "fotos": [122] },
+      { "nome": "Brinco gota martelada", "fotos": [123, 124, 125] }
+    ],
+    "ETU 9676": [
+      { "nome": "Brinco redondo com pérola no meio", "fotos": [126, 127] }
+    ]
+  }
+}

@@ -9,7 +9,18 @@ export type CartItem = {
   categoria: Categoria;
   fotoUrl?: string;
   qty: number;
+  /**
+   * Quantas unidades a Ellen tem (ADR-0025). `undefined`/`null` = sem controle
+   * de estoque, vende à vontade. Fica guardado no item para a tela do carrinho
+   * conseguir avisar "só temos N" sem consultar o servidor de novo.
+   */
+  estoque?: number | null;
 };
+
+/** Teto de quantidade de uma peça: o estoque, ou infinito se não houver controle. */
+function tetoDe(estoque: number | null | undefined): number {
+  return typeof estoque === "number" ? Math.max(0, estoque) : Infinity;
+}
 
 type CartState = {
   items: CartItem[];
@@ -42,15 +53,23 @@ export const useCart = create<CartState>()(
 
       add: (item, qty = 1) => {
         set((state) => {
+          // Peça esgotada não entra no carrinho de jeito nenhum.
+          const teto = tetoDe(item.estoque);
+          if (teto <= 0) return state;
+
           const existing = state.items.find((i) => i.slug === item.slug);
           if (existing) {
             return {
               items: state.items.map((i) =>
-                i.slug === item.slug ? { ...i, qty: i.qty + qty } : i,
+                i.slug === item.slug
+                  ? { ...i, estoque: item.estoque, qty: Math.min(i.qty + qty, teto) }
+                  : i,
               ),
             };
           }
-          return { items: [...state.items, { ...item, qty }] };
+          return {
+            items: [...state.items, { ...item, qty: Math.min(qty, teto) }],
+          };
         });
       },
 
@@ -64,7 +83,9 @@ export const useCart = create<CartState>()(
           return;
         }
         set((state) => ({
-          items: state.items.map((i) => (i.slug === slug ? { ...i, qty } : i)),
+          items: state.items.map((i) =>
+            i.slug === slug ? { ...i, qty: Math.min(qty, tetoDe(i.estoque)) } : i,
+          ),
         }));
       },
 

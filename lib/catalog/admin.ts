@@ -53,14 +53,15 @@ async function writeRow(p: Product, ordem: number): Promise<void> {
   await db.execute({
     sql: `INSERT INTO products
       (slug, nome, codigo, categoria, banho, tipo, precoCents, precoPromocionalCents, descricao,
-       fotos, videoUrl, variantes, tags, promocao, tipoFulfillment, destaqueHome, maisVendido,
+       fotos, videoUrl, variantes, tags, estoque, promocao, tipoFulfillment, destaqueHome, maisVendido,
        ativo, origem, fonteFotoFraca, cadastradoEm, atualizadoEm, ordem)
-      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
       ON CONFLICT(slug) DO UPDATE SET
         nome=excluded.nome, codigo=excluded.codigo, categoria=excluded.categoria, banho=excluded.banho, tipo=excluded.tipo,
         precoCents=excluded.precoCents, precoPromocionalCents=excluded.precoPromocionalCents,
         descricao=excluded.descricao, fotos=excluded.fotos, videoUrl=excluded.videoUrl, variantes=excluded.variantes,
-        tags=excluded.tags, promocao=excluded.promocao, tipoFulfillment=excluded.tipoFulfillment,
+        tags=excluded.tags, estoque=excluded.estoque,
+        promocao=excluded.promocao, tipoFulfillment=excluded.tipoFulfillment,
         destaqueHome=excluded.destaqueHome, maisVendido=excluded.maisVendido, ativo=excluded.ativo,
         origem=excluded.origem, fonteFotoFraca=excluded.fonteFotoFraca,
         atualizadoEm=excluded.atualizadoEm`,
@@ -78,6 +79,7 @@ async function writeRow(p: Product, ordem: number): Promise<void> {
       p.videoUrl ?? null,
       jsonOrNull(p.variantes),
       jsonOrNull(p.tags),
+      p.estoque ?? null,
       bool(p.promocao),
       p.tipoFulfillment,
       bool(p.destaqueHome),

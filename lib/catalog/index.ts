@@ -52,6 +52,8 @@ function rowToProduct(r: Row): Product {
       ? parseJson(r.variantes, undefined as Product["variantes"])
       : undefined,
     tags: r.tags ? parseJson(r.tags, undefined as Product["tags"]) : undefined,
+    // null no banco = sem controle de estoque (ADR-0025)
+    estoque: r.estoque === null || r.estoque === undefined ? null : num(r.estoque),
     promocao: Number(r.promocao) === 1,
     tipoFulfillment: r.tipoFulfillment,
     destaqueHome: Number(r.destaqueHome) === 1,

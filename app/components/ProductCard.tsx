@@ -83,6 +83,19 @@ export function ProductCard({
             </div>
           )}
           {showAddToCart && <AddToCartButton product={product} variant="floating" />}
+          {/* Esgotada (ADR-0025): a peça continua no site, mas a cliente vê na hora */}
+          {product.estoque === 0 && (
+            <span
+              data-testid="badge-esgotada"
+              className="absolute inset-x-0 bottom-0 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.16em]"
+              style={{
+                backgroundColor: "rgba(37, 16, 8, 0.82)",
+                color: "#FFF1ED",
+              }}
+            >
+              Esgotada
+            </span>
+          )}
           {showBadge && (
             <span
               data-testid="mais-vendido-badge"

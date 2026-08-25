@@ -275,8 +275,12 @@ export const CartDrawer: FC = () => {
                       <button
                         type="button"
                         onClick={() => setQty(item.slug, item.qty + 1)}
+                        disabled={
+                          typeof item.estoque === "number" &&
+                          item.qty >= item.estoque
+                        }
                         aria-label="Aumentar quantidade"
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(138,110,92,0.35)] transition-[background-color,border-color,transform] duration-150 ease-brand hover:border-[var(--color-dourado)] hover:bg-[rgba(217,154,48,0.08)] active:scale-95"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(138,110,92,0.35)] transition-[background-color,border-color,transform] duration-150 ease-brand hover:border-[var(--color-dourado)] hover:bg-[rgba(217,154,48,0.08)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-[rgba(138,110,92,0.35)] disabled:hover:bg-transparent disabled:active:scale-100"
                         style={{
                           color: "var(--color-preto-warm, #251008)",
                         }}
@@ -284,6 +288,24 @@ export const CartDrawer: FC = () => {
                         <PlusMinus kind="+" />
                       </button>
                     </div>
+                    {/* Explica por que o "+" parou: a Ellen só tem N desta peça */}
+                    {typeof item.estoque === "number" &&
+                      item.qty >= item.estoque && (
+                        <p
+                          data-testid="limite-estoque"
+                          style={{
+                            fontFamily:
+                              "var(--font-secondary, Inter, system-ui, sans-serif)",
+                            fontSize: "13px",
+                            lineHeight: 1.4,
+                            color: "#8c1d18",
+                          }}
+                        >
+                          Só temos {item.estoque}{" "}
+                          {item.estoque === 1 ? "unidade" : "unidades"} desta
+                          peça.
+                        </p>
+                      )}
                   </div>
                 </li>
               ))}

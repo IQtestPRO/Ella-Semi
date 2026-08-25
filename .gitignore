@@ -87,6 +87,13 @@ next-env.d.ts
 
 # Sandbox interno (logs Higgsfield, dumps, scratch)
 .scratch/
+.scratch-import/
+
+# Lote de fotos-fonte de 25/08 (Drive da Ellen): ~1 GB entre PNG e zips, acima
+# do limite do GitHub. O site usa as versões WebP já gravadas no Turso
+# (ADR-0025); o original fica só na máquina da Ellen/do Pak.
+# (O lote anterior, `Imgenasnovas/`, é pequeno e segue versionado.)
+Imagensnovas/
 
 # Skills install state (regenerável via npx skills add ...)
 .agents/

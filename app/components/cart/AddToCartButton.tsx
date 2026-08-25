@@ -55,8 +55,18 @@ const FEEDBACK_MS = 1200;
 export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) => {
   const add = useCart((s) => s.add);
   const open = useCart((s) => s.open);
+  const noCarrinho = useCart(
+    (s) => s.items.find((i) => i.slug === product.slug)?.qty ?? 0,
+  );
   const [feedback, setFeedback] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Estoque (ADR-0025): null/undefined = sem controle.
+  const estoque = product.estoque;
+  const temControle = typeof estoque === "number";
+  const esgotada = temControle && estoque === 0;
+  const noTeto = temControle && noCarrinho >= estoque;
+  const bloqueado = esgotada || noTeto;
 
   // Cleanup pendente se componente desmontar
   useEffect(() => {
@@ -68,12 +78,14 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    if (bloqueado) return;
     add({
       slug: product.slug,
       nome: product.nome,
       precoCents: product.precoPromocionalCents ?? product.precoCents,
       categoria: product.categoria,
       fotoUrl: product.fotos[0]?.url,
+      estoque,
     });
     open();
     setFeedback(true);
@@ -86,16 +98,25 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
       <button
         type="button"
         onClick={handleClick}
-        aria-label={`Adicionar ${product.nome} ao carrinho`}
+        disabled={bloqueado}
+        aria-label={
+          esgotada
+            ? `${product.nome} está esgotada`
+            : `Adicionar ${product.nome} ao carrinho`
+        }
         data-testid="add-to-cart-button"
-        className="inline-flex min-h-[44px] items-center gap-2 rounded-full px-5 py-2.5 transition-[transform,background-color] duration-200 ease-out-soft active:scale-[0.97]"
+        className="inline-flex min-h-[44px] items-center gap-2 rounded-full px-5 py-2.5 transition-[transform,background-color] duration-200 ease-out-soft active:scale-[0.97] disabled:cursor-not-allowed disabled:active:scale-100"
         style={{
           fontFamily: "var(--font-secondary, Inter, system-ui, sans-serif)",
           fontSize: "12px",
           letterSpacing: "0.16em",
           textTransform: "uppercase",
           fontWeight: 600,
-          backgroundColor: feedback ? "#A47525" : "var(--color-preto-warm, #251008)",
+          backgroundColor: bloqueado
+            ? "var(--color-taupe, #8A6E5C)"
+            : feedback
+              ? "#A47525"
+              : "var(--color-preto-warm, #251008)",
           color: "#FFF1ED",
         }}
       >
@@ -106,7 +127,15 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
         ) : (
           <BagPlus />
         )}
-        <span>{feedback ? "Adicionado" : "Adicionar ao carrinho"}</span>
+        <span>
+          {esgotada
+            ? "Esgotada"
+            : noTeto
+              ? `Só temos ${estoque}`
+              : feedback
+                ? "Adicionado"
+                : "Adicionar ao carrinho"}
+        </span>
       </button>
     );
   }
@@ -115,9 +144,16 @@ export const AddToCartButton: FC<Props> = ({ product, variant = "floating" }) =>
     <button
       type="button"
       onClick={handleClick}
-      aria-label={`Adicionar ${product.nome} ao carrinho`}
+      disabled={bloqueado}
+      aria-label={
+        esgotada
+          ? `${product.nome} está esgotada`
+          : noTeto
+            ? `Você já tem todas as ${estoque} unidades de ${product.nome} no carrinho`
+            : `Adicionar ${product.nome} ao carrinho`
+      }
       data-testid="add-to-cart-button"
-      className="absolute bottom-3 right-3 inline-flex h-11 w-11 items-center justify-center rounded-full shadow-md transition-all duration-200 hover:scale-105 active:scale-95"
+      className="absolute bottom-3 right-3 inline-flex h-11 w-11 items-center justify-center rounded-full shadow-md transition-all duration-200 hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:scale-100 disabled:active:scale-100"
       style={{
         backgroundColor: feedback ? "#A47525" : "rgba(255, 247, 238, 0.96)",
         color: feedback ? "#FFF1ED" : "var(--color-preto-warm, #251008)",

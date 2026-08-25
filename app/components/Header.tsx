@@ -13,7 +13,6 @@ const LABEL: Partial<Record<Categoria, string>> = {
   brincos: "Brincos",
   pulseiras: "Pulseiras",
   conjuntos: "Conjuntos",
-  gargantilhas: "Chokers",
   aneis: "Anéis",
   tornozeleiras: "Tornozeleiras",
   piercings: "Piercings",
@@ -21,11 +20,11 @@ const LABEL: Partial<Record<Categoria, string>> = {
 };
 
 // Ordem de exibição no menu (as que não têm peça caem fora).
+// `gargantilhas` saiu: chokers agora são colares (ADR-0025).
 const ORDEM: Categoria[] = [
   "colares",
   "brincos",
   "pulseiras",
-  "gargantilhas",
   "conjuntos",
   "aneis",
   "tornozeleiras",

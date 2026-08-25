@@ -18,6 +18,7 @@ export default async function AdminProdutos() {
     destaqueHome: p.destaqueHome,
     promocao: p.promocao,
     fotoUrl: p.fotos[0]?.url,
+    estoque: p.estoque ?? null,
   }));
 
   return (

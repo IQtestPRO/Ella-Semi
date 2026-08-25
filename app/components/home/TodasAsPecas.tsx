@@ -37,7 +37,7 @@ const CHIP_LABELS: Array<{ value: Categoria | "todos"; label: string }> = [
   { value: "pulseiras", label: "Pulseiras" },
   { value: "aneis", label: "Anéis" },
   { value: "conjuntos", label: "Conjuntos" },
-  { value: "gargantilhas", label: "Chokers" },
+  // `gargantilhas` saiu: chokers agora são colares (ADR-0025).
   { value: "tornozeleiras", label: "Tornozeleiras" },
 ];
 

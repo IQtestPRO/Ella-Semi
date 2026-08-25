@@ -16,6 +16,8 @@ export type ProductRow = {
   destaqueHome: boolean;
   promocao: boolean;
   fotoUrl?: string;
+  /** null = sem controle de estoque; 0 = esgotada (ADR-0025). */
+  estoque?: number | null;
 };
 
 /**
@@ -34,17 +36,18 @@ const CATS = [
   { value: "pulseiras", label: "Pulseiras" },
   { value: "aneis", label: "Anéis" },
   { value: "conjuntos", label: "Conjuntos" },
-  { value: "gargantilhas", label: "Chokers" },
+  // `gargantilhas` saiu do filtro: chokers agora são colares (ADR-0025).
   { value: "tornozeleiras", label: "Tornozeleiras" },
   { value: "piercings", label: "Piercings" },
   { value: "outros", label: "Outros" },
 ];
 
-type Situacao = "no-site" | "escondidas" | "todas";
+type Situacao = "no-site" | "escondidas" | "esgotadas" | "todas";
 
 const SITUACOES: Array<{ value: Situacao; label: string }> = [
   { value: "no-site", label: "Aparecendo no site" },
   { value: "escondidas", label: "Escondidas" },
+  { value: "esgotadas", label: "Esgotadas (repor)" },
   { value: "todas", label: "Todas" },
 ];
 
@@ -64,6 +67,7 @@ export function ProductsTable({ products }: { products: ProductRow[] }) {
 
   const noSite = products.filter((p) => p.ativo).length;
   const escondidas = products.length - noSite;
+  const esgotadas = products.filter((p) => p.estoque === 0).length;
 
   const filtered = useMemo(() => {
     const needle = normalizar(q);
@@ -71,6 +75,7 @@ export function ProductsTable({ products }: { products: ProductRow[] }) {
       .filter((p) => {
         if (situacao === "no-site" && !p.ativo) return false;
         if (situacao === "escondidas" && p.ativo) return false;
+        if (situacao === "esgotadas" && p.estoque !== 0) return false;
         if (cat && p.categoria !== cat) return false;
         if (needle) {
           const alvo = normalizar(`${p.nome} ${p.codigo ?? ""}`);
@@ -146,6 +151,7 @@ export function ProductsTable({ products }: { products: ProductRow[] }) {
                 {s.label}
                 {s.value === "no-site" ? ` (${noSite})` : ""}
                 {s.value === "escondidas" ? ` (${escondidas})` : ""}
+                {s.value === "esgotadas" ? ` (${esgotadas})` : ""}
               </option>
             ))}
           </select>
@@ -184,11 +190,21 @@ export function ProductsTable({ products }: { products: ProductRow[] }) {
                     Escondida
                   </span>
                 )}
-                {p.maisVendido && p.ativo && (
+                {p.maisVendido && p.ativo && p.estoque !== 0 && (
                   <span className="absolute left-2 top-2 rounded-full bg-[var(--color-dourado-claro)] px-2.5 py-1 text-[11px] font-semibold text-[#5c3d0a]">
                     ⭐ Mais vendido
                   </span>
                 )}
+                {/* Estoque (ADR-0025): esgotada pede reposição; poucas unidades avisam */}
+                {p.estoque === 0 ? (
+                  <span className="absolute inset-x-0 bottom-0 bg-[#8c1d18]/90 py-1 text-center text-[11px] font-semibold text-white">
+                    Esgotada — repor
+                  </span>
+                ) : typeof p.estoque === "number" ? (
+                  <span className="absolute right-2 top-2 rounded-full bg-white/92 px-2 py-1 text-[11px] font-semibold text-[var(--color-preto-warm)]">
+                    {p.estoque} un.
+                  </span>
+                ) : null}
               </div>
               <div className="flex flex-1 flex-col gap-1 p-3">
                 <span className="line-clamp-2 text-[15px] font-medium leading-snug text-[var(--color-preto-warm)]">

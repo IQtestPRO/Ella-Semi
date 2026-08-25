@@ -70,6 +70,12 @@ export const ProductSchema = z.object({
   videoUrl: z.string().optional(),
   variantes: z.array(VarianteSchema).optional(),
   tags: z.array(z.string()).optional(),
+  /**
+   * Quantas unidades a Ellen tem (ADR-0025). `null`/ausente = sem controle de
+   * estoque (vende à vontade). `0` = esgotada: a peça continua aparecendo no
+   * site, com selo "Esgotada" e sem botão de comprar.
+   */
+  estoque: z.number().int().nonnegative().nullable().optional(),
   promocao: z.boolean(),
   tipoFulfillment: TipoFulfillmentSchema,
   destaqueHome: z.boolean(),

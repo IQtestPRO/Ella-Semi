@@ -14,10 +14,11 @@ const CANONICO = "colar-coracao-madreperola-semijoia-763"; // CO763, produto rea
 
 describe("Product Catalog (Turso — ADR-0021)", () => {
   describe("getAllProducts", () => {
-    it("retorna o catálogo completo (141 seed + 52 reais + 115 Summer Glow)", async () => {
+    it("retorna o catálogo completo (seed + reais + Summer Glow + Imagensnovas)", async () => {
+      // O banco guarda todo o histórico; o que está NO AR é `ativosOnly`.
       const all = await getAllProducts();
       expect(all.length).toBeGreaterThanOrEqual(300);
-      expect(all.length).toBeLessThanOrEqual(400);
+      expect(all.length).toBeLessThanOrEqual(600);
     });
     it("filtra ativosOnly: pelo menos 1 ativo (canônica)", async () => {
       const ativos = await getAllProducts({ ativosOnly: true });

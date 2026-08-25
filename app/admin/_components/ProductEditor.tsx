@@ -40,7 +40,7 @@ const CATEGORIAS = [
   { value: "pulseiras", label: "Pulseira" },
   { value: "aneis", label: "Anel" },
   { value: "conjuntos", label: "Conjunto" },
-  { value: "gargantilhas", label: "Choker (gargantilha)" },
+  // Choker é colar (ADR-0025) — a Ellen escolhe "Colar" e escreve "Choker" no nome.
   { value: "tornozeleiras", label: "Tornozeleira" },
   { value: "piercings", label: "Piercing" },
   { value: "outros", label: "Outro" },
@@ -105,6 +105,10 @@ export function ProductEditor({ mode, product }: Props) {
     product?.destaqueHome ?? false,
   );
   const [tagsStr, setTagsStr] = useState((product?.tags ?? []).join(", "));
+  // Estoque (ADR-0025). Campo vazio = sem controle; "0" = esgotada.
+  const [estoqueStr, setEstoqueStr] = useState(
+    typeof product?.estoque === "number" ? String(product.estoque) : "",
+  );
 
   // Capa = primeira foto. Acompanha a edição ao vivo (trocou a ordem, o
   // cabeçalho troca junto), então a pessoa sempre vê a peça que está mexendo.
@@ -132,6 +136,7 @@ export function ProductEditor({ mode, product }: Props) {
     tipoFulfillment,
     videoUrl,
     tagsStr,
+    estoqueStr,
   ]);
 
   function buildPayload() {
@@ -152,6 +157,8 @@ export function ProductEditor({ mode, product }: Props) {
       fotos,
       videoUrl: videoUrl.trim() || undefined,
       tags: tags.length ? tags : undefined,
+      // vazio = sem controle de estoque (null); número = quantas ela tem
+      estoque: estoqueStr.trim() === "" ? null : Math.max(0, Number(estoqueStr) || 0),
       promocao,
       tipoFulfillment,
       destaqueHome,
@@ -170,7 +177,7 @@ export function ProductEditor({ mode, product }: Props) {
     if (promocao && reaisToCents(precoPromoReais) <= 0)
       return "Escreva o preço com desconto.";
     if (!categoria)
-      return "No passo 4, diga o que é esta peça: colar, brinco, anel…";
+      return "No passo 5, diga o que é esta peça: colar, brinco, anel…";
     return null;
   }
 
@@ -211,7 +218,7 @@ export function ProductEditor({ mode, product }: Props) {
     if (!product) return;
     if (
       !window.confirm(
-        `Apagar "${product.nome}" para sempre?\n\nA peça some do site e não dá para trazer de volta.\n\nSe você só quer escondê-la, cancele e desligue "Aparecer no site" no passo 4.`,
+        `Apagar "${product.nome}" para sempre?\n\nA peça some do site e não dá para trazer de volta.\n\nSe você só quer escondê-la, cancele e desligue "Aparecer no site" no passo 5.`,
       )
     )
       return;
@@ -282,7 +289,7 @@ export function ProductEditor({ mode, product }: Props) {
               )}
             </div>
             <figcaption className="mt-1.5 text-center text-xs text-[var(--color-taupe)]">
-              {capa ? "Foto desta peça" : "Adicione no passo 3"}
+              {capa ? "Foto desta peça" : "Adicione no passo 4"}
             </figcaption>
           </figure>
 
@@ -353,18 +360,65 @@ export function ProductEditor({ mode, product }: Props) {
         </div>
       </StepCard>
 
-      {/* ── Passo 3: fotos ──────────────────────────────────────────────── */}
+      {/* ── Passo 3: estoque ────────────────────────────────────────────── */}
       <StepCard
         step={3}
+        title="Quantas você tem?"
+        hint="Se a cliente tentar levar mais do que você tem, o site avisa e não deixa."
+      >
+        <div className="flex flex-col gap-3">
+          <div className="max-w-[220px]">
+            <label className="block">
+              <Label>Quantidade em estoque</Label>
+              <input
+                inputMode="numeric"
+                value={estoqueStr}
+                onChange={(e) =>
+                  setEstoqueStr(e.target.value.replace(/[^\d]/g, ""))
+                }
+                placeholder="deixe vazio"
+                className="w-full rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 px-4 py-3 text-lg font-medium text-[var(--color-preto-warm)] outline-none transition focus:border-[var(--color-dourado-claro)] focus:bg-white focus:ring-2 focus:ring-[var(--color-dourado-claro)]/40"
+              />
+            </label>
+          </div>
+          <div className="rounded-xl bg-[var(--color-salmao-claro)]/70 px-4 py-3 text-[15px] leading-snug text-[var(--color-preto-warm)]">
+            {estoqueStr.trim() === "" ? (
+              <>
+                <strong>Sem controle de estoque.</strong> A cliente pode pedir
+                quantas quiser. Escreva um número aqui se quiser limitar.
+              </>
+            ) : Number(estoqueStr) === 0 ? (
+              <>
+                <strong>Esgotada.</strong> A peça continua aparecendo no site,
+                com o aviso &ldquo;Esgotada&rdquo;, mas ninguém consegue comprar.
+              </>
+            ) : (
+              <>
+                A cliente vai conseguir levar no máximo{" "}
+                <strong>
+                  {Number(estoqueStr)}{" "}
+                  {Number(estoqueStr) === 1 ? "unidade" : "unidades"}
+                </strong>
+                . Se ela tentar mais, o site avisa que só tem{" "}
+                {Number(estoqueStr)}.
+              </>
+            )}
+          </div>
+        </div>
+      </StepCard>
+
+      {/* ── Passo 4: fotos ──────────────────────────────────────────────── */}
+      <StepCard
+        step={4}
         title="Fotos da peça"
         hint="A primeira foto é a que aparece na vitrine. Pode enviar do celular."
       >
         <MultiImageField label="" altBase={nome} photos={fotos} onChange={setFotos} />
       </StepCard>
 
-      {/* ── Passo 4: onde aparece ───────────────────────────────────────── */}
+      {/* ── Passo 5: onde aparece ───────────────────────────────────────── */}
       <StepCard
-        step={4}
+        step={5}
         title="Onde esta peça aparece"
         hint="Escolha o tipo e se ela fica visível para as clientes."
       >
@@ -484,7 +538,7 @@ export function ProductEditor({ mode, product }: Props) {
           <p className="mt-1 max-w-xl text-sm leading-snug text-[var(--color-taupe)]">
             Some do site para sempre e não dá para desfazer. Para tirar do site
             só por um tempo, desligue <strong>&ldquo;Aparecer no site&rdquo;</strong>{" "}
-            no passo 4.
+            no passo 5.
           </p>
           <Button
             variant="danger"
