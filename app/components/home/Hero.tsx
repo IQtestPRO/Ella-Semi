@@ -83,7 +83,7 @@ export function Hero({
 
   return (
     <section
-      aria-label="Hero ELLA — warm editorial soft glam"
+      aria-label="ELLA Semijoias"
       className="relative w-full overflow-hidden"
       style={{
         // 80% do viewport visível (svh = estável com a barra do browser), teto 880px

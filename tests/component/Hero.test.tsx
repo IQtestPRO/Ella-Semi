@@ -51,6 +51,6 @@ describe("Hero", () => {
 
   it("uses semantic landmark with descriptive aria-label", () => {
     render(<Hero />);
-    expect(screen.getByLabelText(/Hero ELLA — warm editorial soft glam/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/ELLA Semijoias/i)).toBeInTheDocument();
   });
 });
