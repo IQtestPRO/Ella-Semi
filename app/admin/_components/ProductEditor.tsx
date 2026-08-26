@@ -109,6 +109,13 @@ export function ProductEditor({ mode, product }: Props) {
   const [estoqueStr, setEstoqueStr] = useState(
     typeof product?.estoque === "number" ? String(product.estoque) : "",
   );
+  // Garantia por peça (ADR-0027). Só algumas têm: o site prometia garantia até
+  // em bijuteria. `null` = nunca decidido -> mostramos a regra da casa.
+  const [temGarantia, setTemGarantia] = useState<boolean>(
+    typeof product?.temGarantia === "boolean"
+      ? product.temGarantia
+      : product?.tipo === "semijoia",
+  );
 
   // Capa = primeira foto. Acompanha a edição ao vivo (trocou a ordem, o
   // cabeçalho troca junto), então a pessoa sempre vê a peça que está mexendo.
@@ -137,6 +144,7 @@ export function ProductEditor({ mode, product }: Props) {
     videoUrl,
     tagsStr,
     estoqueStr,
+    temGarantia,
   ]);
 
   function buildPayload() {
@@ -159,6 +167,7 @@ export function ProductEditor({ mode, product }: Props) {
       tags: tags.length ? tags : undefined,
       // vazio = sem controle de estoque (null); número = quantas ela tem
       estoque: estoqueStr.trim() === "" ? null : Math.max(0, Number(estoqueStr) || 0),
+      temGarantia,
       promocao,
       tipoFulfillment,
       destaqueHome,
@@ -403,6 +412,15 @@ export function ProductEditor({ mode, product }: Props) {
                 {Number(estoqueStr)}.
               </>
             )}
+          </div>
+
+          <div className="border-t border-[var(--color-areia)] pt-4">
+            <Toggle
+              label="Esta peça tem garantia"
+              hint="Ligado, aparece “Garantia da peça” na página. Bijuteria normalmente não tem."
+              checked={temGarantia}
+              onChange={setTemGarantia}
+            />
           </div>
         </div>
       </StepCard>

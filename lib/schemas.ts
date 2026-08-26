@@ -76,6 +76,11 @@ export const ProductSchema = z.object({
    * site, com selo "Esgotada" e sem botão de comprar.
    */
   estoque: z.number().int().nonnegative().nullable().optional(),
+  /**
+   * Garantia desta peça (ADR-0027). `undefined`/`null` = a Ellen não decidiu,
+   * então vale a regra da casa (semijoia tem, bijuteria não) — ver lib/garantia.
+   */
+  temGarantia: z.boolean().nullable().optional(),
   promocao: z.boolean(),
   tipoFulfillment: TipoFulfillmentSchema,
   destaqueHome: z.boolean(),

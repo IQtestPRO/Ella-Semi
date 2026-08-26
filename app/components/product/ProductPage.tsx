@@ -4,6 +4,7 @@ import { PRETTY_LABEL } from "../../../lib/categorias";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { ProductDescription } from "./ProductDescription";
+import { pecaTemGarantia } from "../../../lib/garantia";
 import { ProductGallery } from "./ProductGallery";
 import { ProductHeader } from "./ProductHeader";
 import { ProductJsonLd } from "./ProductJsonLd";
@@ -56,7 +57,9 @@ export function ProductPage({ product }: { product: Product }) {
           <ul className="flex flex-col gap-1.5 border-y border-[var(--color-preto-warm)]/10 py-3 text-xs text-[var(--color-preto-warm)]/75">
             {[
               ...(product.promocao ? [] : ["Troca em 7 dias"]),
-              "Garantia das semijoias",
+              // Garantia é por peça (ADR-0027): antes o site prometia
+              // "Garantia das semijoias" até nas bijuterias, que não têm.
+              ...(pecaTemGarantia(product) ? ["Garantia da peça"] : []),
               "Atendimento direto com a Ellen",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2">

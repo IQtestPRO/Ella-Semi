@@ -163,13 +163,26 @@ export function Hero({
 
       {/* Scrim radial atrás do wordmark — o texto branco fica legível mesmo
           sobre frames claros da mídia warm (o gradiente de baixo quase não
-          cobre o centro onde o ELLA fica). Mobile-first. */}
+          cobre o centro onde o ELLA fica). Mobile-first.
+
+          Duas intensidades porque as fotos são diferentes: no celular entra a
+          9:16 com a modelo (mais escura) e no desktop a still do colar sobre
+          travertino, que é bem clara no meio — ali o véu precisa ser mais
+          forte para o ELLA não sumir. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0"
+        className="absolute inset-0 md:hidden"
         style={{
           background:
             "radial-gradient(62% 46% at 50% 46%, rgba(37, 16, 8, 0.32) 0%, rgba(37, 16, 8, 0.13) 55%, transparent 80%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 hidden md:block"
+        style={{
+          background:
+            "radial-gradient(58% 52% at 50% 46%, rgba(37, 16, 8, 0.50) 0%, rgba(37, 16, 8, 0.26) 55%, transparent 82%)",
         }}
       />
 
