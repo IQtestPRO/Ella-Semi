@@ -60,7 +60,7 @@ export function ProductPage({ product }: { product: Product }) {
               // Garantia é por peça (ADR-0027): antes o site prometia
               // "Garantia das semijoias" até nas bijuterias, que não têm.
               ...(pecaTemGarantia(product) ? ["Garantia da peça"] : []),
-              "Atendimento direto com a Ellen",
+              "Atendimento humano pelo WhatsApp",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2">
                 <span aria-hidden="true" className="text-[var(--color-dourado)]">

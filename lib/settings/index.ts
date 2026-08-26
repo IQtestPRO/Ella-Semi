@@ -75,7 +75,8 @@ export const FooterColunaSchema = z.object({
 });
 
 export const FooterSchema = z.object({
-  wordmarkTagline: z.string().min(1),
+  // Pode ficar vazia: a Ellen pediu o rodapé só com o nome ELLA.
+  wordmarkTagline: z.string().default(""),
   microcopy: z.string().min(1),
   colunas: z.array(FooterColunaSchema),
 });
@@ -127,22 +128,22 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
     titulo: "Sobre a ELLA",
     subtitulo: "feito à mão, desde 1998",
     paragrafos: [
-      "A ELLA nasceu em Rio Bonito, no Rio de Janeiro, em 1998 — das mãos de Ellen Lopes Alves, criando peças exclusivas e feitas à mão. Com o tempo, a loja cresceu para as semijoias, sempre com materiais de qualidade e o mesmo cuidado do primeiro dia.",
-      "Nossa missão é embelezar e elevar a autoestima de mulheres que merecem o melhor dos acessórios — semijoias com banho que dura, design contemporâneo e peças pra acompanhar você do café da manhã ao jantar.",
-      "Sem checkout impessoal. Você escolhe, finaliza pelo WhatsApp, e a gente conversa direto. Cada peça sai com cuidado — porque cada peça continua uma história em ouro.",
+      "A ELLA nasceu em 1998, criando peças exclusivas e feitas à mão. Com o tempo, a loja cresceu para as semijoias, sempre com materiais de qualidade e o mesmo cuidado do primeiro dia.",
+      "Nossa missão é embelezar e elevar a autoestima de mulheres que merecem o melhor dos acessórios. Semijoias com banho que dura, design contemporâneo e peças para acompanhar você do café da manhã ao jantar.",
+      "Sem checkout impessoal. Você escolhe, finaliza pelo WhatsApp e a gente conversa direto. Cada peça sai com cuidado, porque cada peça continua uma história em ouro.",
     ],
-    ctaTexto: "Falar com a Ellen",
+    ctaTexto: "Falar no WhatsApp",
     ctaHref: "https://wa.link/adq88g",
   },
   faq: {
     itens: [
       {
         q: "Como compro uma peça?",
-        a: "Você adiciona a peça ao carrinho e clica em finalizar pelo WhatsApp. Abrimos a conversa com a Ellen direto no app, com sua escolha já formatada — sem cadastro, sem checkout no site.",
+        a: "Você adiciona a peça ao carrinho e clica em finalizar pelo WhatsApp. A conversa abre direto no aplicativo com a sua escolha já escrita. Sem cadastro e sem checkout no site.",
       },
       {
         q: "Vocês entregam pra todo Brasil?",
-        a: "Sim. O frete é combinado pelo WhatsApp junto com seu endereço. A Ellen passa o valor antes de fechar o pedido.",
+        a: "Sim, entregamos para todo o Brasil. O frete é combinado pelo WhatsApp junto com o seu endereço, e nossa equipe passa o valor antes de fechar o pedido.",
       },
       {
         q: "As peças têm garantia?",
@@ -150,21 +151,22 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
       },
       {
         q: "Posso trocar uma peça depois?",
-        a: "Sim — exceto peças em promoção, que não são trocadas. Pra trocar, fala com a Ellen no WhatsApp em até 7 dias da entrega.",
+        a: "Sim, exceto peças em promoção, que não são trocadas. Para trocar, fale com uma de nossas atendentes no WhatsApp em até 7 dias da entrega.",
       },
       {
         q: "Como funcionam peças sob encomenda?",
-        a: "Cordões personalizados (gravação, comprimento sob medida) e peças sob encomenda exigem pagamento prévio. A Ellen confirma prazo e valor antes de iniciar a produção.",
+        a: "Cordões personalizados (gravação, comprimento sob medida) e peças sob encomenda exigem pagamento prévio. Nossa equipe entra em contato para confirmar prazo e valor antes de iniciar a produção.",
       },
       {
         q: "Atendimento personalizado?",
-        a: "Direto pela Ellen no WhatsApp. Você pode pedir foto extra de uma peça, tirar dúvida sobre tamanho, ou montar um look — atendimento humano, sem bot.",
+        a: "Direto no WhatsApp com uma de nossas atendentes. Você pode pedir foto extra de uma peça, tirar dúvida sobre tamanho ou montar um look. Atendimento humano, sem robô.",
       },
     ],
   },
   footer: {
-    wordmarkTagline: "warm editorial soft glam",
-    microcopy: "ELLA Semijoias · Rio Bonito · Rio de Janeiro",
+    // Ellen pediu: só o nome no rodapé, e sem cidade — a loja vende pro Brasil todo.
+    wordmarkTagline: "",
+    microcopy: "ELLA SEMIJOIAS",
     colunas: [
       {
         heading: "Sobre",
@@ -214,7 +216,7 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
   seo: {
     siteTitle: "ELLA Semijoias",
     siteDescription:
-      "Joias e semijoias premium — atendimento direto pelo WhatsApp.",
+      "Joias e semijoias premium com atendimento direto pelo WhatsApp.",
   },
 };
 

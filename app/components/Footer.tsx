@@ -63,18 +63,22 @@ export async function Footer() {
           >
             ELLA
           </h2>
-          <p
-            className="mt-2 text-[#FFF1ED]/70"
-            style={{
-              fontFamily:
-                "var(--font-secondary, Inter, system-ui, sans-serif)",
-              fontSize: "11px",
-              letterSpacing: "0.32em",
-              textTransform: "uppercase",
-            }}
-          >
-            {footer.wordmarkTagline}
-          </p>
+          {/* Vazia = a Ellen pediu o rodapé só com o nome ELLA; não deixamos
+              um parágrafo vazio ocupando espaço embaixo do wordmark. */}
+          {footer.wordmarkTagline.trim() !== "" && (
+            <p
+              className="mt-2 text-[#FFF1ED]/70"
+              style={{
+                fontFamily:
+                  "var(--font-secondary, Inter, system-ui, sans-serif)",
+                fontSize: "11px",
+                letterSpacing: "0.32em",
+                textTransform: "uppercase",
+              }}
+            >
+              {footer.wordmarkTagline}
+            </p>
+          )}
         </div>
 
         {/* Columns */}

@@ -42,10 +42,13 @@ export function HeaderChrome({ links }: { links: readonly NavLink[] }) {
           <Image
             src="/brand/logo.jpg"
             alt="ELLA — joias e semijoias"
-            width={64}
-            height={64}
+            width={128}
+            height={128}
             priority
-            className="h-14 w-14 md:h-16 md:w-16"
+            // Ellen pediu logo maior. Mobile-first: 72px no celular (era 56),
+            // 88px do tablet pra cima (era 64). width/height dobrados para a
+            // imagem continuar nítida em tela retina.
+            className="h-[72px] w-[72px] md:h-[88px] md:w-[88px]"
           />
         </Link>
 

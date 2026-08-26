@@ -31,8 +31,9 @@ beforeEach(() => {
 describe("WhatsAppFloatButton", () => {
   it("renders with accessible label (empty cart → atendimento geral)", () => {
     renderWithConfig(<WhatsAppFloatButton />);
+    // A Ellen pediu o nome dela fora dos textos que a cliente vê (ADR-0028).
     expect(
-      screen.getByRole("button", { name: /abrir whatsapp com a ellen/i }),
+      screen.getByRole("button", { name: /abrir whatsapp da loja/i }),
     ).toBeInTheDocument();
   });
 

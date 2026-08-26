@@ -41,7 +41,7 @@ export const WhatsAppFloatButton: FC = () => {
   const ariaLabel =
     itemCount > 0
       ? `Abrir WhatsApp com ${itemCount} ${itemCount === 1 ? "peça" : "peças"} do carrinho`
-      : "Abrir WhatsApp com a Ellen";
+      : "Abrir WhatsApp da loja";
 
   return (
     <button

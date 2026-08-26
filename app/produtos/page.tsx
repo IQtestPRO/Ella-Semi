@@ -12,7 +12,7 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "Todas as peças",
   description:
-    "Catálogo completo de semijoias da ELLA — filtre por categoria, ordene por preço ou nome. Pedido finaliza pelo WhatsApp com a Ellen.",
+    "Catálogo completo de semijoias da ELLA: filtre por categoria, ordene por preço ou nome. O pedido é finalizado pelo WhatsApp.",
   alternates: { canonical: "/produtos" },
 };
 

@@ -54,7 +54,7 @@ export function montarMensagemWhatsApp(items: CartItem[], numero: string) {
   );
 
   const text = [
-    "Olá Ellen! Quero pedir:",
+    "Olá! Quero pedir:",
     "",
     ...linhas,
     "",
