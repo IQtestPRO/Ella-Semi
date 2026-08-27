@@ -12,6 +12,7 @@ export const PRETTY_LABEL: Record<Categoria, string> = {
   pulseiras: "Pulseiras",
   aneis: "Anéis",
   conjuntos: "Conjuntos",
+  mixes: "Mixes",
   gargantilhas: "Chokers",
   tornozeleiras: "Tornozeleiras",
   piercings: "Piercings",

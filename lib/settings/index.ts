@@ -129,8 +129,8 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
     subtitulo: "feito à mão, desde 1998",
     paragrafos: [
       "A ELLA nasceu em 1998, criando peças exclusivas e feitas à mão. Com o tempo, a loja cresceu para as semijoias, sempre com materiais de qualidade e o mesmo cuidado do primeiro dia.",
-      "Nossa missão é embelezar e elevar a autoestima de mulheres que merecem o melhor dos acessórios. Semijoias com banho que dura, design contemporâneo e peças para acompanhar você do café da manhã ao jantar.",
-      "Sem checkout impessoal. Você escolhe, finaliza pelo WhatsApp e a gente conversa direto. Cada peça sai com cuidado, porque cada peça continua uma história em ouro.",
+      "Nossa missão é embelezar e elevar a autoestima de mulheres que merecem o melhor dos acessórios. Semijoias com garantia, design contemporâneo e peças para acompanhar você em qualquer ocasião.",
+      "Você escolhe a peça e, pelo WhatsApp, tem um atendimento personalizado com uma de nossas atendentes, sempre atenciosas e prontas para te ajudar.",
     ],
     ctaTexto: "Falar no WhatsApp",
     ctaHref: "https://wa.link/adq88g",

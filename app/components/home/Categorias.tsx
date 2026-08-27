@@ -15,6 +15,7 @@ const PRETTY_LABEL: Partial<Record<Categoria, string>> = {
   pulseiras: "Pulseiras",
   aneis: "Anéis",
   conjuntos: "Conjuntos",
+  mixes: "Mixes",
   gargantilhas: "Chokers",
   tornozeleiras: "Tornozeleiras",
   piercings: "Piercings",
@@ -32,6 +33,7 @@ const CARD_IMAGE: Partial<Record<Categoria, string>> = {
   pulseiras: "/assets/generated/categorias/pulseiras.webp",
   aneis: "/assets/generated/categorias/aneis.webp",
   conjuntos: "/assets/generated/categorias/conjuntos.webp",
+  mixes: "/assets/generated/categorias/mixes.webp",
   gargantilhas: "/assets/generated/categorias/gargantilhas.webp",
 };
 

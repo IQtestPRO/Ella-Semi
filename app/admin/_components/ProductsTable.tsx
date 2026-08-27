@@ -36,6 +36,7 @@ const CATS = [
   { value: "pulseiras", label: "Pulseiras" },
   { value: "aneis", label: "Anéis" },
   { value: "conjuntos", label: "Conjuntos" },
+  { value: "mixes", label: "Mixes" },
   // `gargantilhas` saiu do filtro: chokers agora são colares (ADR-0025).
   { value: "tornozeleiras", label: "Tornozeleiras" },
   { value: "piercings", label: "Piercings" },

@@ -191,7 +191,9 @@ export function Hero({
         <h1
           className="font-hero text-white ella-rise"
           style={{
-            fontSize: "clamp(56px, 11vw, 132px)",
+            // Ellen pediu a letra de cima maior: sobe de 56/11vw/132 para
+            // 72/15vw/168 — cresce mais no celular, que é onde ela viu.
+            fontSize: "clamp(72px, 15vw, 168px)",
             fontWeight: "var(--hero-weight, 400)",
             letterSpacing: "0.03em",
             lineHeight: 1,

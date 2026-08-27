@@ -40,6 +40,7 @@ const CATEGORIAS = [
   { value: "pulseiras", label: "Pulseira" },
   { value: "aneis", label: "Anel" },
   { value: "conjuntos", label: "Conjunto" },
+  { value: "mixes", label: "Mix (peças para usar juntas)" },
   // Choker é colar (ADR-0025) — a Ellen escolhe "Colar" e escreve "Choker" no nome.
   { value: "tornozeleiras", label: "Tornozeleira" },
   { value: "piercings", label: "Piercing" },

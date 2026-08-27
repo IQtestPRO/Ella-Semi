@@ -31,6 +31,8 @@ export const CategoriaSchema = z.enum([
   "brincos",
   "pulseiras",
   "conjuntos",
+  // Mixes: combinações prontas de peças para usar juntas (ADR-0029).
+  "mixes",
   "gargantilhas",
   "tornozeleiras",
   "piercings",

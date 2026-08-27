@@ -113,6 +113,17 @@ const SilhuetaPiercing: FC<SilhuetaProps> = () => (
   </g>
 );
 
+const SilhuetaMix: FC<SilhuetaProps> = () => (
+  <g fill="none" stroke="currentColor" strokeWidth="1.4">
+    {/* duas correntes de comprimentos diferentes + uma argola: a leitura de
+        "peças para usar juntas" vem da sobreposição */}
+    <path d="M-16,-20 C-16,-2 -8,8 0,8 C8,8 16,-2 16,-20" />
+    <path d="M-11,-20 C-11,-8 -6,0 0,0 C6,0 11,-8 11,-20" />
+    <circle cx="0" cy="14" r="7" />
+    <circle cx="0" cy="12" r="1.6" fill="currentColor" stroke="none" />
+  </g>
+);
+
 const SilhuetaOutros: FC<SilhuetaProps> = () => (
   <g>
     <circle cx="0" cy="0" r="28" fill="none" stroke="currentColor" strokeWidth="1.4" />
@@ -126,6 +137,7 @@ const SILHUETA_BY_CATEGORIA: Record<Categoria, FC<SilhuetaProps>> = {
   pulseiras: SilhuetaPulseira,
   aneis: SilhuetaAnel,
   conjuntos: SilhuetaConjunto,
+  mixes: SilhuetaMix,
   gargantilhas: SilhuetaGargantilha,
   tornozeleiras: SilhuetaTornozeleira,
   piercings: SilhuetaPiercing,

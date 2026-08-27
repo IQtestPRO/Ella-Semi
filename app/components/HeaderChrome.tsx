@@ -40,15 +40,17 @@ export function HeaderChrome({ links }: { links: readonly NavLink[] }) {
           className="flex items-center justify-center"
         >
           <Image
-            src="/brand/logo.jpg"
+            src="/brand/logo.png"
             alt="ELLA — joias e semijoias"
-            width={128}
-            height={128}
+            width={900}
+            height={410}
             priority
-            // Ellen pediu logo maior. Mobile-first: 72px no celular (era 56),
-            // 88px do tablet pra cima (era 64). width/height dobrados para a
-            // imagem continuar nítida em tela retina.
-            className="h-[72px] w-[72px] md:h-[88px] md:w-[88px]"
+            // Logo em PNG com fundo transparente e sem moldura: o .jpg trazia o
+            // salmão da arte, que contra o header formava um retângulo visível
+            // (o Pak circulou isso no print). Na proporção real da marca ela
+            // ocupa mais largura sem esticar. Mobile-first: 148px no celular,
+            // 184px do tablet pra cima.
+            className="h-auto w-[148px] md:w-[184px]"
           />
         </Link>
 
