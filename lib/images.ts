@@ -1,5 +1,6 @@
 import sharp from "sharp";
 import { db } from "./db";
+import { recortarNaProporcao } from "./imagem-proporcao";
 
 /**
  * Armazenamento de imagens enviadas pelo /admin (ADR-0022 — upload livre).
@@ -25,8 +26,19 @@ export type SavedImage = {
 export async function saveImage(
   input: Buffer | Uint8Array,
   alt = "",
+  /**
+   * Proporção alvo (largura/altura). Quando informada, a foto é recortada
+   * exatamente nessa proporção antes de virar WebP — é o caso das capas de
+   * categoria (4:5), que a Ellen troca pelo /admin mandando foto de qualquer
+   * formato (ADR-0030). Sem isso, a foto do celular esticaria no card.
+   */
+  proporcao?: number,
 ): Promise<SavedImage> {
-  const { data, info } = await sharp(input)
+  const preparada = proporcao
+    ? await recortarNaProporcao(input, proporcao)
+    : input;
+
+  const { data, info } = await sharp(preparada)
     .rotate() // aplica orientação EXIF (fotos de celular vêm deitadas)
     .resize({
       width: MAX_DIM,

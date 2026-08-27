@@ -81,6 +81,19 @@ export const FooterSchema = z.object({
   colunas: z.array(FooterColunaSchema),
 });
 
+/**
+ * Foto de cada card da seção "Explore por Categoria" (ADR-0030). Chave vazia ou
+ * ausente = usa a foto padrão da marca em /assets/generated/categorias.
+ * A Ellen troca cada uma no /admin; o corte 4:5 é feito no upload.
+ */
+export const CategoriasFotosSchema = z.object({
+  colares: z.string().default(""),
+  brincos: z.string().default(""),
+  pulseiras: z.string().default(""),
+  conjuntos: z.string().default(""),
+  mixes: z.string().default(""),
+});
+
 export const SeoSchema = z.object({
   siteTitle: z.string().min(1),
   siteDescription: z.string().min(1),
@@ -96,6 +109,7 @@ export const SETTINGS_SCHEMAS = {
   faq: FaqSchema,
   footer: FooterSchema,
   seo: SeoSchema,
+  categoriasFotos: CategoriasFotosSchema,
 } as const;
 
 export type SettingKey = keyof typeof SETTINGS_SCHEMAS;
@@ -212,6 +226,13 @@ export const SETTINGS_DEFAULTS: { [K in SettingKey]: SettingValue<K> } = {
         ],
       },
     ],
+  },
+  categoriasFotos: {
+    colares: "",
+    brincos: "",
+    pulseiras: "",
+    conjuntos: "",
+    mixes: "",
   },
   seo: {
     siteTitle: "ELLA Semijoias",

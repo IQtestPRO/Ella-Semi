@@ -7,6 +7,7 @@ import {
   ContatoEditor,
   FooterEditor,
   SeoEditor,
+  CategoriasFotosEditor,
 } from "../_components/ContentEditors";
 import { Advanced } from "../_components/ui";
 import { getSetting } from "../../../lib/settings";
@@ -25,13 +26,14 @@ export const dynamic = "force-dynamic";
 const ATALHOS = [
   { id: "foto-topo", label: "A foto que abre o site", icone: "🖼️" },
   { id: "faixa-meio", label: "A faixa do meio", icone: "✨" },
+  { id: "fotos-categorias", label: "Fotos das categorias", icone: "🗂️" },
   { id: "minha-historia", label: "Minha história", icone: "💛" },
   { id: "perguntas", label: "Perguntas e respostas", icone: "❓" },
   { id: "whatsapp", label: "WhatsApp e redes", icone: "📱" },
 ];
 
 export default async function AdminConteudo() {
-  const [hero, banner, sobre, faq, marca, footer, seo] = await Promise.all([
+  const [hero, banner, sobre, faq, marca, footer, seo, categoriasFotos] = await Promise.all([
     getSetting("hero"),
     getSetting("bannerMeio"),
     getSetting("sobre"),
@@ -39,6 +41,7 @@ export default async function AdminConteudo() {
     getSetting("marca"),
     getSetting("footer"),
     getSetting("seo"),
+    getSetting("categoriasFotos"),
   ]);
 
   return (
@@ -75,6 +78,9 @@ export default async function AdminConteudo() {
         </div>
         <div id="faixa-meio" className="scroll-mt-32">
           <BannerEditor value={banner} />
+        </div>
+        <div id="fotos-categorias" className="scroll-mt-32">
+          <CategoriasFotosEditor value={categoriasFotos} />
         </div>
         <div id="minha-historia" className="scroll-mt-32">
           <SobreEditor value={sobre} />

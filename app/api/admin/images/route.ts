@@ -16,6 +16,10 @@ export async function POST(req: NextRequest) {
 
   const file = form.get("file");
   const alt = (form.get("alt") as string | null)?.toString() ?? "";
+  // Ex.: "0.8" para o card de categoria (4:5). Ausente = mantém o formato original.
+  const proporcaoBruta = Number(form.get("proporcao"));
+  const proporcao =
+    Number.isFinite(proporcaoBruta) && proporcaoBruta > 0 ? proporcaoBruta : undefined;
 
   if (!(file instanceof File)) {
     return NextResponse.json(
@@ -38,7 +42,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const buf = Buffer.from(await file.arrayBuffer());
-    const saved = await saveImage(buf, alt);
+    const saved = await saveImage(buf, alt, proporcao);
     return NextResponse.json(saved);
   } catch (e) {
     return NextResponse.json(

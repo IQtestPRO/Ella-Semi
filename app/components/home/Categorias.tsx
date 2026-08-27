@@ -7,6 +7,11 @@ import { SectionHeading } from "./SectionHeading";
 
 type Props = {
   counts: ReadonlyArray<{ categoria: Categoria; count: number }>;
+  /**
+   * Foto escolhida pela Ellen no /admin para cada card (ADR-0030). Categoria
+   * sem foto escolhida cai na imagem padrão da marca (CARD_IMAGE).
+   */
+  fotos?: Partial<Record<Categoria, string>>;
 };
 
 const PRETTY_LABEL: Partial<Record<Categoria, string>> = {
@@ -47,7 +52,7 @@ const CARD_IMAGE: Partial<Record<Categoria, string>> = {
  * - Mobile: grid 2 colunas
  * - Desktop (md+): grid 3 colunas
  */
-export const Categorias: FC<Props> = ({ counts }) => {
+export const Categorias: FC<Props> = ({ counts, fotos }) => {
   if (counts.length === 0) return null;
 
   return (
@@ -66,7 +71,8 @@ export const Categorias: FC<Props> = ({ counts }) => {
         <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
           {counts.map(({ categoria, count }) => {
             const label = PRETTY_LABEL[categoria] ?? categoria;
-            const img = CARD_IMAGE[categoria];
+            // A foto escolhida no /admin manda; sem ela, a padrão da marca.
+            const img = fotos?.[categoria] || CARD_IMAGE[categoria];
             return (
               <li key={categoria}>
                 <Link

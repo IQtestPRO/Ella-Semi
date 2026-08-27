@@ -76,20 +76,29 @@ describe("Product Catalog (Turso — ADR-0021)", () => {
       expect(c.nomeExibicao).toBe("Summer Glow");
       expect(c.ativa).toBe(true);
     });
-    it("destaca produtos reais em produtosDestaqueSlugs", async () => {
+    it("destaca peças que estão mesmo no ar", async () => {
+      // Não fixa um slug: peça sai do ar ao ser despublicada (foi o que houve
+      // com a duplicata do coração bojudo). O que importa é a vitrine ter peças
+      // e nenhuma delas apontar para peça fora do ar.
       const c = await getCampanhaAtual();
       expect(c.produtosDestaqueSlugs.length).toBeGreaterThanOrEqual(6);
-      expect(c.produtosDestaqueSlugs).toContain("conjunto-coracao-bojudo-05g");
+      const noAr = new Set(
+        (await getAllProducts({ ativosOnly: true })).map((p) => p.slug),
+      );
+      for (const slug of c.produtosDestaqueSlugs) {
+        expect(noAr.has(slug), `vitrine aponta para peça fora do ar: ${slug}`).toBe(true);
+      }
     });
   });
 
   describe("getProductsDestaque", () => {
-    it("retorna destaques reais ativos da campanha", async () => {
+    it("retorna só peças no ar, com foto, para a vitrine", async () => {
       const d = await getProductsDestaque();
       expect(d.length).toBeGreaterThanOrEqual(6);
-      expect(
-        d.find((p) => p.slug === "conjunto-coracao-bojudo-05g"),
-      ).toBeDefined();
+      for (const p of d) {
+        expect(p.ativo).toBe(true);
+        expect(p.fotos.length).toBeGreaterThan(0);
+      }
     });
   });
 

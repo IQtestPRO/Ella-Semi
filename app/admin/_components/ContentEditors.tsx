@@ -564,7 +564,87 @@ export function FooterEditor({ value }: { value: SettingValue<"footer"> }) {
   );
 }
 
+// ── Fotos das categorias (ADR-0030) ─────────────────────────────────────────
+
+/**
+ * Cada quadradinho da seção "Explore por Categoria" da página inicial. A Ellen
+ * manda foto de qualquer formato (celular, print, quadrada do Instagram) e o
+ * site recorta sozinho no formato do card — ela não precisa saber o que é 4:5.
+ */
+const CATEGORIAS_CARD = [
+  { chave: "colares" as const, titulo: "Colares" },
+  { chave: "brincos" as const, titulo: "Brincos" },
+  { chave: "pulseiras" as const, titulo: "Pulseiras" },
+  { chave: "conjuntos" as const, titulo: "Conjuntos" },
+  { chave: "mixes" as const, titulo: "Mixes" },
+];
+
+/** Foto que o site usa enquanto a Ellen não enviar a dela. */
+const FOTO_ORIGINAL: Record<string, string> = {
+  colares: "/assets/generated/categorias/colares.webp",
+  brincos: "/assets/generated/categorias/brincos.webp",
+  pulseiras: "/assets/generated/categorias/pulseiras.webp",
+  conjuntos: "/assets/generated/categorias/conjuntos.webp",
+  mixes: "/assets/generated/categorias/mixes.webp",
+};
+
+/** 4:5 — o mesmo formato em pé usado no card da página inicial. */
+const PROPORCAO_CARD = 4 / 5;
+
+export function CategoriasFotosEditor({
+  value,
+}: {
+  value: SettingValue<"categoriasFotos">;
+}) {
+  const { save, persist } = useSettingSaver("categoriasFotos");
+  const [fotos, setFotos] = useState(value);
+
+  function setFoto(chave: keyof typeof value, url: string) {
+    setFotos((cur) => ({ ...cur, [chave]: url }));
+  }
+
+  return (
+    <Card
+      title="Fotos dos quadradinhos de categoria"
+      description="São os quadros da página inicial: Colares, Brincos, Pulseiras, Conjuntos e Mixes. Envie a foto que quiser — o site corta sozinho no tamanho certo."
+      footer={
+        <SaveBar
+          status={save.status}
+          message={save.message}
+          onSave={() => persist(fotos)}
+        />
+      }
+    >
+      <div className="grid gap-6 sm:grid-cols-2">
+        {CATEGORIAS_CARD.map((c) => (
+          <div key={c.chave}>
+            <SingleImageField
+              label={c.titulo}
+              hint={
+                fotos[c.chave]
+                  ? "sua foto"
+                  : "esta é a foto que está no site agora"
+              }
+              value={fotos[c.chave]}
+              onChange={(url) => setFoto(c.chave, url)}
+              proporcao={PROPORCAO_CARD}
+              previewClassName="h-32 w-[102px]"
+              fotoAtual={FOTO_ORIGINAL[c.chave]}
+            />
+          </div>
+        ))}
+      </div>
+      <p className="mt-5 rounded-xl bg-[var(--color-salmao-claro)]/70 px-4 py-3 text-[15px] leading-snug text-[var(--color-preto-warm)]">
+        Pode mandar foto do celular, print ou foto quadrada do Instagram: o site
+        deixa todas no mesmo formato em pé, sem esticar a joia. Se quiser voltar
+        a foto original de alguma, toque em <strong>Remover foto</strong>.
+      </p>
+    </Card>
+  );
+}
+
 // ── SEO ─────────────────────────────────────────────────────────────────────
+
 
 export function SeoEditor({ value }: { value: SettingValue<"seo"> }) {
   const { save, persist } = useSettingSaver("seo");

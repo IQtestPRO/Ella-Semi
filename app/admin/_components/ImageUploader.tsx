@@ -14,10 +14,13 @@ type SavedImage = {
 async function uploadImage(
   file: File,
   alt: string,
+  /** Proporção alvo (largura/altura). O corte acontece no servidor. */
+  proporcao?: number,
 ): Promise<SavedImage | { error: string }> {
   const form = new FormData();
   form.append("file", file);
   form.append("alt", alt);
+  if (proporcao) form.append("proporcao", String(proporcao));
   const res = await fetch("/api/admin/images", { method: "POST", body: form });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) return { error: data.error ?? "Falha no upload." };
@@ -30,11 +33,23 @@ export function SingleImageField({
   hint,
   value,
   onChange,
+  proporcao,
+  previewClassName,
+  fotoAtual,
 }: {
   label: string;
   hint?: string;
   value: string;
   onChange: (url: string) => void;
+  /** Recorta a foto nesta proporção no envio (ex.: 4/5 do card de categoria). */
+  proporcao?: number;
+  /** Formato da miniatura, para ela mostrar o mesmo recorte do site. */
+  previewClassName?: string;
+  /**
+   * O que está no site quando ela ainda não enviou nada. Sem isto a miniatura
+   * dizia "sem foto" mesmo havendo foto publicada — editar às cegas (ADR-0024).
+   */
+  fotoAtual?: string;
 }) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [busy, setBusy] = useState(false);
@@ -43,7 +58,7 @@ export function SingleImageField({
   async function handleFile(file: File) {
     setBusy(true);
     setError("");
-    const r = await uploadImage(file, label);
+    const r = await uploadImage(file, label, proporcao);
     setBusy(false);
     if ("error" in r) setError(r.error);
     else onChange(r.url);
@@ -53,11 +68,13 @@ export function SingleImageField({
     <div>
       <Label hint={hint}>{label}</Label>
       <div className="flex items-center gap-4">
-        <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40">
-          {value ? (
+        <div
+          className={`flex flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[var(--color-areia)] bg-[var(--color-salmao-claro)]/40 ${previewClassName ?? "h-24 w-24"}`}
+        >
+          {value || fotoAtual ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={value}
+              src={value || fotoAtual}
               alt=""
               className="h-full w-full object-cover"
             />
@@ -88,9 +105,9 @@ export function SingleImageField({
             <button
               type="button"
               onClick={() => onChange("")}
-              className="text-left text-xs text-[#b3261e] hover:underline"
+              className="inline-flex min-h-[44px] items-center text-left text-[15px] font-medium text-[#b3261e] transition hover:underline"
             >
-              Remover foto
+              {fotoAtual ? "Voltar a foto original" : "Remover foto"}
             </button>
           )}
           {error && <span className="text-xs text-[#b3261e]">{error}</span>}

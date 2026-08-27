@@ -26,6 +26,7 @@ export default async function HomePage() {
     maisVendidos,
     categoryCounts,
     hero,
+    categoriasFotos,
     banner,
     sobre,
     faq,
@@ -35,6 +36,7 @@ export default async function HomePage() {
     getMaisVendidos(),
     getCategoryCounts(),
     getSetting("hero"),
+    getSetting("categoriasFotos"),
     getSetting("bannerMeio"),
     getSetting("sobre"),
     getSetting("faq"),
@@ -63,7 +65,7 @@ export default async function HomePage() {
         </Reveal>
 
         <Reveal>
-          <Categorias counts={categoryCounts} />
+          <Categorias counts={categoryCounts} fotos={categoriasFotos} />
         </Reveal>
 
         {campanha.ativa && destaques.length > 0 && (
