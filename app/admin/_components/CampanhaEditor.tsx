@@ -12,6 +12,7 @@ import {
   useSaveState,
   apiSend,
 } from "./ui";
+import { GradeOrdenavel } from "./GradeOrdenavel";
 import type { CampanhaAtual } from "../../../lib/schemas";
 
 type ProdOption = {
@@ -156,46 +157,62 @@ export function CampanhaEditor({
       >
         {/* Escolhidas primeiro, com foto e na ordem em que saem no site */}
         <div className="mb-5">
-          <p className="mb-2 text-[15px] font-medium text-[var(--color-preto-warm)]">
+          <p className="text-[15px] font-medium text-[var(--color-preto-warm)]">
             Escolhidas: {selecionados.length}
             {selecionados.length > 0 && " — nesta ordem no site"}
           </p>
           {selecionados.length === 0 ? (
-            <p className="rounded-xl border border-dashed border-[var(--color-areia)] px-4 py-5 text-center text-[15px] text-[var(--color-taupe)]">
+            <p className="mt-2 rounded-xl border border-dashed border-[var(--color-areia)] px-4 py-5 text-center text-[15px] text-[var(--color-taupe)]">
               Nenhuma peça escolhida ainda. Toque nas peças abaixo.
             </p>
           ) : (
-            <ul className="flex flex-wrap gap-2">
-              {selecionados.map((s, i) => {
-                const p = porSlug.get(s);
-                return (
-                  <li key={s} className="relative">
-                    <button
-                      type="button"
-                      onClick={() => toggle(s)}
-                      title={`Tirar ${p?.nome ?? s} da vitrine`}
-                      className="block h-24 w-20 overflow-hidden rounded-lg border border-[var(--color-dourado-claro)] bg-[var(--color-salmao-claro)]"
-                    >
-                      {p?.fotoUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={p.fotoUrl}
-                          alt={p.nome}
-                          className="h-full w-full object-cover"
-                        />
-                      ) : (
-                        <span className="flex h-full w-full items-center justify-center px-1 text-center text-[11px] text-[var(--color-taupe)]">
-                          {p?.nome ?? s}
-                        </span>
-                      )}
-                    </button>
-                    <span className="absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-preto-warm)] text-xs font-semibold text-[var(--color-salmao-claro)]">
-                      {i + 1}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
+            <>
+              <p className="mb-2 text-[14px] leading-snug text-[var(--color-taupe)]">
+                ✋ Segure a foto e arraste para trocar a ordem. A número 1 é a
+                primeira que a cliente vê. Para tirar uma peça, toque no ✕.
+              </p>
+              <GradeOrdenavel
+                ids={selecionados}
+                onReordenar={setSelecionados}
+                rotuloItem={(s) => porSlug.get(s)?.nome ?? s}
+                renderItem={(s, i) => {
+                  const p = porSlug.get(s);
+                  return (
+                    <>
+                      <div className="h-24 w-20 overflow-hidden rounded-lg border border-[var(--color-dourado-claro)] bg-[var(--color-salmao-claro)]">
+                        {p?.fotoUrl ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={p.fotoUrl}
+                            alt={p.nome}
+                            draggable={false}
+                            className="h-full w-full object-cover"
+                          />
+                        ) : (
+                          <span className="flex h-full w-full items-center justify-center px-1 text-center text-[11px] text-[var(--color-taupe)]">
+                            {p?.nome ?? s}
+                          </span>
+                        )}
+                      </div>
+                      <span className="pointer-events-none absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-preto-warm)] text-xs font-semibold text-[var(--color-salmao-claro)]">
+                        {i + 1}
+                      </span>
+                      {/* Sai do fluxo do arraste: pointerdown não sobe pro li */}
+                      <button
+                        type="button"
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={() => toggle(s)}
+                        aria-label={`Tirar ${p?.nome ?? s} da vitrine`}
+                        title={`Tirar ${p?.nome ?? s} da vitrine`}
+                        className="absolute right-1 top-1 flex h-7 w-7 items-center justify-center rounded-full bg-white/95 text-sm font-bold text-[#b3261e] shadow-sm transition hover:bg-[#b3261e] hover:text-white"
+                      >
+                        ✕
+                      </button>
+                    </>
+                  );
+                }}
+              />
+            </>
           )}
         </div>
 

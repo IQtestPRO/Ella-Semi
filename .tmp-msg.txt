@@ -1,0 +1,38 @@
+feat(admin): arrastar a foto para mudar a ordem da vitrine
+
+ADR-0031. Pedido do Pak no passo 3 da Vitrine.
+
+NAO usa o draggable do HTML: aquele arraste e de mouse e NAO EXISTE em
+navegador de celular — e e do celular que a Ellen mexe no painel. Aqui e
+Pointer Event, o mesmo evento para dedo, caneta e mouse. Sem biblioteca.
+
+- Mouse arrasta apos 6px; dedo precisa SEGURAR 220ms antes (padrao iOS/Android).
+  Sem essa espera, toda rolagem da pagina com o dedo em cima de uma foto viraria
+  arraste e ela nao conseguiria descer a tela. Mexeu antes da hora = a pagina
+  rola normal e o arraste e cancelado.
+- Ja arrastando, um touchmove NAO-passivo trava a rolagem (o do React e passivo
+  e o preventDefault nao pega).
+- A foto descola e segue o dedo (copia fixed via portal, inclinada, esmaecendo o
+  lugar de origem) e as outras abrem espaco em tempo real, com o numero do selo
+  acompanhando: ela ve o resultado antes de soltar.
+- Soltar fora da grade nao bagunca nada.
+
+Tirar peca saiu do corpo da foto: antes, TOCAR na foto removia — com arraste isso
+vira armadilha. Virou um X no canto que nao deixa o toque chegar ao arraste. O X
+tem 28px, abaixo do piso de 44px do painel, de proposito: area invisivel de 44px
+sobre a foto aumentaria a remocao acidental bem no canto de onde se pega para
+arrastar. Desfazer e um toque — a peca continua na grade de busca logo abaixo.
+
+Setas do teclado fazem o mesmo, com "posicao 3 de 9" anunciado. Nao e so
+acessibilidade: e a rede se o arraste falhar em algum aparelho.
+
+VERIFICACAO. moverItem e puro e testado (7 casos, inclusive nao-mutacao e indice
+fora da lista); o teclado tem teste de componente. O arraste nao e testavel em
+jsdom (sem PointerEvent nem layout), entao foi conferido em navegador real no
+painel: mouse leva a peca 1 para a posicao 3; dedo (390px, toque via CDP) idem;
+rolar com o dedo em cima da foto nao reordena; e ponta a ponta arrastou -> Salvar
+-> ordem nova gravada no Turso (ordem original devolvida depois do teste).
+
+242/242 testes verdes, typecheck limpo.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
