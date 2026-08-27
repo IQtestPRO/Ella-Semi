@@ -32,3 +32,19 @@ Lição: **logo de marca não deve ser JPEG.** Fica registrado para quando a ADR
 `mixes` entrou no enum de categoria e em todos os pontos que o TypeScript exigiu — e ele exigiu, o que foi útil: apontou `lib/categorias.ts` e a silhueta de placeholder, dois lugares que passariam batido. Ganhou silhueta própria (duas correntes sobrepostas + argola) e card com foto de mix.
 
 **Pendência**: o menu do topo só mostra categoria que tem peça (ADR-0025 — senão a cliente toca e cai em página vazia). Como nenhuma peça está classificada como Mix, **"Mixes" ainda não aparece no menu**. Existem 9 candidatas naturais no catálogo (6 "Trio de brincos", "Trio de correntes", "Conjunto duo", "Pulseira dupla"), mas reclassificar produto é decisão de negócio: um trio de brincos pode continuar sendo brinco. Fica para o Pak decidir; a categoria está pronta e aparece sozinha assim que a primeira peça for marcada como Mix no /admin.
+
+---
+
+## Conferência por agentes — o que ela pegou
+
+Quatro agentes revisaram os prints do site contra os pedidos. Dois achados reais:
+
+**1. Bug que eu não tinha visto: `getCategoryCounts` tinha a lista de categorias copiada.** Mesmo com `mixes` no enum, no menu, na rota, nos cards e no admin, a categoria **nunca sairia no site** — a função que decide quais categorias aparecem tinha um `order: Categoria[]` hardcoded, escrito antes de `mixes` existir, e filtra por ele. Falha silenciosa: sem erro, sem teste vermelho, só a categoria sumida.
+
+Correção de raiz: `ORDEM_CATEGORIAS` em `lib/categorias.ts` virou a **única** lista de ordem do projeto (antes havia cópias em `getCategoryCounts`, no `Header` e no teste). `tests/unit/categorias-ordem.test.ts` quebra se alguém acrescentar categoria no enum e esquecer da ordem ou do label.
+
+**2. Eu troquei o gênero do texto da Ellen.** Ela escreveu *"com um de nossos atendentes sempre atenciosos e prontos"*; publiquei *"uma de nossas atendentes… atenciosas e prontas"*. Ajustar português é uma coisa, mudar o que ela disse é outra — revertido para a forma dela. (No FAQ ela mesma escreveu no feminino, e ali fica feminino: cada instrução vale no seu contexto.)
+
+Também apontou que o cabeçalho fixo cobria o topo das seções ao chegar por âncora — resolvido com `scroll-mt` nas quatro seções da home.
+
+Os "não atendido" sobre os cards de categoria foram **falso negativo de timing**: os agentes leram os prints tirados antes de eu limpar o cache do Next. Reconferido depois: os quatro cards mostram a peça certa.

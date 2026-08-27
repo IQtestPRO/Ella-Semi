@@ -53,7 +53,7 @@ export function SobreNos({
       <div className="mx-auto grid max-w-[1180px] gap-16 md:grid-cols-2 md:gap-20">
         {/* Coluna 1 — Manifesto */}
         <div className="flex flex-col gap-6">
-          <div id="sobre-nos-heading">
+          <div id="sobre-nos-heading" className="scroll-mt-[150px] md:scroll-mt-[190px]">
             <SectionHeading title={sobre.titulo} subtitle={sobre.subtitulo} />
           </div>
           <div

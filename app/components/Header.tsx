@@ -1,6 +1,7 @@
 import { getCategoryCounts } from "../../lib/catalog";
 import { HeaderChrome, type NavLink } from "./HeaderChrome";
 import type { Categoria } from "../../lib/schemas";
+import { ORDEM_CATEGORIAS } from "../../lib/categorias";
 
 /**
  * Chrome persistente do site. O menu é montado a partir das categorias que
@@ -20,25 +21,12 @@ const LABEL: Partial<Record<Categoria, string>> = {
   outros: "Outros",
 };
 
-// Ordem de exibição no menu (as que não têm peça caem fora).
-// `gargantilhas` saiu: chokers agora são colares (ADR-0025).
-const ORDEM: Categoria[] = [
-  "colares",
-  "brincos",
-  "pulseiras",
-  "conjuntos",
-  "mixes",
-  "aneis",
-  "tornozeleiras",
-  "piercings",
-  "outros",
-];
 
 export async function Header() {
   const counts = await getCategoryCounts();
   const comPeca = new Map(counts.map((c) => [c.categoria, c.count]));
 
-  const links: NavLink[] = ORDEM.filter((c) => (comPeca.get(c) ?? 0) > 0).map(
+  const links: NavLink[] = ORDEM_CATEGORIAS.filter((c) => (comPeca.get(c) ?? 0) > 0).map(
     (c) => ({ href: `/${c}`, label: LABEL[c] ?? c }),
   );
   links.push({ href: "/produtos", label: "Todas as peças" });

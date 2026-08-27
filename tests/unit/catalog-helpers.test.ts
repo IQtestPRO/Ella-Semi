@@ -6,6 +6,7 @@ import {
   getCategoryCounts,
   getAllProducts,
 } from "../../lib/catalog";
+import { ORDEM_CATEGORIAS } from "../../lib/categorias";
 
 describe("catalog helpers (Turso — ADR-0021)", () => {
   describe("getMaisVendidos", () => {
@@ -47,21 +48,10 @@ describe("catalog helpers (Turso — ADR-0021)", () => {
     it("respeita a ordem canônica entre as categorias presentes", async () => {
       const counts = await getCategoryCounts();
       const cats = counts.map((c) => c.categoria);
-      const CANONICA = [
-        "brincos",
-        "colares",
-        "pulseiras",
-        "aneis",
-        "conjuntos",
-        "gargantilhas",
-        "tornozeleiras",
-        "piercings",
-        "outros",
-      ];
-      // Só as categorias com peça no ar aparecem — e na ordem canônica.
-      // (Decisão do Pak 2026-08-17: o site mostra apenas peças com foto, então
-      // categorias inteiras podem ficar de fora.)
-      const ordem = cats.map((c) => CANONICA.indexOf(c));
+      // A ordem vem de ORDEM_CATEGORIAS (fonte única em lib/categorias). Este
+      // teste NÃO repete a lista: repetir foi o que deixou "mixes" de fora do
+      // site quando a categoria entrou no enum (ADR-0029).
+      const ordem = cats.map((c) => ORDEM_CATEGORIAS.indexOf(c));
       expect(ordem).toEqual([...ordem].sort((a, b) => a - b));
       expect(ordem.every((i) => i >= 0)).toBe(true);
     });

@@ -76,7 +76,7 @@ export default async function HomePage() {
               <header className="flex flex-col items-center gap-3 text-center">
                 <span
                   id="destaque-heading"
-                  className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-preto-warm)]/70"
+                  className="scroll-mt-[150px] md:scroll-mt-[190px] text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-preto-warm)]/70"
                 >
                   Em destaque agora · {campanha.nomeExibicao}
                 </span>

@@ -56,7 +56,7 @@ export const Categorias: FC<Props> = ({ counts }) => {
       className="w-full bg-[var(--color-salmao-claro)] px-5 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-[1280px]">
-        <div id="categorias-heading">
+        <div id="categorias-heading" className="scroll-mt-[150px] md:scroll-mt-[190px]">
           <SectionHeading
             title="Explore por Categoria"
             subtitle="navegue pelas peças da coleção"

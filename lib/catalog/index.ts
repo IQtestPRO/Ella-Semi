@@ -1,5 +1,6 @@
 import { cache } from "react";
 import { db } from "../db";
+import { ORDEM_CATEGORIAS } from "../categorias";
 import {
   CampanhaAtualSchema,
   ProductSchema,
@@ -183,18 +184,10 @@ export async function getCategoryCounts(): Promise<
     if (!p.ativo) continue;
     counts.set(p.categoria, (counts.get(p.categoria) ?? 0) + 1);
   }
-  const order: Categoria[] = [
-    "brincos",
-    "colares",
-    "pulseiras",
-    "aneis",
-    "conjuntos",
-    "gargantilhas",
-    "tornozeleiras",
-    "piercings",
-    "outros",
-  ];
-  return order
+  // Ordem vem de lib/categorias (fonte única). Esta lista já esteve copiada
+  // aqui e ficou desatualizada quando "mixes" entrou no enum — a categoria
+  // nunca aparecia no site.
+  return ORDEM_CATEGORIAS
     .filter((c) => (counts.get(c) ?? 0) > 0)
     .map((c) => ({ categoria: c, count: counts.get(c) ?? 0 }));
 }

@@ -30,7 +30,7 @@ export const MaisVendidos: FC<Props> = ({ products }) => {
       className="w-full px-5 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-[1280px]">
-        <div id="mais-vendidos-heading">
+        <div id="mais-vendidos-heading" className="scroll-mt-[150px] md:scroll-mt-[190px]">
           <SectionHeading title="MAIS VENDIDOS" />
         </div>
 
